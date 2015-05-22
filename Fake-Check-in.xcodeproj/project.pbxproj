@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		EF1E997F1B0E77640062C84E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E997E1B0E77640062C84E /* main.m */; };
 		EF1E99821B0E77640062C84E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99811B0E77640062C84E /* AppDelegate.m */; };
-		EF1E99851B0E77640062C84E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99841B0E77640062C84E /* ViewController.m */; };
-		EF1E99881B0E77640062C84E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF1E99861B0E77640062C84E /* Main.storyboard */; };
+		EF1E99851B0E77640062C84E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99841B0E77640062C84E /* LoginViewController.m */; };
 		EF1E998A1B0E77640062C84E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF1E99891B0E77640062C84E /* Images.xcassets */; };
-		EF1E998D1B0E77640062C84E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF1E998B1B0E77640062C84E /* LaunchScreen.xib */; };
 		EF1E99991B0E77640062C84E /* Fake_Check_inTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99981B0E77640062C84E /* Fake_Check_inTests.m */; };
+		EFADF9461B0F293F004B26B9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */; };
+		EFADF9471B0F293F004B26B9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */; };
+		EFADF9481B0F293F004B26B9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */; };
+		EFADF94B1B0F2AAD004B26B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFADF9491B0F2AAD004B26B9 /* Main.storyboard */; };
+		EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF94D1B0F2B33004B26B9 /* MainViewController.m */; };
+		EFADF9511B0F2F1D004B26B9 /* PickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF9501B0F2F1D004B26B9 /* PickerTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +34,22 @@
 		EF1E99791B0E77640062C84E /* Fake-Check-in.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fake-Check-in.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1E997D1B0E77640062C84E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF1E997E1B0E77640062C84E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EF1E99801B0E77640062C84E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF1E99801B0E77640062C84E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EF1E99811B0E77640062C84E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EF1E99831B0E77640062C84E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EF1E99841B0E77640062C84E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EF1E99871B0E77640062C84E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF1E99831B0E77640062C84E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		EF1E99841B0E77640062C84E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		EF1E99891B0E77640062C84E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		EF1E998C1B0E77640062C84E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EF1E99921B0E77640062C84E /* Fake-Check-inTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Fake-Check-inTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1E99971B0E77640062C84E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF1E99981B0E77640062C84E /* Fake_Check_inTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fake_Check_inTests.m; sourceTree = "<group>"; };
+		EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
+		EFADF94A1B0F2AAD004B26B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Boring/iOS/150516_FacebookSDKv4_ForPrac/150516_FacebookSDKv4_ForPrac/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFADF94C1B0F2B33004B26B9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		EFADF94D1B0F2B33004B26B9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		EFADF94F1B0F2F1D004B26B9 /* PickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerTableViewController.h; sourceTree = "<group>"; };
+		EFADF9501B0F2F1D004B26B9 /* PickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +57,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFADF9461B0F293F004B26B9 /* FBSDKCoreKit.framework in Frameworks */,
+				EFADF9471B0F293F004B26B9 /* FBSDKLoginKit.framework in Frameworks */,
+				EFADF9481B0F293F004B26B9 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			children = (
 				EF1E997B1B0E77640062C84E /* Fake-Check-in */,
 				EF1E99951B0E77640062C84E /* Fake-Check-inTests */,
+				EFADF9421B0F2924004B26B9 /* Frameworks */,
 				EF1E997A1B0E77640062C84E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,13 +95,16 @@
 		EF1E997B1B0E77640062C84E /* Fake-Check-in */ = {
 			isa = PBXGroup;
 			children = (
+				EFADF9491B0F2AAD004B26B9 /* Main.storyboard */,
 				EF1E99801B0E77640062C84E /* AppDelegate.h */,
 				EF1E99811B0E77640062C84E /* AppDelegate.m */,
-				EF1E99831B0E77640062C84E /* ViewController.h */,
-				EF1E99841B0E77640062C84E /* ViewController.m */,
-				EF1E99861B0E77640062C84E /* Main.storyboard */,
+				EF1E99831B0E77640062C84E /* LoginViewController.h */,
+				EF1E99841B0E77640062C84E /* LoginViewController.m */,
+				EFADF94C1B0F2B33004B26B9 /* MainViewController.h */,
+				EFADF94D1B0F2B33004B26B9 /* MainViewController.m */,
+				EFADF94F1B0F2F1D004B26B9 /* PickerTableViewController.h */,
+				EFADF9501B0F2F1D004B26B9 /* PickerTableViewController.m */,
 				EF1E99891B0E77640062C84E /* Images.xcassets */,
-				EF1E998B1B0E77640062C84E /* LaunchScreen.xib */,
 				EF1E997C1B0E77640062C84E /* Supporting Files */,
 			);
 			path = "Fake-Check-in";
@@ -117,6 +134,16 @@
 				EF1E99971B0E77640062C84E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EFADF9421B0F2924004B26B9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */,
+				EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */,
+				EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +226,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF1E99881B0E77640062C84E /* Main.storyboard in Resources */,
-				EF1E998D1B0E77640062C84E /* LaunchScreen.xib in Resources */,
 				EF1E998A1B0E77640062C84E /* Images.xcassets in Resources */,
+				EFADF94B1B0F2AAD004B26B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +245,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF1E99851B0E77640062C84E /* ViewController.m in Sources */,
+				EF1E99851B0E77640062C84E /* LoginViewController.m in Sources */,
 				EF1E99821B0E77640062C84E /* AppDelegate.m in Sources */,
 				EF1E997F1B0E77640062C84E /* main.m in Sources */,
+				EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */,
+				EFADF9511B0F2F1D004B26B9 /* PickerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,20 +272,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EF1E99861B0E77640062C84E /* Main.storyboard */ = {
+		EFADF9491B0F2AAD004B26B9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EF1E99871B0E77640062C84E /* Base */,
+				EFADF94A1B0F2AAD004B26B9 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EF1E998B1B0E77640062C84E /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EF1E998C1B0E77640062C84E /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -349,6 +369,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shoshino21/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = "Fake-Check-in/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -359,6 +383,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/shoshino21/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = "Fake-Check-in/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -418,6 +446,7 @@
 				EF1E999E1B0E77640062C84E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EF1E999F1B0E77640062C84E /* Build configuration list for PBXNativeTarget "Fake-Check-inTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +455,7 @@
 				EF1E99A11B0E77640062C84E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
