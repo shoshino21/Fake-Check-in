@@ -16,9 +16,19 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view.
+
   self.loginButton = [[FBSDKLoginButton alloc] init];
+  self.loginButton.delegate = self;
   self.loginButton.readPermissions = @[ @"public_profile", @"user_friends" ];
+}
+
+#warning 這邊到時候可能要參考sample做一些判斷?
+- (void)viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+//
+//  if ([FBSDKAccessToken currentAccessToken]) {
+//    [self performSegueWithIdentifier:@"showMain" sender:self];
+//  }
 }
 
 /*

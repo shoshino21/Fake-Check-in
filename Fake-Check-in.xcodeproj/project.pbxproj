@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -96,14 +96,14 @@
 			isa = PBXGroup;
 			children = (
 				EFADF9491B0F2AAD004B26B9 /* Main.storyboard */,
-				EF1E99801B0E77640062C84E /* AppDelegate.h */,
-				EF1E99811B0E77640062C84E /* AppDelegate.m */,
 				EF1E99831B0E77640062C84E /* LoginViewController.h */,
 				EF1E99841B0E77640062C84E /* LoginViewController.m */,
 				EFADF94C1B0F2B33004B26B9 /* MainViewController.h */,
 				EFADF94D1B0F2B33004B26B9 /* MainViewController.m */,
 				EFADF94F1B0F2F1D004B26B9 /* PickerTableViewController.h */,
 				EFADF9501B0F2F1D004B26B9 /* PickerTableViewController.m */,
+				EF1E99801B0E77640062C84E /* AppDelegate.h */,
+				EF1E99811B0E77640062C84E /* AppDelegate.m */,
 				EF1E99891B0E77640062C84E /* Images.xcassets */,
 				EF1E997C1B0E77640062C84E /* Supporting Files */,
 			);
@@ -203,7 +203,7 @@
 				};
 			};
 			buildConfigurationList = EF1E99741B0E77640062C84E /* Build configuration list for PBXProject "Fake-Check-in" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -374,6 +374,7 @@
 					/Users/shoshino21/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Fake-Check-in/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -388,6 +389,7 @@
 					/Users/shoshino21/Documents/FacebookSDK,
 				);
 				INFOPLIST_FILE = "Fake-Check-in/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
