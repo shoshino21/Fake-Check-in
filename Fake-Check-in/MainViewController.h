@@ -23,9 +23,6 @@
 @property(strong, nonatomic) IBOutlet UIButton* photoButton;
 @property(strong, nonatomic) IBOutlet UIImageView* photoImageView;
 
-#warning 某些可能要改FB內建按鈕
-@property(weak, nonatomic) IBOutlet UIButton* postButton;
-@property(weak, nonatomic) IBOutlet UIButton* shareButton;
 @property(weak, nonatomic) IBOutlet UIButton* checkinButton;
 
 - (IBAction)backToMain:(UIStoryboardSegue*)segue;

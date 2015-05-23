@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+//#import "Coordinate.h"
 
 @interface MainViewController ()
 
@@ -36,6 +37,10 @@
          selector:@selector(_updateContent:)
              name:FBSDKProfileDidChangeNotification
            object:nil];
+
+//  //for test
+//  Coordinate* coor = [Coordinate sharedCoordinate];
+//  coor.selectedCoordinate = CLLocationCoordinate2DMake(0, 0);
 }
 
 - (void)dealloc {
