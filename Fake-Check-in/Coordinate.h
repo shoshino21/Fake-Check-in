@@ -12,6 +12,7 @@
 @interface Coordinate : NSObject
 
 @property(nonatomic, assign) CLLocationCoordinate2D lastSelectedCoordinate;
+@property(nonatomic,assign) BOOL isMapViewFirstStartUp;
 
 + (id)sharedCoordinate;
 

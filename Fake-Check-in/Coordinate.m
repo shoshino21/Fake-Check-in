@@ -23,10 +23,9 @@
 
 - (instancetype)init {
   if (self = [super init]) {
-    // 預設座標 = 台北車站
-    self.lastSelectedCoordinate = CLLocationCoordinate2DMake(25.047778, 121.517222);
+    self.lastSelectedCoordinate = CLLocationCoordinate2DMake(25.014338, 121.463803);  // Apple
+    self.isMapViewFirstStartUp = YES;
   }
   return self;
 }
-
 @end
