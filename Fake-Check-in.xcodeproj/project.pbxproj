@@ -21,7 +21,7 @@
 		EFADF9881B0F8295004B26B9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9871B0F8295004B26B9 /* CoreLocation.framework */; };
 		EFADF98A1B0F829D004B26B9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9891B0F829D004B26B9 /* MapKit.framework */; };
 		EFADF98D1B0F88D2004B26B9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF98C1B0F88D2004B26B9 /* MapViewController.m */; };
-		EFADF9901B10BC3B004B26B9 /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF98F1B10BC3B004B26B9 /* Coordinate.m */; };
+		EFADF9901B10BC3B004B26B9 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF98F1B10BC3B004B26B9 /* Common.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +58,8 @@
 		EFADF9891B0F829D004B26B9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		EFADF98B1B0F88D2004B26B9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		EFADF98C1B0F88D2004B26B9 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		EFADF98E1B10BC3B004B26B9 /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
-		EFADF98F1B10BC3B004B26B9 /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
+		EFADF98E1B10BC3B004B26B9 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		EFADF98F1B10BC3B004B26B9 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +109,8 @@
 			children = (
 				EF1E99801B0E77640062C84E /* AppDelegate.h */,
 				EF1E99811B0E77640062C84E /* AppDelegate.m */,
-				EFADF98E1B10BC3B004B26B9 /* Coordinate.h */,
-				EFADF98F1B10BC3B004B26B9 /* Coordinate.m */,
+				EFADF98E1B10BC3B004B26B9 /* Common.h */,
+				EFADF98F1B10BC3B004B26B9 /* Common.m */,
 				EFADF9491B0F2AAD004B26B9 /* Main.storyboard */,
 				EF1E99831B0E77640062C84E /* LoginViewController.h */,
 				EF1E99841B0E77640062C84E /* LoginViewController.m */,
@@ -268,7 +268,7 @@
 				EF1E997F1B0E77640062C84E /* main.m in Sources */,
 				EFADF98D1B0F88D2004B26B9 /* MapViewController.m in Sources */,
 				EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */,
-				EFADF9901B10BC3B004B26B9 /* Coordinate.m in Sources */,
+				EFADF9901B10BC3B004B26B9 /* Common.m in Sources */,
 				EFADF9511B0F2F1D004B26B9 /* PickerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,11 +7,13 @@
 //
 
 #import "MapViewController.h"
-#import "Coordinate.h"
+#import "Common.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 
 @property(nonatomic, strong, readonly) CLLocationManager *locationManager;
+
+//- (void)_showAlertMessageWithTitle:(NSString *)title message:(NSString *)message;
 
 @end
 
@@ -47,16 +49,17 @@
 
   // 設定地圖顯示座標和縮放比例
   MKCoordinateRegion region;
-  region.center = [[Coordinate sharedCoordinate] lastSelectedCoordinate];
+  region.center = [[Common sharedStatus] lastSelectedCoordinate];
   region.span = MKCoordinateSpanMake(.01, .01);
   [self.mapView setRegion:region animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
+
   [self.locationManager stopUpdatingLocation];
   // 跳出時儲存最後所在的座標位置
-  [[Coordinate sharedCoordinate] setLastSelectedCoordinate:self.mapView.centerCoordinate];
+  [[Common sharedStatus] setLastSelectedCoordinate:self.mapView.centerCoordinate];
 }
 
 /*
@@ -82,22 +85,13 @@
 
   [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
 		if (error) {
-			NSLog(@"Searching map error: %@", error);
-
-			NSString *alertTitle = @"搜尋地標時發生錯誤";
-			NSString *alertMessage = @"搜尋地標時發生錯誤，請檢查網路狀態！";
-			UIAlertController *alertController = [UIAlertController alertControllerWithTitle:alertTitle message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
-			UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-			[alertController addAction:okAction];
-			[self presentViewController:alertController animated:YES completion:nil];
+//			NSLog(@"Searching map error: %@", error);
+//      [self _showAlertMessageWithTitle:@"搜尋地標時發生錯誤" message:@"搜尋地標時發生錯誤，請檢查網路狀態！"];
+			[Common showAlertMessageWithTitle:@"搜尋地標時發生錯誤" message:@"搜尋地標時發生錯誤，請檢查網路狀態！" inViewController:self];
 			
 		} else if ([response.mapItems count] == 0){
-			NSString *alertTitle = @"找不到地標";
-			NSString *alertMessage = @"找不到您想找的地標！";
-			UIAlertController *alertController = [UIAlertController alertControllerWithTitle:alertTitle message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
-			UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-			[alertController addAction:okAction];
-			[self presentViewController:alertController animated:YES completion:nil];
+//      [self _showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！"];
+			[Common showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！" inViewController:self];
 
 		} else {
 			// 直接取第一項搜尋結果的座標
@@ -107,17 +101,14 @@
   }];
 }
 
-#pragma mark - Segues
-
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-  // 只有初次啟動MapView時才移動到使用者所在位置
-  if ([[Coordinate sharedCoordinate] isMapViewFirstStartUp]) {
+  // 初次啟動MapView時儲存使用者所在位置，以便於viewDidAppear:讀出
+  if ([[Common sharedStatus] isMapViewFirstStartUp]) {
     CLLocation *newLocation = [locations lastObject];
-    self.mapView.centerCoordinate = newLocation.coordinate;
-    [[Coordinate sharedCoordinate] setLastSelectedCoordinate:newLocation.coordinate];
-    [[Coordinate sharedCoordinate] setIsMapViewFirstStartUp:NO];
+    [[Common sharedStatus] setLastSelectedCoordinate:newLocation.coordinate];
+    [[Common sharedStatus] setIsMapViewFirstStartUp:NO];
   }
 }
 
@@ -125,17 +116,19 @@
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
   if (error) {
-    NSLog(@"MapView loading error: %@", error);
-
-    NSString *alertTitle = @"讀取地圖資訊錯誤";
-    NSString *alertMessage = @"讀取地圖資訊時發生錯誤，請檢查網路狀態！";
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:alertTitle message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+    //    NSLog(@"MapView loading error: %@", error);
+    //    [self _showAlertMessageWithTitle:@"讀取地圖資訊錯誤" message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"];
+    [Common showAlertMessageWithTitle:@"讀取地圖資訊錯誤" message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！" inViewController:self];
   }
 }
-
-#pragma mark - Helper Methods
+//
+//#pragma mark - Helper methods
+//
+//- (void)_showAlertMessageWithTitle:(NSString *)title message:(NSString *)message {
+//  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+//  UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//  [alertController addAction:okAction];
+//  [self presentViewController:alertController animated:YES completion:nil];
+//}
 
 @end

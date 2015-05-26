@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface Coordinate : NSObject
+@interface Common : NSObject
 
 @property(nonatomic, assign) CLLocationCoordinate2D lastSelectedCoordinate;
-@property(nonatomic,assign) BOOL isMapViewFirstStartUp;
+@property(nonatomic, assign) BOOL isMapViewFirstStartUp;
 
-+ (id)sharedCoordinate;
++ (id)sharedStatus;
+
++ (void)showAlertMessageWithTitle:(NSString *)title message:(NSString *)message inViewController:(UIViewController *)viewController;
 
 @end
