@@ -86,11 +86,10 @@
   [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
 		if (error) {
 //			NSLog(@"Searching map error: %@", error);
-//      [self _showAlertMessageWithTitle:@"搜尋地標時發生錯誤" message:@"搜尋地標時發生錯誤，請檢查網路狀態！"];
-			[Common showAlertMessageWithTitle:@"搜尋地標時發生錯誤" message:@"搜尋地標時發生錯誤，請檢查網路狀態！" inViewController:self];
-			
+//			[Common showAlertMessageWithTitle:@"搜尋地標時發生錯誤" message:@"搜尋地標時發生錯誤，請檢查網路狀態！" inViewController:self];
+			[Common showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！" inViewController:self];
+
 		} else if ([response.mapItems count] == 0){
-//      [self _showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！"];
 			[Common showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！" inViewController:self];
 
 		} else {
@@ -99,6 +98,9 @@
 			self.mapView.centerCoordinate = firstResult.placemark.coordinate;
 		}
   }];
+}
+
+- (IBAction)unwindSegueToMapView:(UIStoryboardSegue *)segue {
 }
 
 #pragma mark - CLLocationManagerDelegate

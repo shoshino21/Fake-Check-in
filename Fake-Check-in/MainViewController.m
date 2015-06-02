@@ -38,9 +38,9 @@
              name:FBSDKProfileDidChangeNotification
            object:nil];
 
-//  //for test
-//  Coordinate* coor = [Coordinate sharedCoordinate];
-//  coor.selectedCoordinate = CLLocationCoordinate2DMake(0, 0);
+  //  //for test
+  //  Coordinate* coor = [Coordinate sharedCoordinate];
+  //  coor.selectedCoordinate = CLLocationCoordinate2DMake(0, 0);
 }
 
 - (void)dealloc {
@@ -64,7 +64,7 @@
  }
  */
 
-- (IBAction)backToMain:(UIStoryboardSegue*)segue {
+- (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue {
 }
 
 @end

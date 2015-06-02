@@ -25,6 +25,6 @@
 
 @property(weak, nonatomic) IBOutlet UIButton* checkinButton;
 
-- (IBAction)backToMain:(UIStoryboardSegue*)segue;
+- (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue;
 
 @end
