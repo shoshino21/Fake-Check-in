@@ -66,7 +66,11 @@
 #pragma mark - Actions
 
 - (IBAction)showMyLocationButton:(UIButton *)sender {
-  self.mapView.centerCoordinate = self.mapView.userLocation.coordinate;
+  CLLocationCoordinate2D userCoordinate = self.mapView.userLocation.coordinate;
+#warning 用simulator常因抓不到點而誤跑到零座標，姑且先攔下，之後再用實機測試看看情況
+  if (userCoordinate.latitude != 0 || userCoordinate.longitude != 0) {
+    self.mapView.centerCoordinate = userCoordinate;
+  }
 }
 
 - (IBAction)searchButton:(UIButton *)sender {
