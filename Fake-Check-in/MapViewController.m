@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "Common.h"
+#import "LocationPickerTableViewController.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 
@@ -62,16 +63,6 @@
   [[Common sharedStatus] setLastSelectedCoordinate:self.mapView.centerCoordinate];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma mark - Actions
 
 - (IBAction)showMyLocationButton:(UIButton *)sender {
@@ -99,6 +90,22 @@
 		}
   }];
 }
+
+#pragma mark - Navigation
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//  if ([segue.identifier isEqualToString:@"showLocationPicker"]) {
+//    NSString *centerCoordinate = [NSString stringWithFormat:@"%lf,%lf", self.mapView.centerCoordinate.latitude, self.mapView.centerCoordinate.longitude];
+//    NSDictionary *parameters = @{ @"type" : @"place",
+//                                  @"limit" : @"100",
+//                                  @"center" : centerCoordinate,
+//                                  @"distance" : @"10000",
+//                                  @"fields" : @"id,name,picture.width(100).height(100)"
+//    };
+//    LocationPickerTableViewController *locationPicker = segue.destinationViewController;
+//    locationPicker.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"search" parameters:parameters];
+//  }
+//}
 
 - (IBAction)unwindSegueToMapView:(UIStoryboardSegue *)segue {
 }

@@ -10,4 +10,6 @@
 
 @interface LocationPickerTableViewController : UITableViewController
 
+@property(nonatomic, copy, readonly) NSArray *selectedRows;
+
 @end
