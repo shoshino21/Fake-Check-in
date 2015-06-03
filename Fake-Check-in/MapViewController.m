@@ -116,6 +116,10 @@
 
 #pragma mark - CLLocationManagerDelegate
 
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+  NSLog(@"CLLocationManager error: %@", error);
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
   // 初次啟動MapView時儲存使用者所在位置，以便於viewDidAppear:讀出
   if ([[Common sharedStatus] isMapViewFirstStartUp]) {

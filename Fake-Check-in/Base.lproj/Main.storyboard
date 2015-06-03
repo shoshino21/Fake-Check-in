@@ -94,14 +94,14 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-lz-Wpm">
-                                <rect key="frame" x="16" y="276" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-lz-Wpm">
+                                <rect key="frame" x="16" y="276" width="130" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAX-EW-BNF">
-                                <rect key="frame" x="167" y="276" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAX-EW-BNF">
+                                <rect key="frame" x="167" y="276" width="130" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -225,7 +225,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GcK-TR-jdb">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="GcK-TR-jdb">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GcK-TR-jdb" id="6Hl-Tr-cke">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -240,12 +240,12 @@
                     <navigationItem key="navigationItem" id="6VS-1c-DeU">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ds4-4F-tdu">
                             <connections>
-                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerOK" unwindAction="unwindSegueToMainView:" id="0wX-oV-MfE"/>
+                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerCancel" unwindAction="unwindSegueToMainView:" id="0wX-oV-MfE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="OK" id="6uz-ia-JUP">
                             <connections>
-                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerCancel" unwindAction="unwindSegueToMainView:" id="skH-lD-dcQ"/>
+                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerOK" unwindAction="unwindSegueToMainView:" id="skH-lD-dcQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

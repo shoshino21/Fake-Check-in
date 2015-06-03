@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 shoshino21. All rights reserved.
 //
 
+#import "LocationPickerTableViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "Common.h"
-#import "LocationPickerTableViewController.h"
 
 @interface LocationPickerTableViewController ()
 
@@ -67,9 +67,7 @@
 		if (error) {
 			NSLog(@"Picker loading error:%@", error);
 			[Common showAlertMessageWithTitle:@"無法取得打卡點" message:@"取得附近打卡點時發生錯誤！" inViewController:self];
-
-			// 關閉打卡TableView
-			[self dismissViewControllerAnimated:YES completion:nil];
+			[self dismissViewControllerAnimated:YES completion:nil];	// 關閉打卡TableView
 		} else {
 			_fetchResults = result[@"data"];
 			[self.tableView reloadData];
