@@ -52,8 +52,8 @@
 #pragma mark - Navigation
 
 - (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue {
+  // 選擇地點 or 朋友之後進行處理
   NSString* identifier = segue.identifier;
-  NSLog(@"%@", identifier);
 
   if ([identifier isEqualToString:@"locationPickerOK"]) {  // 選擇地點
     LocationPickerTableViewController* locationPicker = segue.sourceViewController;
@@ -65,11 +65,25 @@
       self.locationLabel.text = nil;
     }
 
-  } else if ([identifier isEqualToString:@"friendsPickerOK"]) {  // 選擇好友
+  } else if ([identifier isEqualToString:@"friendsPickerOK"]) {  // 選擇朋友
     FriendsPickerTableViewController* friendsPicker = segue.sourceViewController;
     _pickedFriends = [friendsPicker.selectedRows valueForKeyPath:@"id"];
-    // TODO: 要依人數不同修改顯示方式
-    self.friendsLabel.text = friendsPicker.selectedRows[0][@"name"];
+
+    // 依選擇人數使用不同顯示方式
+    NSString* display = nil;
+    if (_pickedFriends.count == 1) {
+      display = friendsPicker.selectedRows[0][@"name"];
+    } else if (_pickedFriends.count == 2) {
+      display = [NSString stringWithFormat:@"%@、%@", friendsPicker.selectedRows[0][@"name"], friendsPicker.selectedRows[1][@"name"]];
+    } else if (_pickedFriends.count == 3) {
+      display = [NSString stringWithFormat:@"%@、%@、%@", friendsPicker.selectedRows[0][@"name"], friendsPicker.selectedRows[1][@"name"], friendsPicker.selectedRows[2][@"name"]];
+    } else if (_pickedFriends.count > 3) {
+      display = [NSString stringWithFormat:@"%@、%@和其他 %lu 人", friendsPicker.selectedRows[0][@"name"], friendsPicker.selectedRows[1][@"name"], (unsigned long)_pickedFriends.count - 2];
+    } else if (_pickedFriends == 0) {
+      display = nil;
+      _pickedFriends = nil;
+    }
+    self.friendsLabel.text = display;
   }
 }
 

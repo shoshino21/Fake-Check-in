@@ -40,7 +40,6 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
   [self.locationManager startUpdatingLocation];
   self.mapView.showsUserLocation = YES;
 }
@@ -57,8 +56,8 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
-
   [self.locationManager stopUpdatingLocation];
+
   // 跳出時儲存最後所在的座標位置
   [[Common sharedStatus] setLastSelectedCoordinate:self.mapView.centerCoordinate];
 }
@@ -67,7 +66,7 @@
 
 - (IBAction)showMyLocationButton:(UIButton *)sender {
   CLLocationCoordinate2D userCoordinate = self.mapView.userLocation.coordinate;
-#warning 用simulator常因抓不到點而誤跑到零座標，姑且先攔下，之後再用實機測試看看情況
+#warning 用simulator常因抓不到點而誤跑到零座標，姑且先攔下，之後再用實機測試看看
   if (userCoordinate.latitude != 0 || userCoordinate.longitude != 0) {
     self.mapView.centerCoordinate = userCoordinate;
   }
