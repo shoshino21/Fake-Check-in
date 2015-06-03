@@ -65,6 +65,13 @@
  */
 
 - (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue {
+  NSString* identifier = segue.identifier;
+
+  NSLog(@"%@", identifier);
+
+  if ([identifier isEqualToString:@"locationPickerOK"]) {
+		
+  }
 }
 
 @end

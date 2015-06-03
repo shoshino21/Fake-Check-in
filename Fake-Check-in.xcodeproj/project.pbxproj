@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF12413B1B1F0E8B009F402F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF12413A1B1F0E8B009F402F /* Main.storyboard */; };
 		EF1E997F1B0E77640062C84E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E997E1B0E77640062C84E /* main.m */; };
 		EF1E99821B0E77640062C84E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99811B0E77640062C84E /* AppDelegate.m */; };
 		EF1E99851B0E77640062C84E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99841B0E77640062C84E /* LoginViewController.m */; };
@@ -17,7 +18,6 @@
 		EFADF9461B0F293F004B26B9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */; };
 		EFADF9471B0F293F004B26B9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */; };
 		EFADF9481B0F293F004B26B9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */; };
-		EFADF94B1B0F2AAD004B26B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFADF9491B0F2AAD004B26B9 /* Main.storyboard */; };
 		EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF94D1B0F2B33004B26B9 /* MainViewController.m */; };
 		EFADF9881B0F8295004B26B9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9871B0F8295004B26B9 /* CoreLocation.framework */; };
 		EFADF98A1B0F829D004B26B9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9891B0F829D004B26B9 /* MapKit.framework */; };
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF12413A1B1F0E8B009F402F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EF1E99791B0E77640062C84E /* Fake-Check-in.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fake-Check-in.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1E997D1B0E77640062C84E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF1E997E1B0E77640062C84E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
-		EFADF94A1B0F2AAD004B26B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../Boring/iOS/150516_FacebookSDKv4_ForPrac/150516_FacebookSDKv4_ForPrac/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EFADF94C1B0F2B33004B26B9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EFADF94D1B0F2B33004B26B9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EFADF9871B0F8295004B26B9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -114,7 +114,7 @@
 				EF1E99811B0E77640062C84E /* AppDelegate.m */,
 				EFADF98E1B10BC3B004B26B9 /* Common.h */,
 				EFADF98F1B10BC3B004B26B9 /* Common.m */,
-				EFADF9491B0F2AAD004B26B9 /* Main.storyboard */,
+				EF12413A1B1F0E8B009F402F /* Main.storyboard */,
 				EF1E99831B0E77640062C84E /* LoginViewController.h */,
 				EF1E99841B0E77640062C84E /* LoginViewController.m */,
 				EFADF94C1B0F2B33004B26B9 /* MainViewController.h */,
@@ -249,8 +249,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF12413B1B1F0E8B009F402F /* Main.storyboard in Resources */,
 				EF1E998A1B0E77640062C84E /* Images.xcassets in Resources */,
-				EFADF94B1B0F2AAD004B26B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,17 +296,6 @@
 			targetProxy = EF1E99931B0E77640062C84E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		EFADF9491B0F2AAD004B26B9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EFADF94A1B0F2AAD004B26B9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EF1E999A1B0E77640062C84E /* Debug */ = {
