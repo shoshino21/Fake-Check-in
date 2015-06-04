@@ -88,11 +88,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-pU-ml7">
-                                <rect key="frame" x="16" y="323" width="130" height="50"/>
+                                <rect key="frame" x="16" y="322" width="130" height="50"/>
                                 <color key="backgroundColor" red="0.81176477670000002" green="0.95686280729999995" blue="0.15294118230000001" alpha="1" colorSpace="deviceRGB"/>
                                 <state key="normal" title="Pick Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pickPhoto:" destination="mGt-p7-14Z" eventType="touchUpInside" id="6YV-S1-RUP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-lz-Wpm">
                                 <rect key="frame" x="16" y="276" width="130" height="39"/>

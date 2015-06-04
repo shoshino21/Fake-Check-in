@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF12413B1B1F0E8B009F402F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF12413A1B1F0E8B009F402F /* Main.storyboard */; };
+		EF12413E1B204686009F402F /* PhotoPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = EF12413D1B204686009F402F /* PhotoPicker.m */; };
 		EF1E997F1B0E77640062C84E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E997E1B0E77640062C84E /* main.m */; };
 		EF1E99821B0E77640062C84E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99811B0E77640062C84E /* AppDelegate.m */; };
 		EF1E99851B0E77640062C84E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF1E99841B0E77640062C84E /* LoginViewController.m */; };
@@ -37,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		EF12413A1B1F0E8B009F402F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF12413C1B204686009F402F /* PhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPicker.h; sourceTree = "<group>"; };
+		EF12413D1B204686009F402F /* PhotoPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPicker.m; sourceTree = "<group>"; };
 		EF1E99791B0E77640062C84E /* Fake-Check-in.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fake-Check-in.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF1E997D1B0E77640062C84E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF1E997E1B0E77640062C84E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -114,6 +117,8 @@
 				EF1E99811B0E77640062C84E /* AppDelegate.m */,
 				EFADF98E1B10BC3B004B26B9 /* Common.h */,
 				EFADF98F1B10BC3B004B26B9 /* Common.m */,
+				EF12413C1B204686009F402F /* PhotoPicker.h */,
+				EF12413D1B204686009F402F /* PhotoPicker.m */,
 				EF12413A1B1F0E8B009F402F /* Main.storyboard */,
 				EF1E99831B0E77640062C84E /* LoginViewController.h */,
 				EF1E99841B0E77640062C84E /* LoginViewController.m */,
@@ -276,6 +281,7 @@
 				EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */,
 				EFADF9901B10BC3B004B26B9 /* Common.m in Sources */,
 				EF2825661B1CE4E000767FED /* LocationPickerTableViewController.m in Sources */,
+				EF12413E1B204686009F402F /* PhotoPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

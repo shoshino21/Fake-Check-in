@@ -29,7 +29,7 @@
   return self;
 }
 
-#pragma mark - Public API
+#pragma mark - Public methods
 
 + (void)showAlertMessageWithTitle:(NSString *)title message:(NSString *)message inViewController:(UIViewController *)viewController {
   UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];

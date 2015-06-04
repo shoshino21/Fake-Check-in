@@ -13,6 +13,8 @@
 
 @interface MainViewController : UIViewController
 
+#warning 到時把一些用不到的東西拿掉(button之類)
+
 @property(strong, nonatomic) IBOutlet FBSDKProfilePictureView* profilePictureView;
 @property(strong, nonatomic) IBOutlet UILabel* profileNameLabel;
 @property(strong, nonatomic) IBOutlet UITextView* messageTextView;
@@ -26,5 +28,6 @@
 @property(weak, nonatomic) IBOutlet UIButton* checkinButton;
 
 - (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue;
+//- (IBAction)pickPhoto:(id)sender;
 
 @end
