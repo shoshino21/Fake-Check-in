@@ -10,12 +10,13 @@
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
 
-@interface MainViewController ()
+//@interface MainViewController ()
+@interface MainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 //@property(nonatomic, copy) NSString* _messageToPost;
-@property(nonatomic, copy) NSString* pickedLocation;
-@property(nonatomic, strong) NSArray* pickedFriends;
-@property(nonatomic, strong) UIImage* pickedPhoto;
+@property(nonatomic, copy) NSString *pickedLocation;
+@property(nonatomic, strong) NSArray *pickedFriends;
+@property(nonatomic, strong) UIImage *pickedPhoto;
 
 @end
 
@@ -31,7 +32,7 @@
 
 #pragma mark - Properties
 
-- (void)setPickedLocation:(NSString*)pickedLocation {
+- (void)setPickedLocation:(NSString *)pickedLocation {
   if (![_pickedLocation isEqualToString:pickedLocation]) {
     _pickedLocation = [pickedLocation copy];
     // self.checkinButton.enabled = (_pickedLocation != nil);
@@ -60,9 +61,9 @@
 
 #pragma mark - Actions
 
-- (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue {
+- (IBAction)unwindSegueToMainView:(UIStoryboardSegue *)segue {
   // 選擇地點 or 朋友之後進行處理
-  NSString* identifier = segue.identifier;
+  NSString *identifier = segue.identifier;
   if ([identifier isEqualToString:@"locationPickerOK"]) {
     [self _processLocation:segue.sourceViewController];
   } else if ([identifier isEqualToString:@"friendsPickerOK"]) {
@@ -71,19 +72,63 @@
 }
 
 - (IBAction)pickPhoto:(id)sender {
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+
+  // 開啟相機介面
+  UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+		UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+		imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+		imagePicker.delegate = self;
+		[self presentViewController:imagePicker animated:YES completion:nil];
+  }];
+
+  // 開啟相簿介面
+  UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"開啟相簿" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+		UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+		imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+		imagePicker.delegate = self;
+		imagePicker.modalPresentationStyle = UIModalPresentationPopover;
+
+		UIPopoverPresentationController *popover = imagePicker.popoverPresentationController;
+		popover.sourceView = sender;
+		popover.permittedArrowDirections = UIPopoverArrowDirectionAny;
+		[self presentViewController:imagePicker animated:YES completion:nil];
+  }];
+
+  UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+
+  // 有相機才啟用拍照功能
+  cameraAction.enabled = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+
+  [alertController addAction:cameraAction];
+  [alertController addAction:libraryAction];
+  [alertController addAction:cancelAction];
+  [self presentViewController:alertController animated:YES completion:nil];
 }
 
 #pragma mark - Navigation
 
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+  self.pickedPhoto = [info valueForKey:UIImagePickerControllerOriginalImage];
+  self.photoImageView.image = self.pickedPhoto;
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 #pragma mark - Helper methods
 
-- (void)_updateProfile:(NSNotification*)notification {
+- (void)_updateProfile:(NSNotification *)notification {
   if ([FBSDKAccessToken currentAccessToken]) {
     self.profileNameLabel.text = [FBSDKProfile currentProfile].name;
   }
 }
 
-- (void)_processLocation:(LocationPickerTableViewController*)vc {
+- (void)_processLocation:(LocationPickerTableViewController *)vc {
   if (vc.selectedRows.count) {
     self.pickedLocation = vc.selectedRows[0][@"id"];
     self.locationLabel.text = vc.selectedRows[0][@"name"];
@@ -93,11 +138,11 @@
   }
 }
 
-- (void)_processFriends:(FriendsPickerTableViewController*)vc {
+- (void)_processFriends:(FriendsPickerTableViewController *)vc {
   self.pickedFriends = [vc.selectedRows valueForKeyPath:@"id"];
 
   // 依選擇人數使用不同顯示方式
-  NSString* display = nil;
+  NSString *display = nil;
   if (self.pickedFriends.count == 1) {
     display = vc.selectedRows[0][@"name"];
   } else if (self.pickedFriends.count == 2) {
