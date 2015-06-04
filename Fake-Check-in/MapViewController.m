@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 #import "Common.h"
-#import "LocationPickerTableViewController.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 

@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  super.tableView.allowsMultipleSelection = NO;
+  self.tableView.allowsMultipleSelection = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

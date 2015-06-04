@@ -22,7 +22,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // 一定要設才能正確更新Profile
+  // 必須設定才能正確更新Profile
   [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
 
   return [[FBSDKApplicationDelegate sharedInstance] application:application

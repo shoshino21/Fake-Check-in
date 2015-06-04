@@ -10,7 +10,6 @@
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
 
-//@interface MainViewController ()
 @interface MainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 //@property(nonatomic, copy) NSString* _messageToPost;
@@ -21,8 +20,6 @@
 @end
 
 @implementation MainViewController
-//  NSString* _pickedLocation;
-//  NSArray* _pickedFriends;
 
 #pragma mark - Object Lifecycle
 
@@ -82,6 +79,9 @@
 		[self presentViewController:imagePicker animated:YES completion:nil];
   }];
 
+  // 有相機才啟用拍照功能
+  cameraAction.enabled = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+
   // 開啟相簿介面
   UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"開啟相簿" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
 		UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
@@ -95,13 +95,18 @@
 		[self presentViewController:imagePicker animated:YES completion:nil];
   }];
 
-  UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+  // 移除目前選擇的照片
+  UIAlertAction *removeAction = [UIAlertAction actionWithTitle:@"移除照片" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+		self.pickedPhoto = nil;
+		self.photoImageView.image = nil;
+  }];
+  removeAction.enabled = (self.pickedPhoto != nil);
 
-  // 有相機才啟用拍照功能
-  cameraAction.enabled = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+  UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
 
   [alertController addAction:cameraAction];
   [alertController addAction:libraryAction];
+  [alertController addAction:removeAction];
   [alertController addAction:cancelAction];
   [self presentViewController:alertController animated:YES completion:nil];
 }
