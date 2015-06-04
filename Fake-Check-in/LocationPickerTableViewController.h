@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PickerTableViewController.h"
 
-@interface LocationPickerTableViewController : UITableViewController
-
-@property(nonatomic, copy, readonly) NSArray *selectedRows;
+@interface LocationPickerTableViewController : PickerTableViewController
 
 @end

@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PickerTableViewController.h"
 
-@interface FriendsPickerTableViewController : UITableViewController
-
-@property(nonatomic, copy, readonly) NSArray *selectedRows;
+@interface FriendsPickerTableViewController : PickerTableViewController
 
 @end
