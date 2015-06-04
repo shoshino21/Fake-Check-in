@@ -67,7 +67,7 @@
 		if (error) {
 			NSLog(@"Picker loading error:%@", error);
 			[Common showAlertMessageWithTitle:@"無法取得打卡點" message:@"取得附近打卡點時發生錯誤！" inViewController:self];
-			[self dismissViewControllerAnimated:YES completion:nil];	// 關閉打卡TableView
+			[self dismissViewControllerAnimated:YES completion:nil];
 		} else {
 			_fetchResults = result[@"data"];
 			[self.tableView reloadData];

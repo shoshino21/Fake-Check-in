@@ -14,8 +14,6 @@
 
 @property(nonatomic, strong, readonly) CLLocationManager *locationManager;
 
-//- (void)_showAlertMessageWithTitle:(NSString *)title message:(NSString *)message;
-
 @end
 
 @implementation MapViewController {
@@ -94,7 +92,10 @@
   }];
 }
 
-#pragma mark - Navigation
+- (IBAction)unwindSegueToMapView:(UIStoryboardSegue *)segue {
+}
+//
+//#pragma mark - Segues
 
 //- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 //  if ([segue.identifier isEqualToString:@"showLocationPicker"]) {
@@ -109,9 +110,6 @@
 //    locationPicker.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"search" parameters:parameters];
 //  }
 //}
-
-- (IBAction)unwindSegueToMapView:(UIStoryboardSegue *)segue {
-}
 
 #pragma mark - CLLocationManagerDelegate
 

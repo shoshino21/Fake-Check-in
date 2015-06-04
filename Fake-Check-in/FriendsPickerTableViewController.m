@@ -19,7 +19,6 @@
 
 @implementation FriendsPickerTableViewController {
   NSArray *_fetchResults;
-  NSString *_requiredPermission;
 }
 
 #pragma mark - Properties
@@ -50,18 +49,17 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.tableView.allowsMultipleSelection = YES;
-  _requiredPermission = @"user_friends";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
   // 確認是否已獲得擷取好友名單的權限，若無則進行要求
-  if (_requiredPermission && ![[FBSDKAccessToken currentAccessToken] hasGranted:_requiredPermission]) {
+  if (![[FBSDKAccessToken currentAccessToken] hasGranted:@"user_friends"]) {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[ _requiredPermission ]
+    [login logInWithReadPermissions:@[ @"user_friends" ]
                             handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-															if ([result.grantedPermissions containsObject:_requiredPermission]) {
+															if ([result.grantedPermissions containsObject:@"user_friends"]) {
 																[self fetchData];
 															} else {
 																[self dismissViewControllerAnimated:YES completion:NULL];
@@ -78,8 +76,8 @@
   [self.request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
 		if (error) {
 			NSLog(@"Picker loading error:%@", error);
-			[Common showAlertMessageWithTitle:@"無法取得打卡點" message:@"取得附近打卡點時發生錯誤！" inViewController:self];
-			[self dismissViewControllerAnimated:YES completion:nil];	// 關閉打卡TableView
+			[Common showAlertMessageWithTitle:@"無法取得好友清單" message:@"取得好友清單時發生錯誤！" inViewController:self];
+			[self dismissViewControllerAnimated:YES completion:nil];
 		} else {
 			_fetchResults = result[@"data"];
 			[self.tableView reloadData];

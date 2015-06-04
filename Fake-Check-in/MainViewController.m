@@ -13,15 +13,29 @@
 @interface MainViewController ()
 
 //@property(nonatomic, copy) NSString* _messageToPost;
-//@property(nonatomic, copy) NSString* _pickedLocation;
-//@property(nonatomic, strong) NSArray* _pickedFriends;
-@property(nonatomic, strong) UIImage* _pickedPhoto;
+@property(nonatomic, copy) NSString* pickedLocation;
+@property(nonatomic, strong) NSArray* pickedFriends;
+@property(nonatomic, strong) UIImage* pickedPhoto;
 
 @end
 
-@implementation MainViewController {
-  NSString* _pickedLocation;
-  NSArray* _pickedFriends;
+@implementation MainViewController
+//  NSString* _pickedLocation;
+//  NSArray* _pickedFriends;
+
+#pragma mark - Object Lifecycle
+
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Properties
+
+- (void)setPickedLocation:(NSString*)pickedLocation {
+  if (![_pickedLocation isEqualToString:pickedLocation]) {
+    _pickedLocation = [pickedLocation copy];
+    self.checkinButton.enabled = (_pickedLocation != nil);
+  }
 }
 
 #pragma mark - View Management
@@ -35,21 +49,16 @@
   self.profilePictureView.profileID = @"me";
 
   // 為了按continue進入系統時也能抓到Profile的資料
-  [self _updateContent:nil];
+  [self _updateProfile:nil];
 
   // 顯示使用者名稱 (須用Notification)
-  [[NSNotificationCenter defaultCenter]
-      addObserver:self
-         selector:@selector(_updateContent:)
-             name:FBSDKProfileDidChangeNotification
-           object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(_updateProfile:)
+                                               name:FBSDKProfileDidChangeNotification
+                                             object:nil];
 }
 
-- (void)dealloc {
-  [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - Navigation
+#pragma mark - Actions
 
 - (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue {
   // 選擇地點 or 朋友之後進行處理
@@ -58,38 +67,40 @@
   if ([identifier isEqualToString:@"locationPickerOK"]) {  // 選擇地點
     LocationPickerTableViewController* locationPicker = segue.sourceViewController;
     if (locationPicker.selectedRows.count) {
-      _pickedLocation = locationPicker.selectedRows[0][@"id"];
+      self.pickedLocation = locationPicker.selectedRows[0][@"id"];
       self.locationLabel.text = locationPicker.selectedRows[0][@"name"];
     } else {
-      _pickedLocation = nil;
+      self.pickedLocation = nil;
       self.locationLabel.text = nil;
     }
 
   } else if ([identifier isEqualToString:@"friendsPickerOK"]) {  // 選擇朋友
     FriendsPickerTableViewController* friendsPicker = segue.sourceViewController;
-    _pickedFriends = [friendsPicker.selectedRows valueForKeyPath:@"id"];
+    self.pickedFriends = [friendsPicker.selectedRows valueForKeyPath:@"id"];
 
     // 依選擇人數使用不同顯示方式
     NSString* display = nil;
-    if (_pickedFriends.count == 1) {
+    if (self.pickedFriends.count == 1) {
       display = friendsPicker.selectedRows[0][@"name"];
-    } else if (_pickedFriends.count == 2) {
+    } else if (self.pickedFriends.count == 2) {
       display = [NSString stringWithFormat:@"%@、%@", friendsPicker.selectedRows[0][@"name"], friendsPicker.selectedRows[1][@"name"]];
-    } else if (_pickedFriends.count == 3) {
+    } else if (self.pickedFriends.count == 3) {
       display = [NSString stringWithFormat:@"%@、%@、%@", friendsPicker.selectedRows[0][@"name"], friendsPicker.selectedRows[1][@"name"], friendsPicker.selectedRows[2][@"name"]];
-    } else if (_pickedFriends.count > 3) {
-      display = [NSString stringWithFormat:@"%@、%@和其他 %lu 人", friendsPicker.selectedRows[0][@"name"], friendsPicker.selectedRows[1][@"name"], (unsigned long)_pickedFriends.count - 2];
-    } else if (_pickedFriends == 0) {
+    } else if (self.pickedFriends.count > 3) {
+      display = [NSString stringWithFormat:@"%@、%@和其他 %lu 人", friendsPicker.selectedRows[0][@"name"], friendsPicker.selectedRows[1][@"name"], (unsigned long)self.pickedFriends.count - 2];
+    } else if (self.pickedFriends == 0) {
       display = nil;
-      _pickedFriends = nil;
+      self.pickedFriends = nil;
     }
     self.friendsLabel.text = display;
   }
 }
 
+#pragma mark - Navigation
+
 #pragma mark - Helper methods
 
-- (void)_updateContent:(NSNotification*)notification {
+- (void)_updateProfile:(NSNotification*)notification {
   if ([FBSDKAccessToken currentAccessToken]) {
     self.profileNameLabel.text = [FBSDKProfile currentProfile].name;
   }
