@@ -76,13 +76,9 @@
 
   [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
 		if (error) {
-//			NSLog(@"Searching map error: %@", error);
-//			[Common showAlertMessageWithTitle:@"搜尋地標時發生錯誤" message:@"搜尋地標時發生錯誤，請檢查網路狀態！" inViewController:self];
 			[Common showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！" inViewController:self];
-
 		} else if ([response.mapItems count] == 0){
 			[Common showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！" inViewController:self];
-
 		} else {
 			// 直接取第一項搜尋結果的座標
 			MKMapItem *firstResult = [response.mapItems objectAtIndex:0];
@@ -93,22 +89,6 @@
 
 - (IBAction)unwindSegueToMapView:(UIStoryboardSegue *)segue {
 }
-//
-//#pragma mark - Segues
-
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//  if ([segue.identifier isEqualToString:@"showLocationPicker"]) {
-//    NSString *centerCoordinate = [NSString stringWithFormat:@"%lf,%lf", self.mapView.centerCoordinate.latitude, self.mapView.centerCoordinate.longitude];
-//    NSDictionary *parameters = @{ @"type" : @"place",
-//                                  @"limit" : @"100",
-//                                  @"center" : centerCoordinate,
-//                                  @"distance" : @"10000",
-//                                  @"fields" : @"id,name,picture.width(100).height(100)"
-//    };
-//    LocationPickerTableViewController *locationPicker = segue.destinationViewController;
-//    locationPicker.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"search" parameters:parameters];
-//  }
-//}
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -125,19 +105,8 @@
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
   if (error) {
-    //    NSLog(@"MapView loading error: %@", error);
-    //    [self _showAlertMessageWithTitle:@"讀取地圖資訊錯誤" message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"];
     [Common showAlertMessageWithTitle:@"讀取地圖資訊錯誤" message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！" inViewController:self];
   }
 }
-//
-//#pragma mark - Helper methods
-//
-//- (void)_showAlertMessageWithTitle:(NSString *)title message:(NSString *)message {
-//  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-//  UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-//  [alertController addAction:okAction];
-//  [self presentViewController:alertController animated:YES completion:nil];
-//}
 
 @end
