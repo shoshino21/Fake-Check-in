@@ -29,6 +29,7 @@
 
 #pragma mark - Properties
 
+#warning 不要好像也沒差多少
 - (void)setPickedLocation:(NSString *)pickedLocation {
   if (![_pickedLocation isEqualToString:pickedLocation]) {
     _pickedLocation = [pickedLocation copy];
@@ -111,6 +112,87 @@
   [self presentViewController:alertController animated:YES completion:nil];
 }
 
+#warning for FB post testing
+- (IBAction)checkin:(id)sender {
+  self.checkinButton.enabled = NO;  // 防止連點按鈕
+
+  if ([[FBSDKAccessToken currentAccessToken] hasGranted:@"publish_actions"]) {
+    //    NSDictionary *parametersold = @{
+    //      @"message" : self.messageTextView.text,
+    //      @"place" : (self.pickedLocation) ? self.pickedLocation : nil,
+    //      // 將朋友名單轉換為csv格式
+    //      @"tags" : (self.pickedFriends) ? [self.pickedFriends componentsJoinedByString:@","] : nil
+    //    };
+
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    NSString *graphPath = nil;
+    if (self.messageTextView.text.length > 0) {
+      [parameters setObject:self.messageTextView.text forKey:@"message"];
+    }
+    if (self.pickedLocation.length > 0) {
+      [parameters setObject:self.pickedLocation forKey:@"place"];
+    }
+    if (self.pickedFriends.count > 0) {
+      if (self.pickedPhoto) {
+        [parameters setObject:self.pickedFriends forKey:@"tags"];
+      } else {
+        // 將朋友名單轉換為csv格式
+        [parameters setObject:[self.pickedFriends componentsJoinedByString:@","] forKey:@"tags"];
+      }
+    }
+    if (self.pickedPhoto) {
+      // 有放照片時必須設定不同的GraphPath
+      graphPath = @"/me/photos";
+      [parameters setObject:self.pickedPhoto forKey:@"picture"];
+    } else {
+      graphPath = @"/me/feed";
+    }
+
+//    NSLog(@"friends:%@", [parameters objectForKey:@"tags"]);
+
+    [[[FBSDKGraphRequest alloc]
+        initWithGraphPath:graphPath
+               parameters:parameters
+               HTTPMethod:@"POST"]
+        startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+					if (!error) {
+						NSLog(@"Post id:%@", result[@"id"]);
+					} else {
+						NSLog(@"Error:%@",error);
+					}
+        }];
+  } else {
+    //沒權限
+    [[[FBSDKLoginManager alloc] init]
+        logInWithPublishPermissions:@[ @"publish_actions" ]
+                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+      if ([result.grantedPermissions containsObject:@"publish_actions"]) {
+    [[[FBSDKGraphRequest alloc]
+			initWithGraphPath:@"me/feed"
+			parameters:@{ @"message" : @"hello world"}
+			HTTPMethod:@"POST"]
+		 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+			 if (!error) {
+				 NSLog(@"Post id 123:%@", result[@"id"]);
+			 }else{
+				 NSLog(@"Error 123:%@",error);
+			 }
+		 }];
+      } else {
+        // This would be a nice place to tell the user why publishing
+        // is valuable.
+        //        [_delegate shareUtility:self didFailWithError:nil];
+      }
+                            }];
+    //
+    //    [[[FBSDKLoginManager alloc] init] logInWithPublishPermissions:@[ @"publish_actions" ] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+    //
+    //    }];
+  }
+
+  self.checkinButton.enabled = YES;
+}
+
 #pragma mark - Navigation
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -161,6 +243,10 @@
     self.pickedFriends = nil;
   }
   self.friendsLabel.text = display;
+//
+//  for (NSString *theID in self.pickedFriends) {
+//    NSLog(@"%@", theID);
+//  }
 }
 
 @end

@@ -27,11 +27,11 @@
     _friends = [friends copy];
     _photo = [photo copy];
 
-//    FBSDKShareOpenGraphContent* shareContent = ;
+    //    FBSDKShareOpenGraphContent* shareContent = ;
 
     _shareAPI = [[FBSDKShareAPI alloc] init];
     _shareAPI.delegate = self;
-    _shareAPI.shareContent = [self _contentForSharing];
+//    _shareAPI.shareContent = [self _contentForSharing];
   }
   return self;
 }
@@ -42,12 +42,22 @@
 
 #pragma mark - Public API
 
-
-
 #pragma mark - Helper Methods
-
-- (FBSDKShareOpenGraphContent*)_contentForSharing {
-
-}
+//
+//- (FBSDKShareOpenGraphContent*)_contentForSharing {
+//  FBSDKShareOpenGraphContent* content = [[FBSDKShareOpenGraphContent alloc] init];
+//
+//#warning 不確定title, description的具體呈現是如何
+//
+//  NSDictionary* objectProperties = @{
+//    @"og:type" : @"fb_checkin",
+//    @"og:title" : _message,
+//    @"og:description" : _message,
+//  };
+//  FBSDKShareOpenGraphObject* object = [FBSDKShareOpenGraphObject objectWithProperties:objectProperties];
+//
+//  FBSDKShareOpenGraphAction* action = [[FBSDKShareOpenGraphAction alloc] init];
+//	action.actionType=@"";
+//}
 
 @end

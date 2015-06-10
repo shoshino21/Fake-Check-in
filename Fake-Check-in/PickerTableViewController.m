@@ -26,7 +26,7 @@
   return selected;
 }
 
-#pragma mark - Actions
+#pragma mark - Public Methods
 
 - (void)fetchData {
   [self.request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
@@ -41,7 +41,7 @@
   }];
 }
 
-#pragma mark - TableViewDataSource
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
   return 1;
@@ -76,7 +76,7 @@
   return cell;
 }
 
-#pragma mark - TableViewDataDelegate
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;

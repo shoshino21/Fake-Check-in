@@ -60,12 +60,15 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAM-cE-qK0">
-                                <rect key="frame" x="154" y="343" width="150" height="30"/>
+                                <rect key="frame" x="154" y="341" width="150" height="30"/>
                                 <color key="backgroundColor" red="0.54509806630000002" green="0.45490199329999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Check it">
+                                <state key="normal" title="Check-in">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkin:" destination="mGt-p7-14Z" eventType="touchUpInside" id="JM7-90-tyv"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkQ-1g-Gj4" customClass="FBSDKProfilePictureView">
                                 <rect key="frame" x="16" y="16" width="100" height="100"/>
