@@ -10,6 +10,7 @@
 #import <ImgurAnonymousAPIClient.h>
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
+#import "PostUtility.h"
 
 @interface MainViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -30,7 +31,7 @@
 
 #pragma mark - Properties
 
-#warning 不要好像也沒差多少
+#warning 拿掉好像也沒差多少
 - (void)setPickedLocation:(NSString *)pickedLocation {
   if (![_pickedLocation isEqualToString:pickedLocation]) {
     _pickedLocation = [pickedLocation copy];
@@ -117,152 +118,92 @@
 - (IBAction)checkin:(id)sender {
   self.checkinButton.enabled = NO;  // 防止連點按鈕
 
-  if ([[FBSDKAccessToken currentAccessToken] hasGranted:@"publish_actions"]) {
-    //    NSDictionary *parametersold = @{
-    //      @"message" : self.messageTextView.text,
-    //      @"place" : (self.pickedLocation) ? self.pickedLocation : nil,
-    //      // 將朋友名單轉換為csv格式
-    //      @"tags" : (self.pickedFriends) ? [self.pickedFriends componentsJoinedByString:@","] : nil
-    //    };
+  PostUtility *postUtility = [[PostUtility alloc] initWithMessage:self.messageTextView.text place:self.pickedLocation friends:self.pickedFriends photo:self.pickedPhoto];
 
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    //    NSString *graphPath = nil;
-    if (self.messageTextView.text.length > 0) {
-      [parameters setObject:self.messageTextView.text forKey:@"message"];
-    }
-    if (self.pickedLocation.length > 0) {
-      [parameters setObject:self.pickedLocation forKey:@"place"];
-    }
-    if (self.pickedFriends.count > 0) {
-      //      if (self.pickedPhoto) {
-      //        [parameters setObject:self.pickedFriends forKey:@"tags"];
-      //      } else {
+  [postUtility start];
 
-      // 將朋友名單轉換為csv格式
-      [parameters setObject:[self.pickedFriends componentsJoinedByString:@","] forKey:@"tags"];
-
-      //      }
-    }
-
-    if (self.pickedPhoto) {
-      //      __block NSString *photoId = nil;
-      // 有放照片時必須設定不同的GraphPath
-      //      graphPath = @"/me/photos";
-      //      [parameters setObject:self.pickedPhoto forKey:@"picture"];
-
-      //      NSDictionary *parametersForPhoto = [NSDictionary dictionaryWithObjectsAndKeys:self.pickedPhoto, @"source", nil];
-
-      //      NSDictionary *parametersForAlbum = @{ @"picture" : self.pickedPhoto };
-      //      [[[FBSDKGraphRequest alloc] initWithGraphPath:@"/me/photos" parameters:parametersForAlbum HTTPMethod:@"POST"] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-      [[ImgurAnonymousAPIClient client] uploadImage:self.pickedPhoto
-                                       withFilename:nil
-                                  completionHandler:^(NSURL *imgurURL, NSError *error) {
-																		if (!error) {
-//																			NSLog(@"URL: %@",imgurURL);
-																			[parameters setObject:imgurURL forKey:@"link"];
-
-																			[[[FBSDKGraphRequest alloc]
-																				initWithGraphPath:@"/me/feed"
-																				parameters:parameters
-																				HTTPMethod:@"POST"]
-																			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-																				 if (!error) {
-																					 NSLog(@"Post id:%@", result[@"id"]);
-																				 } else {
-																					 NSLog(@"Error:%@",error);
-																				 }
-																			 }];
-
-																		} else {
-																			NSLog(@"%@",error);
-																		}
-                                  }];
-      //      if (!error) {
-      //        NSLog(@"Photo Post id:%@", result[@"id"]);
-      //        [parameters setObject:result[@"id"] forKey:@"link"];
-      //
-      //        [[[FBSDKGraphRequest alloc]
-      //            initWithGraphPath:@"/me/feed"
-      //                   parameters:parameters
-      //                   HTTPMethod:@"POST"]
-      //            startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-      //									 if (!error) {
-      //										 NSLog(@"Post id:%@", result[@"id"]);
-      //									 } else {
-      //										 NSLog(@"Error:%@",error);
-      //									 }
-      //            }];
-      //      } else {
-      //        NSLog(@"Photo Error:%@", error);
-      //      }
-      //    }];
-      //
-      //      NSLog(@"photoId : %@", photoId);
-    } else {
-      //      [parameters setObject:@"https://i.imgur.com/J12Vgof.jpg" forKey:@"link"];
-
-      [[[FBSDKGraphRequest alloc]
-          initWithGraphPath:@"/me/feed"
-                 //        initWithGraphPath:@"/me/photos"
-                 parameters:parameters
-                 HTTPMethod:@"POST"]
-          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-				 if (!error) {
-					 NSLog(@"Post id:%@", result[@"id"]);
-				 } else {
-					 NSLog(@"Error:%@",error);
-				 }
-          }];
-    }
-    //    } else {
-    //      //      graphPath = @"/me/feed";
-    //    }
-
-    //    NSLog(@"friends:%@", [parameters objectForKey:@"tags"]);
-  } else {
-    //沒權限
-    [[[FBSDKLoginManager alloc] init]
-        logInWithPublishPermissions:@[ @"publish_actions" ]
-                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-      if ([result.grantedPermissions containsObject:@"publish_actions"]) {
-    [[[FBSDKGraphRequest alloc]
-			initWithGraphPath:@"me/feed"
-			parameters:@{ @"message" : @"hello world"}
-			HTTPMethod:@"POST"]
-		 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-			 if (!error) {
-				 NSLog(@"Post id 123:%@", result[@"id"]);
-			 }else{
-				 NSLog(@"Error 123:%@",error);
-			 }
-		 }];
-      } else {
-        // This would be a nice place to tell the user why publishing
-        // is valuable.
-        //        [_delegate shareUtility:self didFailWithError:nil];
-      }
-                            }];
-    //
-    //    [[[FBSDKLoginManager alloc] init] logInWithPublishPermissions:@[ @"publish_actions" ] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
-    //
-    //    }];
-  }
+  //  if ([[FBSDKAccessToken currentAccessToken] hasGranted:@"publish_actions"]) {
+  //
+  //    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+  //
+  //		if (self.messageTextView.text.length > 0) {
+  //      [parameters setObject:self.messageTextView.text forKey:@"message"];
+  //    }
+  //    if (self.pickedLocation.length > 0) {
+  //      [parameters setObject:self.pickedLocation forKey:@"place"];
+  //    }
+  //    if (self.pickedFriends.count > 0) {
+  //      // 將朋友名單轉換為csv格式
+  //      [parameters setObject:[self.pickedFriends componentsJoinedByString:@","] forKey:@"tags"];
+  //    }
+  //
+  //    if (self.pickedPhoto) {
+  //      [[ImgurAnonymousAPIClient client] uploadImage:self.pickedPhoto
+  //                                       withFilename:nil
+  //                                  completionHandler:^(NSURL *imgurURL, NSError *error) {
+  //																		if (!error) {
+  //																			[parameters setObject:imgurURL forKey:@"link"];
+  //
+  //																			[[[FBSDKGraphRequest alloc]
+  //																				initWithGraphPath:@"/me/feed"
+  //																				parameters:parameters
+  //																				HTTPMethod:@"POST"]
+  //																			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+  //																				 if (!error) {
+  //																					 NSLog(@"Post id:%@", result[@"id"]);
+  //																				 } else {
+  //																					 NSLog(@"Error:%@",error);
+  //																				 }
+  //																			 }];
+  //
+  //																		} else {
+  //																			NSLog(@"%@",error);
+  //																		}
+  //                                  }];
+  //    } else {
+  //      [[[FBSDKGraphRequest alloc]
+  //          initWithGraphPath:@"/me/feed"
+  //                 //        initWithGraphPath:@"/me/photos"
+  //                 parameters:parameters
+  //                 HTTPMethod:@"POST"]
+  //          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+  //				 if (!error) {
+  //					 NSLog(@"Post id:%@", result[@"id"]);
+  //				 } else {
+  //					 NSLog(@"Error:%@",error);
+  //				 }
+  //          }];
+  //    }
+  //  } else {
+  //    //沒權限
+  //    [[[FBSDKLoginManager alloc] init]
+  //        logInWithPublishPermissions:@[ @"publish_actions" ]
+  //                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+  //      if ([result.grantedPermissions containsObject:@"publish_actions"]) {
+  //    [[[FBSDKGraphRequest alloc]
+  //			initWithGraphPath:@"me/feed"
+  //			parameters:@{ @"message" : @"hello world"}
+  //			HTTPMethod:@"POST"]
+  //		 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+  //			 if (!error) {
+  //				 NSLog(@"Post id 123:%@", result[@"id"]);
+  //			 }else{
+  //				 NSLog(@"Error 123:%@",error);
+  //			 }
+  //		 }];
+  //      } else {
+  //        // This would be a nice place to tell the user why publishing
+  //        // is valuable.
+  //        //        [_delegate shareUtility:self didFailWithError:nil];
+  //      }
+  //                            }];
+  //    //
+  //    //    [[[FBSDKLoginManager alloc] init] logInWithPublishPermissions:@[ @"publish_actions" ] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error){
+  //    //
+  //    //    }];
+  //  }
 
   self.checkinButton.enabled = YES;
-}
-
-- (IBAction)uploadingTest:(id)sender {
-  if (self.pickedPhoto) {
-    [[ImgurAnonymousAPIClient client] uploadImage:self.pickedPhoto
-                                     withFilename:@"image.jpg"
-                                completionHandler:^(NSURL *imgurURL, NSError *error) {
-																if (!error) {
-																	NSLog(@"URL: %@",imgurURL);
-																} else {
-																	NSLog(@"%@",error);
-																}
-                                }];
-  }
 }
 
 #pragma mark - Navigation

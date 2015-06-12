@@ -27,7 +27,7 @@
 		EFADF98D1B0F88D2004B26B9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF98C1B0F88D2004B26B9 /* MapViewController.m */; };
 		EFADF9901B10BC3B004B26B9 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF98F1B10BC3B004B26B9 /* Common.m */; };
 		EFE176A21B20C226005208FC /* PickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE176A11B20C226005208FC /* PickerTableViewController.m */; };
-		EFE176A51B26FB0A005208FC /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE176A41B26FB0A005208FC /* ShareUtility.m */; };
+		EFE176A51B26FB0A005208FC /* PostUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE176A41B26FB0A005208FC /* PostUtility.m */; };
 		FB06C500681ED67B4327235D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9EFF308609313021E3073 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +76,8 @@
 		EFADF98F1B10BC3B004B26B9 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		EFE176A01B20C226005208FC /* PickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerTableViewController.h; sourceTree = "<group>"; };
 		EFE176A11B20C226005208FC /* PickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerTableViewController.m; sourceTree = "<group>"; };
-		EFE176A31B26FB0A005208FC /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
-		EFE176A41B26FB0A005208FC /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
+		EFE176A31B26FB0A005208FC /* PostUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostUtility.h; sourceTree = "<group>"; };
+		EFE176A41B26FB0A005208FC /* PostUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostUtility.m; sourceTree = "<group>"; };
 		FAB9EFF308609313021E3073 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -144,8 +144,8 @@
 				EF1E99811B0E77640062C84E /* AppDelegate.m */,
 				EFADF98E1B10BC3B004B26B9 /* Common.h */,
 				EFADF98F1B10BC3B004B26B9 /* Common.m */,
-				EFE176A31B26FB0A005208FC /* ShareUtility.h */,
-				EFE176A41B26FB0A005208FC /* ShareUtility.m */,
+				EFE176A31B26FB0A005208FC /* PostUtility.h */,
+				EFE176A41B26FB0A005208FC /* PostUtility.m */,
 				EF12413A1B1F0E8B009F402F /* Main.storyboard */,
 				EF1E99831B0E77640062C84E /* LoginViewController.h */,
 				EF1E99841B0E77640062C84E /* LoginViewController.m */,
@@ -349,7 +349,7 @@
 				EFADF98D1B0F88D2004B26B9 /* MapViewController.m in Sources */,
 				EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */,
 				EFADF9901B10BC3B004B26B9 /* Common.m in Sources */,
-				EFE176A51B26FB0A005208FC /* ShareUtility.m in Sources */,
+				EFE176A51B26FB0A005208FC /* PostUtility.m in Sources */,
 				EF2825661B1CE4E000767FED /* LocationPickerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
