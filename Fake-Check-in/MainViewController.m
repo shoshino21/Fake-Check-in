@@ -7,12 +7,7 @@
 //
 
 #import "MainViewController.h"
-
-//#import <ImageIO/ImageIO.h>
-//#import <AssetsLibrary/AssetsLibrary.h>
-//#import <MobileCoreServices/MobileCoreServices.h>
 #import <ImgurAnonymousAPIClient.h>
-
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
 
@@ -157,32 +152,54 @@
 
       //      NSDictionary *parametersForPhoto = [NSDictionary dictionaryWithObjectsAndKeys:self.pickedPhoto, @"source", nil];
 
-      NSDictionary *parametersForAlbum = @{ @"picture" : self.pickedPhoto };
-      [[[FBSDKGraphRequest alloc] initWithGraphPath:@"/me/photos" parameters:parametersForAlbum HTTPMethod:@"POST"] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-      				if (!error) {
-      					NSLog(@"Photo Post id:%@", result[@"id"]);
-								[parameters setObject:result[@"id"] forKey:@"link"];
+      //      NSDictionary *parametersForAlbum = @{ @"picture" : self.pickedPhoto };
+      //      [[[FBSDKGraphRequest alloc] initWithGraphPath:@"/me/photos" parameters:parametersForAlbum HTTPMethod:@"POST"] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+      [[ImgurAnonymousAPIClient client] uploadImage:self.pickedPhoto
+                                       withFilename:nil
+                                  completionHandler:^(NSURL *imgurURL, NSError *error) {
+																		if (!error) {
+//																			NSLog(@"URL: %@",imgurURL);
+																			[parameters setObject:imgurURL forKey:@"link"];
 
-								[[[FBSDKGraphRequest alloc]
-									initWithGraphPath:@"/me/feed"
-									//        initWithGraphPath:@"/me/photos"
-									parameters:parameters
-									HTTPMethod:@"POST"]
-								 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-									 if (!error) {
-										 NSLog(@"Post id:%@", result[@"id"]);
-									 } else {
-										 NSLog(@"Error:%@",error);
-									 }
-								 }];
-      				} else {
-      					NSLog(@"Photo Error:%@",error);
-      				}
-      }];
+																			[[[FBSDKGraphRequest alloc]
+																				initWithGraphPath:@"/me/feed"
+																				parameters:parameters
+																				HTTPMethod:@"POST"]
+																			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+																				 if (!error) {
+																					 NSLog(@"Post id:%@", result[@"id"]);
+																				 } else {
+																					 NSLog(@"Error:%@",error);
+																				 }
+																			 }];
 
+																		} else {
+																			NSLog(@"%@",error);
+																		}
+                                  }];
+      //      if (!error) {
+      //        NSLog(@"Photo Post id:%@", result[@"id"]);
+      //        [parameters setObject:result[@"id"] forKey:@"link"];
+      //
+      //        [[[FBSDKGraphRequest alloc]
+      //            initWithGraphPath:@"/me/feed"
+      //                   parameters:parameters
+      //                   HTTPMethod:@"POST"]
+      //            startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+      //									 if (!error) {
+      //										 NSLog(@"Post id:%@", result[@"id"]);
+      //									 } else {
+      //										 NSLog(@"Error:%@",error);
+      //									 }
+      //            }];
+      //      } else {
+      //        NSLog(@"Photo Error:%@", error);
+      //      }
+      //    }];
+      //
       //      NSLog(@"photoId : %@", photoId);
     } else {
-      [parameters setObject:@"https://i.imgur.com/J12Vgof.jpg" forKey:@"link"];
+      //      [parameters setObject:@"https://i.imgur.com/J12Vgof.jpg" forKey:@"link"];
 
       [[[FBSDKGraphRequest alloc]
           initWithGraphPath:@"/me/feed"
@@ -202,7 +219,6 @@
     //    }
 
     //    NSLog(@"friends:%@", [parameters objectForKey:@"tags"]);
-
   } else {
     //沒權限
     [[[FBSDKLoginManager alloc] init]
@@ -236,15 +252,17 @@
 }
 
 - (IBAction)uploadingTest:(id)sender {
-  [[ImgurAnonymousAPIClient client] uploadImage:self.pickedPhoto
-                                   withFilename:@"image.jpg"
-                              completionHandler:^(NSURL *imgurURL, NSError *error) {
+  if (self.pickedPhoto) {
+    [[ImgurAnonymousAPIClient client] uploadImage:self.pickedPhoto
+                                     withFilename:@"image.jpg"
+                                completionHandler:^(NSURL *imgurURL, NSError *error) {
 																if (!error) {
 																	NSLog(@"URL: %@",imgurURL);
 																} else {
 																	NSLog(@"%@",error);
 																}
-                              }];
+                                }];
+  }
 }
 
 #pragma mark - Navigation

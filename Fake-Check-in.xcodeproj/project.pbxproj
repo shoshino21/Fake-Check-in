@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,6 @@
 		EF2843B61B2B0B4A0022055E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B51B2B0B4A0022055E /* ImageIO.framework */; };
 		EF2843B81B2B0B540022055E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B71B2B0B540022055E /* AssetsLibrary.framework */; };
 		EF2843BA1B2B0B7E0022055E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B91B2B0B7E0022055E /* MobileCoreServices.framework */; };
-		EF2843BC1B2B0F900022055E /* libPods-AFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843BB1B2B0F900022055E /* libPods-AFNetworking.a */; };
 		EFADF9461B0F293F004B26B9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */; };
 		EFADF9471B0F293F004B26B9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */; };
 		EFADF9481B0F293F004B26B9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */; };
@@ -29,6 +28,7 @@
 		EFADF9901B10BC3B004B26B9 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF98F1B10BC3B004B26B9 /* Common.m */; };
 		EFE176A21B20C226005208FC /* PickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE176A11B20C226005208FC /* PickerTableViewController.m */; };
 		EFE176A51B26FB0A005208FC /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE176A41B26FB0A005208FC /* ShareUtility.m */; };
+		FB06C500681ED67B4327235D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9EFF308609313021E3073 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		EF2843B51B2B0B4A0022055E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EF2843B71B2B0B540022055E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EF2843B91B2B0B7E0022055E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		EF2843BB1B2B0F900022055E /* libPods-AFNetworking.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-AFNetworking.a"; path = "Pods/../build/Debug-iphoneos/libPods-AFNetworking.a"; sourceTree = "<group>"; };
 		EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		EFE176A11B20C226005208FC /* PickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerTableViewController.m; sourceTree = "<group>"; };
 		EFE176A31B26FB0A005208FC /* ShareUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareUtility.h; sourceTree = "<group>"; };
 		EFE176A41B26FB0A005208FC /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
+		FAB9EFF308609313021E3073 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF2843BC1B2B0F900022055E /* libPods-AFNetworking.a in Frameworks */,
 				EF2843BA1B2B0B7E0022055E /* MobileCoreServices.framework in Frameworks */,
 				EF2843B81B2B0B540022055E /* AssetsLibrary.framework in Frameworks */,
 				EF2843B61B2B0B4A0022055E /* ImageIO.framework in Frameworks */,
@@ -95,6 +94,7 @@
 				EFADF9461B0F293F004B26B9 /* FBSDKCoreKit.framework in Frameworks */,
 				EFADF9471B0F293F004B26B9 /* FBSDKLoginKit.framework in Frameworks */,
 				EFADF9481B0F293F004B26B9 /* FBSDKShareKit.framework in Frameworks */,
+				FB06C500681ED67B4327235D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +194,6 @@
 		EFADF9421B0F2924004B26B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EF2843BB1B2B0F900022055E /* libPods-AFNetworking.a */,
 				EF2843B71B2B0B540022055E /* AssetsLibrary.framework */,
 				EF2843B91B2B0B7E0022055E /* MobileCoreServices.framework */,
 				EF2843B51B2B0B4A0022055E /* ImageIO.framework */,
@@ -203,6 +202,7 @@
 				EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */,
 				EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */,
 				EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */,
+				FAB9EFF308609313021E3073 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -266,7 +266,7 @@
 				};
 			};
 			buildConfigurationList = EF1E99741B0E77640062C84E /* Build configuration list for PBXProject "Fake-Check-in" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (

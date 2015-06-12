@@ -39,7 +39,7 @@
 	<string>Main</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
-	<key>ImgurAnonymousAPIClient</key>
+	<key>ImgurAnonymousAPIClientID</key>
 	<string>295a0fcb89767ec</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
@@ -58,3 +58,4 @@
 	</array>
 </dict>
 </plist>
+
