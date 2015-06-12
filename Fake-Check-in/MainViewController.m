@@ -125,7 +125,7 @@
     //    };
 
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    NSString *graphPath = nil;
+    //    NSString *graphPath = nil;
     if (self.messageTextView.text.length > 0) {
       [parameters setObject:self.messageTextView.text forKey:@"message"];
     }
@@ -133,34 +133,71 @@
       [parameters setObject:self.pickedLocation forKey:@"place"];
     }
     if (self.pickedFriends.count > 0) {
-      if (self.pickedPhoto) {
-        [parameters setObject:self.pickedFriends forKey:@"tags"];
-      } else {
-        // 將朋友名單轉換為csv格式
-        [parameters setObject:[self.pickedFriends componentsJoinedByString:@","] forKey:@"tags"];
-      }
+      //      if (self.pickedPhoto) {
+      //        [parameters setObject:self.pickedFriends forKey:@"tags"];
+      //      } else {
+
+      // 將朋友名單轉換為csv格式
+      [parameters setObject:[self.pickedFriends componentsJoinedByString:@","] forKey:@"tags"];
+
+      //      }
     }
+
     if (self.pickedPhoto) {
+      //      __block NSString *photoId = nil;
       // 有放照片時必須設定不同的GraphPath
-      graphPath = @"/me/photos";
-      [parameters setObject:self.pickedPhoto forKey:@"picture"];
+      //      graphPath = @"/me/photos";
+      //      [parameters setObject:self.pickedPhoto forKey:@"picture"];
+
+      //      NSDictionary *parametersForPhoto = [NSDictionary dictionaryWithObjectsAndKeys:self.pickedPhoto, @"source", nil];
+
+      NSDictionary *parametersForAlbum = @{ @"picture" : self.pickedPhoto };
+      [[[FBSDKGraphRequest alloc] initWithGraphPath:@"/me/photos" parameters:parametersForAlbum HTTPMethod:@"POST"] startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+      				if (!error) {
+      					NSLog(@"Photo Post id:%@", result[@"id"]);
+								[parameters setObject:result[@"id"] forKey:@"link"];
+
+								[[[FBSDKGraphRequest alloc]
+									initWithGraphPath:@"/me/feed"
+									//        initWithGraphPath:@"/me/photos"
+									parameters:parameters
+									HTTPMethod:@"POST"]
+								 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+									 if (!error) {
+										 NSLog(@"Post id:%@", result[@"id"]);
+									 } else {
+										 NSLog(@"Error:%@",error);
+									 }
+								 }];
+      				} else {
+      					NSLog(@"Photo Error:%@",error);
+      				}
+      }];
+
+      //      NSLog(@"photoId : %@", photoId);
     } else {
-      graphPath = @"/me/feed";
+      [parameters setObject:@"https://i.imgur.com/J12Vgof.jpg" forKey:@"link"];
+
+			[[[FBSDKGraphRequest alloc]
+				initWithGraphPath:@"/me/feed"
+				//        initWithGraphPath:@"/me/photos"
+				parameters:parameters
+				HTTPMethod:@"POST"]
+			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+				 if (!error) {
+					 NSLog(@"Post id:%@", result[@"id"]);
+				 } else {
+					 NSLog(@"Error:%@",error);
+				 }
+			 }];
+
     }
+    //    } else {
+    //      //      graphPath = @"/me/feed";
+    //    }
 
-//    NSLog(@"friends:%@", [parameters objectForKey:@"tags"]);
+    //    NSLog(@"friends:%@", [parameters objectForKey:@"tags"]);
 
-    [[[FBSDKGraphRequest alloc]
-        initWithGraphPath:graphPath
-               parameters:parameters
-               HTTPMethod:@"POST"]
-        startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
-					if (!error) {
-						NSLog(@"Post id:%@", result[@"id"]);
-					} else {
-						NSLog(@"Error:%@",error);
-					}
-        }];
   } else {
     //沒權限
     [[[FBSDKLoginManager alloc] init]
@@ -243,10 +280,10 @@
     self.pickedFriends = nil;
   }
   self.friendsLabel.text = display;
-//
-//  for (NSString *theID in self.pickedFriends) {
-//    NSLog(@"%@", theID);
-//  }
+  //
+  //  for (NSString *theID in self.pickedFriends) {
+  //    NSLog(@"%@", theID);
+  //  }
 }
 
 @end

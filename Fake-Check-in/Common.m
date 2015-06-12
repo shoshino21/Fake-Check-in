@@ -10,7 +10,7 @@
 
 @implementation Common
 
-#pragma mark - Singleton Methods
+#pragma mark - Initialize
 
 + (instancetype)sharedStatus {
   static Common *sharedStatus = nil;
