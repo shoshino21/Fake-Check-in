@@ -39,6 +39,8 @@
 	<string>Main</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>ImgurAnonymousAPIClient</key>
+	<string>295a0fcb89767ec</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

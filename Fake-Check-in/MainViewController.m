@@ -7,6 +7,12 @@
 //
 
 #import "MainViewController.h"
+
+//#import <ImageIO/ImageIO.h>
+//#import <AssetsLibrary/AssetsLibrary.h>
+//#import <MobileCoreServices/MobileCoreServices.h>
+#import <ImgurAnonymousAPIClient.h>
+
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
 
@@ -178,19 +184,18 @@
     } else {
       [parameters setObject:@"https://i.imgur.com/J12Vgof.jpg" forKey:@"link"];
 
-			[[[FBSDKGraphRequest alloc]
-				initWithGraphPath:@"/me/feed"
-				//        initWithGraphPath:@"/me/photos"
-				parameters:parameters
-				HTTPMethod:@"POST"]
-			 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+      [[[FBSDKGraphRequest alloc]
+          initWithGraphPath:@"/me/feed"
+                 //        initWithGraphPath:@"/me/photos"
+                 parameters:parameters
+                 HTTPMethod:@"POST"]
+          startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
 				 if (!error) {
 					 NSLog(@"Post id:%@", result[@"id"]);
 				 } else {
 					 NSLog(@"Error:%@",error);
 				 }
-			 }];
-
+          }];
     }
     //    } else {
     //      //      graphPath = @"/me/feed";
@@ -231,7 +236,15 @@
 }
 
 - (IBAction)uploadingTest:(id)sender {
-	
+  [[ImgurAnonymousAPIClient client] uploadImage:self.pickedPhoto
+                                   withFilename:@"image.jpg"
+                              completionHandler:^(NSURL *imgurURL, NSError *error) {
+																if (!error) {
+																	NSLog(@"URL: %@",imgurURL);
+																} else {
+																	NSLog(@"%@",error);
+																}
+                              }];
 }
 
 #pragma mark - Navigation
