@@ -1,0 +1,45 @@
+PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - ImgurAnonymousAPIClient (0.1.1):
+    - AFNetworking (>= 2.2.2)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.5.4)
+  - ImgurAnonymousAPIClient (from `https://github.com/nolanw/ImgurAnonymousAPIClient.git`,
+    tag `v0.1.1`)
+
+EXTERNAL SOURCES:
+  ImgurAnonymousAPIClient:
+    :git: https://github.com/nolanw/ImgurAnonymousAPIClient.git
+    :tag: v0.1.1
+
+CHECKOUT OPTIONS:
+  ImgurAnonymousAPIClient:
+    :git: https://github.com/nolanw/ImgurAnonymousAPIClient.git
+    :tag: v0.1.1
+
+SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  ImgurAnonymousAPIClient: 3e5f9b8782e300743ed167d62b775a7f248fa218
+
+COCOAPODS: 0.36.4

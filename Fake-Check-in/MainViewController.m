@@ -230,6 +230,10 @@
   self.checkinButton.enabled = YES;
 }
 
+- (IBAction)uploadingTest:(id)sender {
+	
+}
+
 #pragma mark - Navigation
 
 #pragma mark - UIImagePickerControllerDelegate
