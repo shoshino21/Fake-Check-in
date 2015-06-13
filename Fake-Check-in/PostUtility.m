@@ -15,14 +15,11 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <ImgurAnonymousAPIClient.h>
+#import "Common.h"
 
 @interface PostUtility ()
 
 @property(nonatomic, strong) NSMutableDictionary *parameters;
-
-//- (void)_checkForPermission;
-//- (void)_uploadPhotoToImgur;
-//- (void)_postOnFacebook;
 
 @end
 
@@ -31,7 +28,6 @@
   NSString *_place;
   NSArray *_friends;
   UIImage *_photo;
-  //  NSMutableDictionary* _parameters;
 }
 
 #pragma mark - Object Lifecycle
@@ -49,11 +45,6 @@
   }
   return self;
 }
-
-//- (void)dealloc {
-//  _shareAPI.delegate = nil;
-//}
-//
 
 #pragma mark - Properties
 
@@ -93,10 +84,11 @@
       @"publish_actions"
     ] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
       if ([result.grantedPermissions containsObject:@"publish_actions"]) {
+        [self.delegate postUtilityWillPost:self];
         [self _uploadPhotoToImgur];
       } else {
-        // 通知user必須取得權限才可執行
-        NSLog(@"Need permission");
+        // 無法取得發布權限
+        [self.delegate postUtility:self didFailWithError:error];
       }
     }];
   }
@@ -114,7 +106,8 @@
             [self.parameters setObject:imgurURL forKey:@"link"];
             [self _postOnFacebook];
           } else {
-            NSLog(@"Upload Photo Error: %@", error);
+            [self.delegate postUtility:self didFailWithError:error];
+            //            NSLog(@"Upload Photo Error: %@", error);
           }
         }];
   }
@@ -127,9 +120,11 @@
       startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                    id result, NSError *error) {
         if (!error) {
-          NSLog(@"Post id:%@", result[@"id"]);
+          //          NSLog(@"Post id:%@", result[@"id"]);
+          [self.delegate postUtilityDidCompletePost:self];
         } else {
-          NSLog(@"Post Error:%@", error);
+          //          NSLog(@"Post Error:%@", error);
+          [self.delegate postUtility:self didFailWithError:error];
         }
       }];
 }

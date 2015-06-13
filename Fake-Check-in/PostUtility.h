@@ -27,9 +27,9 @@
 
 @protocol PostUtilityDelegate
 
-- (void)PostUtilityWillShare:(PostUtility *)PostUtility;
-- (void)PostUtilityDidCompleteShare:(PostUtility *)PostUtility;
-- (void)PostUtility:(PostUtility *)PostUtility
+- (void)postUtilityWillPost:(PostUtility *)postUtility;
+- (void)postUtilityDidCompletePost:(PostUtility *)postUtility;
+- (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error;
 //- (void)PostUtilityUserShouldLogin:(PostUtility *)PostUtility;
 

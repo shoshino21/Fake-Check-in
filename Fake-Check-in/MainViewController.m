@@ -7,18 +7,22 @@
 //
 
 #import "MainViewController.h"
-#import <ImgurAnonymousAPIClient.h>
+//#import <ImgurAnonymousAPIClient.h>
+#import "Common.h"
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
 #import "PostUtility.h"
 
 @interface MainViewController () <UINavigationControllerDelegate,
-                                  UIImagePickerControllerDelegate>
+                                  UIImagePickerControllerDelegate,
+                                  PostUtilityDelegate>
 
 //@property(nonatomic, copy) NSString* _messageToPost;
 @property(nonatomic, copy) NSString *pickedLocation;
 @property(nonatomic, strong) NSArray *pickedFriends;
 @property(nonatomic, strong) UIImage *pickedPhoto;
+@property(nonatomic, strong) PostUtility *postUtility;
+@property(nonatomic, strong) UIView *activityOverlayView;
 
 @end
 
@@ -32,11 +36,25 @@
 
 #pragma mark - Properties
 
-#warning 拿掉好像也沒差多少
-- (void)setPickedLocation:(NSString *)pickedLocation {
-  if (![_pickedLocation isEqualToString:pickedLocation]) {
-    _pickedLocation = [pickedLocation copy];
-    // self.checkinButton.enabled = (_pickedLocation != nil);
+//#warning 拿掉好像也沒差多少
+//- (void)setPickedLocation:(NSString *)pickedLocation {
+//  if (![_pickedLocation isEqualToString:pickedLocation]) {
+//    _pickedLocation = [pickedLocation copy];
+//    // self.checkinButton.enabled = (_pickedLocation != nil);
+//  }
+//}
+#warning Temp
+- (void)setActivityOverlayView:(UIView *)activityOverlayView {
+  if (_activityOverlayView != activityOverlayView) {
+    [_activityOverlayView removeFromSuperview];
+    _activityOverlayView = activityOverlayView;
+  }
+}
+
+- (void)setPostUtility:(PostUtility *)postUtility {
+  if (![_postUtility isEqual:postUtility]) {
+    _postUtility.delegate = nil;
+    _postUtility = postUtility;
   }
 }
 
@@ -142,9 +160,8 @@
   [self presentViewController:alertController animated:YES completion:nil];
 }
 
-#warning for FB post testing
 - (IBAction)checkin:(id)sender {
-  self.checkinButton.enabled = NO;  // 防止連點按鈕
+  //  self.checkinButton.enabled = NO;  // 防止連點按鈕
 
   PostUtility *postUtility =
       [[PostUtility alloc] initWithMessage:self.messageTextView.text
@@ -152,14 +169,18 @@
                                    friends:self.pickedFriends
                                      photo:self.pickedPhoto];
 
+  self.postUtility = postUtility;
+  postUtility.delegate = self;
   [postUtility start];
 
-  self.checkinButton.enabled = YES;
+  //  self.checkinButton.enabled = YES;
 }
 
 #pragma mark - Navigation
 
 #pragma mark - UIImagePickerControllerDelegate
+
+#warning 注意要check FB可接受的照片大小!
 
 - (void)imagePickerController:(UIImagePickerController *)picker
     didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -170,6 +191,27 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
   [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - PostUtilityDelegate
+
+- (void)postUtilityWillPost:(PostUtility *)postUtility {
+  [self _startActivityIndicator];
+}
+
+- (void)postUtilityDidCompletePost:(PostUtility *)postUtility {
+  [self _stopActivityIndicator];
+  [Common showAlertMessageWithTitle:@"發佈成功"
+                            message:@"發佈成功！"
+                   inViewController:self];
+}
+
+- (void)postUtility:(PostUtility *)postUtility
+    didFailWithError:(NSError *)error {
+  [self _stopActivityIndicator];
+  [Common showAlertMessageWithTitle:@"發佈失敗"
+                            message:@"發佈時發生錯誤！"
+                   inViewController:self];
 }
 
 #pragma mark - Helper methods
@@ -215,6 +257,36 @@
     self.pickedFriends = nil;
   }
   self.friendsLabel.text = display;
+}
+
+#warning 暫時，之後改用AFNetwork的進度指示器
+
+// NOTE: 顯示轉圈圈進度顯示器，share過程中顯示用的
+- (void)_startActivityIndicator {
+  UIView *view = self.view;
+  CGRect bounds = view.bounds;
+  UIView *activityOverlayView = [[UIView alloc] initWithFrame:bounds];
+  activityOverlayView.backgroundColor = [UIColor colorWithWhite:0.65 alpha:0.5];
+  activityOverlayView.autoresizingMask =
+      (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+  self.activityOverlayView = activityOverlayView;
+  UIActivityIndicatorView *activityIndicatorView = [
+      [UIActivityIndicatorView alloc]
+      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+  activityIndicatorView.center =
+      CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+  activityIndicatorView.autoresizingMask =
+      (UIViewAutoresizingFlexibleTopMargin |
+       UIViewAutoresizingFlexibleRightMargin |
+       UIViewAutoresizingFlexibleBottomMargin |
+       UIViewAutoresizingFlexibleLeftMargin);
+        [activityOverlayView addSubview:activityIndicatorView];
+	[view addSubview:activityOverlayView];
+	[activityIndicatorView startAnimating];
+}
+
+- (void)_stopActivityIndicator {
+	self.activityOverlayView = nil;
 }
 
 @end
