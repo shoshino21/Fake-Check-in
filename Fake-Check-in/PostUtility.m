@@ -8,8 +8,7 @@
 
 //  備註：
 //  由於Facebook Graph API 2.x的先天限制，
-//  (以/me/feed發表時不能放圖片，只能放已存在的圖片連結。
-//   以/me/photos發表時不能標記好友和地點)
+//  (以/me/feed發表時不能放圖片，只能放已存在的圖片連結；以/me/photos發表時則不能標記好友和地點)
 //  因此先將圖片上傳至imgur，再將連結放入Facebook的參數中
 
 #import "PostUtility.h"
@@ -19,7 +18,7 @@
 
 @interface PostUtility ()
 
-@property(nonatomic, strong) NSMutableDictionary* parameters;
+@property(nonatomic, strong) NSMutableDictionary *parameters;
 
 //- (void)_checkForPermission;
 //- (void)_uploadPhotoToImgur;
@@ -28,16 +27,19 @@
 @end
 
 @implementation PostUtility {
-  NSString* _message;
-  NSString* _place;
-  NSArray* _friends;
-  UIImage* _photo;
+  NSString *_message;
+  NSString *_place;
+  NSArray *_friends;
+  UIImage *_photo;
   //  NSMutableDictionary* _parameters;
 }
 
 #pragma mark - Object Lifecycle
 
-- (instancetype)initWithMessage:(NSString*)message place:(NSString*)place friends:(NSArray*)friends photo:(UIImage*)photo {
+- (instancetype)initWithMessage:(NSString *)message
+                          place:(NSString *)place
+                        friends:(NSArray *)friends
+                          photo:(UIImage *)photo {
   if (self = [super init]) {
     _message = [message copy];
     _place = [place copy];
@@ -55,7 +57,7 @@
 
 #pragma mark - Properties
 
-- (NSMutableDictionary*)parameters {
+- (NSMutableDictionary *)parameters {
   if (!_parameters) {
     _parameters = [NSMutableDictionary dictionary];
 
@@ -68,7 +70,8 @@
     }
     if (_friends.count > 0) {
       // 將朋友名單轉換為csv格式
-      [_parameters setObject:[_friends componentsJoinedByString:@","] forKey:@"tags"];
+      [_parameters setObject:[_friends componentsJoinedByString:@","]
+                      forKey:@"tags"];
     }
   }
   return _parameters;
@@ -86,13 +89,15 @@
   if ([[FBSDKAccessToken currentAccessToken] hasGranted:@"publish_actions"]) {
     [self _uploadPhotoToImgur];
   } else {
-    [[[FBSDKLoginManager alloc] init] logInWithPublishPermissions:@[ @"publish_actions" ] handler:^(FBSDKLoginManagerLoginResult* result, NSError* error) {
-			if ([result.grantedPermissions containsObject:@"publish_actions"]) {
-				[self _uploadPhotoToImgur];
-			}else{
-				// 通知user必須取得權限才可執行
-				NSLog(@"Need permission");
-			}
+    [[[FBSDKLoginManager alloc] init] logInWithPublishPermissions:@[
+      @"publish_actions"
+    ] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+      if ([result.grantedPermissions containsObject:@"publish_actions"]) {
+        [self _uploadPhotoToImgur];
+      } else {
+        // 通知user必須取得權限才可執行
+        NSLog(@"Need permission");
+      }
     }];
   }
 }
@@ -101,31 +106,31 @@
   if (!_photo) {
     [self _postOnFacebook];
   } else {
-    [[ImgurAnonymousAPIClient client] uploadImage:_photo
-                                     withFilename:nil
-                                completionHandler:^(NSURL* imgurURL, NSError* error) {
-																	if (!error) {
-																		NSLog(@"Upload Photo Completed.");
-																		[self.parameters setObject:imgurURL forKey:@"link"];
-																		[self _postOnFacebook];
-																	}else{
-																		NSLog(@"Upload Photo Error: %@",error);
-																	}
-                                }];
+    [[ImgurAnonymousAPIClient client]
+              uploadImage:_photo
+             withFilename:nil
+        completionHandler:^(NSURL *imgurURL, NSError *error) {
+          if (!error) {
+            [self.parameters setObject:imgurURL forKey:@"link"];
+            [self _postOnFacebook];
+          } else {
+            NSLog(@"Upload Photo Error: %@", error);
+          }
+        }];
   }
 }
 
 - (void)_postOnFacebook {
-  [[[FBSDKGraphRequest alloc]
-      initWithGraphPath:@"/me/feed"
-             parameters:self.parameters
-             HTTPMethod:@"POST"]
-      startWithCompletionHandler:^(FBSDKGraphRequestConnection* connection, id result, NSError* error) {
-		 if (!error) {
-			 NSLog(@"Post id:%@", result[@"id"]);
-		 } else {
-			 NSLog(@"Post Error:%@",error);
-		 }
+  [[[FBSDKGraphRequest alloc] initWithGraphPath:@"/me/feed"
+                                     parameters:self.parameters
+                                     HTTPMethod:@"POST"]
+      startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
+                                   id result, NSError *error) {
+        if (!error) {
+          NSLog(@"Post id:%@", result[@"id"]);
+        } else {
+          NSLog(@"Post Error:%@", error);
+        }
       }];
 }
 

@@ -17,6 +17,8 @@
 
 + (id)sharedStatus;
 
-+ (void)showAlertMessageWithTitle:(NSString *)title message:(NSString *)message inViewController:(UIViewController *)viewController;
++ (void)showAlertMessageWithTitle:(NSString *)title
+                          message:(NSString *)message
+                 inViewController:(UIViewController *)viewController;
 
 @end

@@ -56,7 +56,8 @@
   [self.locationManager stopUpdatingLocation];
 
   // 跳出時儲存最後所在的座標位置
-  [[Common sharedStatus] setLastSelectedCoordinate:self.mapView.centerCoordinate];
+  [[Common sharedStatus]
+      setLastSelectedCoordinate:self.mapView.centerCoordinate];
 }
 
 #pragma mark - Actions
@@ -74,16 +75,21 @@
   request.naturalLanguageQuery = self.searchTextField.text;
   MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
 
-  [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
-		if (error) {
-			[Common showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！" inViewController:self];
-		} else if ([response.mapItems count] == 0){
-			[Common showAlertMessageWithTitle:@"找不到地標" message:@"找不到您想找的地標！" inViewController:self];
-		} else {
-			// 直接取第一項搜尋結果的座標
-			MKMapItem *firstResult = [response.mapItems objectAtIndex:0];
-			self.mapView.centerCoordinate = firstResult.placemark.coordinate;
-		}
+  [search startWithCompletionHandler:^(MKLocalSearchResponse *response,
+                                       NSError *error) {
+    if (error) {
+      [Common showAlertMessageWithTitle:@"找不到地標"
+                                message:@"找不到您想找的地標！"
+                       inViewController:self];
+    } else if ([response.mapItems count] == 0) {
+      [Common showAlertMessageWithTitle:@"找不到地標"
+                                message:@"找不到您想找的地標！"
+                       inViewController:self];
+    } else {
+      // 直接取第一項搜尋結果的座標
+      MKMapItem *firstResult = [response.mapItems objectAtIndex:0];
+      self.mapView.centerCoordinate = firstResult.placemark.coordinate;
+    }
   }];
 }
 
@@ -92,7 +98,8 @@
 
 #pragma mark - CLLocationManagerDelegate
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+- (void)locationManager:(CLLocationManager *)manager
+     didUpdateLocations:(NSArray *)locations {
   // 初次啟動MapView時儲存使用者所在位置，以便於viewDidAppear:讀出
   if ([[Common sharedStatus] isMapViewFirstStartUp]) {
     CLLocation *newLocation = [locations lastObject];
@@ -105,7 +112,7 @@
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
   if (error) {
-    [Common showAlertMessageWithTitle:@"讀取地圖資訊錯誤" message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！" inViewController:self];
+    [Common showAlertMessageWithTitle:@"讀取地圖資訊錯誤" message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"			inViewController:self];
   }
 }
 

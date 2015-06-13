@@ -21,7 +21,8 @@
   [FBSDKAppEvents activateApp];
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // 必須設定才能正確更新Profile
   [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
 
@@ -29,11 +30,15 @@
                                   didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-  return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                        openURL:url
-                                              sourceApplication:sourceApplication
-                                                     annotation:annotation];
+- (BOOL)application:(UIApplication *)application
+              openURL:(NSURL *)url
+    sourceApplication:(NSString *)sourceApplication
+           annotation:(id)annotation {
+  return
+      [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                     openURL:url
+                                           sourceApplication:sourceApplication
+                                                  annotation:annotation];
 }
 
 @end

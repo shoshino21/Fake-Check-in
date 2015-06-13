@@ -17,9 +17,12 @@
 - (FBSDKGraphRequest *)request {
   // lazy accessor
   if (!super.request) {
-    NSDictionary *parameters = @{ @"fields" : @"id,name,picture.width(100).height(100)" };
-    super.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/taggable_friends?limit=100"
-                                                      parameters:parameters];
+    NSDictionary *parameters = @{
+      @"fields" : @"id,name,picture.width(100).height(100)"
+    };
+    super.request = [[FBSDKGraphRequest alloc]
+        initWithGraphPath:@"me/taggable_friends?limit=100"
+               parameters:parameters];
   }
   return super.request;
 }
@@ -37,14 +40,15 @@
   // 確認是否已獲得擷取好友名單的權限，若無則進行要求
   if (![[FBSDKAccessToken currentAccessToken] hasGranted:@"user_friends"]) {
     FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-    [login logInWithReadPermissions:@[ @"user_friends" ]
-                            handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-															if ([result.grantedPermissions containsObject:@"user_friends"]) {
-																[super fetchData];
-															} else {
-																[self dismissViewControllerAnimated:YES completion:NULL];
-															}
-                            }];
+    [login logInWithReadPermissions:@[
+      @"user_friends"
+    ] handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+      if ([result.grantedPermissions containsObject:@"user_friends"]) {
+        [super fetchData];
+      } else {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+      }
+    }];
   } else {
     [super fetchData];
   }

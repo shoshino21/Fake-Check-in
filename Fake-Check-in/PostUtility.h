@@ -16,7 +16,10 @@
 
 @property(nonatomic, weak) id<PostUtilityDelegate> delegate;
 
-- (instancetype)initWithMessage:(NSString *)message place:(NSString *)place friends:(NSArray *)friends photo:(UIImage *)photo;
+- (instancetype)initWithMessage:(NSString *)message
+                          place:(NSString *)place
+                        friends:(NSArray *)friends
+                          photo:(UIImage *)photo;
 
 - (void)start;
 
@@ -26,7 +29,8 @@
 
 - (void)PostUtilityWillShare:(PostUtility *)PostUtility;
 - (void)PostUtilityDidCompleteShare:(PostUtility *)PostUtility;
-- (void)PostUtility:(PostUtility *)PostUtility didFailWithError:(NSError *)error;
+- (void)PostUtility:(PostUtility *)PostUtility
+    didFailWithError:(NSError *)error;
 //- (void)PostUtilityUserShouldLogin:(PostUtility *)PostUtility;
 
 @end
