@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
@@ -13,33 +13,36 @@
                         <viewControllerLayoutGuide type="bottom" id="jcn-mg-ZGO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kN1-JG-zpr" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="50" y="262" width="220" height="44"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kN1-JG-zpr" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="175" y="278" width="250" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="2K3-9h-XYb">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="400"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="44" id="t0S-pu-48d">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="60"/>
+                                    </constraint>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYc-Vg-C3n">
-                                <rect key="frame" x="129" y="192" width="62" height="30"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="continueButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mtf-n2-HxM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="kN1-JG-zpr" secondAttribute="centerY" id="bEn-Oo-SDp"/>
+                            <constraint firstAttribute="centerX" secondItem="kN1-JG-zpr" secondAttribute="centerX" id="r75-cf-6mk"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="loginButton" destination="kN1-JG-zpr" id="oO5-zh-9iK"/>
-                        <segue destination="mGt-p7-14Z" kind="modal" identifier="showMain" modalTransitionStyle="flipHorizontal" id="M7k-dk-xTQ"/>
+                        <segue destination="mGt-p7-14Z" kind="presentation" identifier="showMain" modalTransitionStyle="flipHorizontal" id="M7k-dk-xTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24.533333333333331" y="215.84"/>
+            <point key="canvasLocation" x="-46" y="228"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Zcu-OS-PsW">
@@ -50,7 +53,7 @@
                         <viewControllerLayoutGuide type="bottom" id="T8t-GH-21L"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ri8-vn-fNw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QSg-cD-mUL">
@@ -87,7 +90,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Bdd-yU-3u8" kind="modal" identifier="showMapView" id="6Rr-bu-obm"/>
+                                    <segue destination="Bdd-yU-3u8" kind="presentation" identifier="showMapView" id="6Rr-bu-obm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-pU-ml7">
@@ -119,7 +122,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="h0Q-3r-zmz" kind="modal" identifier="showFriendsPicker" id="ShW-ka-264"/>
+                                    <segue destination="h0Q-3r-zmz" kind="presentation" identifier="showFriendsPicker" id="ShW-ka-264"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Wm-rU-j8A">
@@ -145,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ld0-py-NF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="215"/>
+            <point key="canvasLocation" x="690" y="227.11267605633802"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="9bd-nu-CtD">
@@ -156,7 +159,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qLk-bg-YyZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Daz-Q7-dlh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lio-6B-oeS">
@@ -173,7 +176,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aK5-oH-nQt" kind="modal" identifier="showLocationPicker" id="Clu-po-per"/>
+                                    <segue destination="aK5-oH-nQt" kind="presentation" identifier="showLocationPicker" id="Clu-po-per"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nod-6o-wKT">
@@ -182,7 +185,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="52U-YB-xAF" kind="unwind" identifier="mapViewBack" unwindAction="unwindSegueToMainView:" id="1TH-pB-V1I"/>
+                                    <segue destination="52U-YB-xAF" kind="unwind" identifier="mapViewBack" unwindAction="backToMainView:" id="1TH-pB-V1I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0H-HF-eDF">
@@ -220,14 +223,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I3-1U-wpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="52U-YB-xAF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="368" y="883"/>
+            <point key="canvasLocation" x="690" y="932.74647887323943"/>
         </scene>
         <!--Friends Picker Table View Controller-->
         <scene sceneID="Hbv-tw-ArK">
             <objects>
                 <tableViewController id="R0U-Ii-Q6S" customClass="FriendsPickerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0vL-iO-MUw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -246,12 +249,12 @@
                     <navigationItem key="navigationItem" id="6VS-1c-DeU">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="ds4-4F-tdu">
                             <connections>
-                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerCancel" unwindAction="unwindSegueToMainView:" id="0wX-oV-MfE"/>
+                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerCancel" unwindAction="backToMainView:" id="0wX-oV-MfE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="OK" id="6uz-ia-JUP">
                             <connections>
-                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerOK" unwindAction="unwindSegueToMainView:" id="skH-lD-dcQ"/>
+                                <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerOK" unwindAction="backToMainView:" id="skH-lD-dcQ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -259,14 +262,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b7-h8-mjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yf4-nX-LJe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="215"/>
+            <point key="canvasLocation" x="2182.5" y="227.11267605633802"/>
         </scene>
         <!--Location Picker Table View Controller-->
         <scene sceneID="4AH-wG-HrP">
             <objects>
                 <tableViewController id="o7c-j5-ZcD" customClass="LocationPickerTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4A1-pT-ejX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -285,12 +288,12 @@
                     <navigationItem key="navigationItem" id="Y2N-08-e0o">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="Py7-Ki-XdD">
                             <connections>
-                                <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationPickerCancel" unwindAction="unwindSegueToMapView:" id="YJ1-qy-UgR"/>
+                                <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationPickerCancel" unwindAction="backToMapView:" id="YJ1-qy-UgR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="OK" id="Pbk-Qz-YXN">
                             <connections>
-                                <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationPickerOK" unwindAction="unwindSegueToMainView:" id="qPb-nk-DyW"/>
+                                <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationPickerOK" unwindAction="backToMainView:" id="qPb-nk-DyW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -298,7 +301,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oC-E6-TpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6z3-xZ-iZ3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1164" y="883"/>
+            <point key="canvasLocation" x="2182.5" y="932.74647887323943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m1d-TJ-GP1">
@@ -316,7 +319,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEL-eO-vPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="883"/>
+            <point key="canvasLocation" x="1432.5" y="932.74647887323943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dty-Kn-o50">
@@ -334,12 +337,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50G-IE-oYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="764" y="215"/>
+            <point key="canvasLocation" x="1432.5" y="227.11267605633802"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

@@ -15,6 +15,6 @@
 @property(weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(weak, nonatomic) IBOutlet UITextField *searchTextField;
 
-- (IBAction)unwindSegueToMapView:(UIStoryboardSegue *)segue;
+- (IBAction)backToMapView:(UIStoryboardSegue *)segue;
 
 @end

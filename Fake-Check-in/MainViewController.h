@@ -28,7 +28,7 @@
 
 @property(weak, nonatomic) IBOutlet UIButton* checkinButton;
 
-- (IBAction)unwindSegueToMainView:(UIStoryboardSegue*)segue;
+- (IBAction)backToMainView:(UIStoryboardSegue*)segue;
 //- (IBAction)pickPhoto:(id)sender;
 
 @end

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface LoginViewController : UIViewController<FBSDKLoginButtonDelegate>
 
 @property(strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+
+- (IBAction)backToLoginView:(UIStoryboardSegue*)segue;
 
 @end

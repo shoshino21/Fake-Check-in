@@ -22,6 +22,8 @@
 @property(nonatomic, strong) NSArray *pickedFriends;
 @property(nonatomic, strong) UIImage *pickedPhoto;
 @property(nonatomic, strong) PostUtility *postUtility;
+
+#warning temp
 @property(nonatomic, strong) UIView *activityOverlayView;
 
 @end
@@ -81,8 +83,8 @@
 
 #pragma mark - Actions
 
-- (IBAction)unwindSegueToMainView:(UIStoryboardSegue *)segue {
-  // 選擇地點 or 朋友之後進行處理
+- (IBAction)backToMainView:(UIStoryboardSegue *)segue {
+  // 選完地點or朋友之後進行處理
   NSString *identifier = segue.identifier;
   if ([identifier isEqualToString:@"locationPickerOK"]) {
     [self _processLocation:segue.sourceViewController];

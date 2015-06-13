@@ -93,7 +93,7 @@
   }];
 }
 
-- (IBAction)unwindSegueToMapView:(UIStoryboardSegue *)segue {
+- (IBAction)backToMapView:(UIStoryboardSegue *)segue {
 }
 
 #pragma mark - CLLocationManagerDelegate
