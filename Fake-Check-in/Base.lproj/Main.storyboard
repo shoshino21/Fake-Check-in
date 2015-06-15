@@ -28,14 +28,39 @@
                                     </constraint>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wki-dz-czI">
+                                <rect key="frame" x="175" y="367" width="250" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.9803922176361084" blue="0.93725496530532837" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="4Uo-5M-ppF"/>
+                                    <constraint firstAttribute="height" constant="36" id="GNo-W7-alL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czM-OX-6Lx">
+                                <rect key="frame" x="277" y="180" width="59" height="30"/>
+                                <state key="normal" title="Go Main">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goMain:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B1Y-Z2-Hf2"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0" green="0.77647066116333008" blue="0.57254904508590698" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Wki-dz-czI" secondAttribute="centerX" id="CXm-wo-adm"/>
                             <constraint firstAttribute="centerY" secondItem="kN1-JG-zpr" secondAttribute="centerY" id="bEn-Oo-SDp"/>
                             <constraint firstAttribute="centerX" secondItem="kN1-JG-zpr" secondAttribute="centerX" id="r75-cf-6mk"/>
+                            <constraint firstItem="Wki-dz-czI" firstAttribute="top" secondItem="kN1-JG-zpr" secondAttribute="bottom" constant="45" id="s9s-tr-ymv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backToMainButton" destination="Wki-dz-czI" id="NST-be-PZv"/>
                         <outlet property="loginButton" destination="kN1-JG-zpr" id="oO5-zh-9iK"/>
                         <segue destination="mGt-p7-14Z" kind="presentation" identifier="showMain" modalTransitionStyle="flipHorizontal" id="M7k-dk-xTQ"/>
                     </connections>

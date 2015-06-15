@@ -18,8 +18,8 @@
 //@end
 
 @implementation LoginViewController {
-//  BOOL _viewDidAppear;
-//  BOOL _viewIsVisible;
+  //  BOOL _viewDidAppear;
+  //  BOOL _viewIsVisible;
 }
 
 - (void)viewDidLoad {
@@ -30,13 +30,14 @@
   self.loginButton.readPermissions = @[ @"public_profile", @"user_friends" ];
 }
 
-#warning 這邊到時候可能要參考sample做一些判斷?
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-
+  //
   if ([FBSDKAccessToken currentAccessToken]) {
     [self performSegueWithIdentifier:@"showMain" sender:self];
   }
+  //
+  //  self.backToMainButton.hidden = YES;
   //  if (_viewDidAppear) {
   //		_viewIsVisible = YES;
   //  }
@@ -79,6 +80,11 @@
 
 - (IBAction)backToLoginView:(UIStoryboardSegue *)segue {
   // 跳回登入畫面用
+}
+- (IBAction)goMain:(id)sender {
+  if ([FBSDKAccessToken currentAccessToken]) {
+    [self performSegueWithIdentifier:@"showMain" sender:self];
+  }
 }
 
 //#warning 設定直接登入，測試用

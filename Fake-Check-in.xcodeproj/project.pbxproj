@@ -258,6 +258,7 @@
 				TargetAttributes = {
 					EF1E99781B0E77640062C84E = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = LR499G2396;
 					};
 					EF1E99911B0E77640062C84E = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -460,6 +461,8 @@
 			baseConfigurationReference = DBEB8C882D7158EEFDEC09BE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/shoshino21/Documents/FacebookSDK,
@@ -472,6 +475,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -481,6 +485,8 @@
 			baseConfigurationReference = 98F26ACC26B6A88814774907 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/shoshino21/Documents/FacebookSDK,
@@ -493,6 +499,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
