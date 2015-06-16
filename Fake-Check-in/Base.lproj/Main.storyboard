@@ -87,17 +87,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAM-cE-qK0">
-                                <rect key="frame" x="154" y="341" width="150" height="30"/>
-                                <color key="backgroundColor" red="0.54509806630000002" green="0.45490199329999997" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Check-in">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="checkin:" destination="mGt-p7-14Z" eventType="touchUpInside" id="JM7-90-tyv"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkQ-1g-Gj4" customClass="FBSDKProfilePictureView">
                                 <rect key="frame" x="16" y="16" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,75 +94,28 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-iG-5cd">
                                 <rect key="frame" x="134" y="16" width="170" height="82"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-bG-yn0">
-                                <rect key="frame" x="16" y="218" width="130" height="50"/>
-                                <color key="backgroundColor" red="0.81176477670000002" green="0.95686280729999995" blue="0.15294118230000001" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Pick Location">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znZ-E2-IQG">
+                                <rect key="frame" x="16" y="330" width="64" height="64"/>
+                                <state key="normal" image="icon-photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Bdd-yU-3u8" kind="presentation" identifier="showMapView" id="6Rr-bu-obm"/>
-                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9d-pU-ml7">
-                                <rect key="frame" x="16" y="322" width="130" height="50"/>
-                                <color key="backgroundColor" red="0.81176477670000002" green="0.95686280729999995" blue="0.15294118230000001" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Pick Photo">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pickPhoto:" destination="mGt-p7-14Z" eventType="touchUpInside" id="6YV-S1-RUP"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-lz-Wpm">
-                                <rect key="frame" x="16" y="276" width="130" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAX-EW-BNF">
-                                <rect key="frame" x="167" y="276" width="130" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dh9-vi-s60">
-                                <rect key="frame" x="167" y="218" width="130" height="50"/>
-                                <color key="backgroundColor" red="0.81176477670000002" green="0.95686280729999995" blue="0.15294118230000001" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Pick Friends">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="h0Q-3r-zmz" kind="presentation" identifier="showFriendsPicker" id="ShW-ka-264"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Wm-rU-j8A">
-                                <rect key="frame" x="31" y="381" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.70137676706724594" green="0.96649670600891113" blue="0.92920930381762168" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.29443106469409147" green="0.41002908645581237" blue="0.71910580993761131" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cek-mm-jXF"/>
                     <connections>
-                        <outlet property="checkinButton" destination="yAM-cE-qK0" id="LRb-aQ-TBo"/>
-                        <outlet property="friendsButton" destination="dh9-vi-s60" id="yv1-NP-hty"/>
-                        <outlet property="friendsLabel" destination="UAX-EW-BNF" id="tt5-3u-8iN"/>
-                        <outlet property="locationButton" destination="AUA-bG-yn0" id="2b4-D7-rKs"/>
-                        <outlet property="locationLabel" destination="YTs-lz-Wpm" id="iK6-dT-soa"/>
                         <outlet property="messageTextView" destination="QSg-cD-mUL" id="9Y5-h4-paZ"/>
-                        <outlet property="photoButton" destination="K9d-pU-ml7" id="cgu-d7-jYa"/>
-                        <outlet property="photoImageView" destination="6Wm-rU-j8A" id="4Cq-AO-x4r"/>
                         <outlet property="profileNameLabel" destination="zfP-iG-5cd" id="ztK-gA-YC6"/>
                         <outlet property="profilePictureView" destination="zkQ-1g-Gj4" id="mBC-jX-kJU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ld0-py-NF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="227.11267605633802"/>
+            <point key="canvasLocation" x="690" y="227"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="9bd-nu-CtD">
@@ -365,4 +307,7 @@
             <point key="canvasLocation" x="1432.5" y="227.11267605633802"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-photo" width="128" height="128"/>
+    </resources>
 </document>
