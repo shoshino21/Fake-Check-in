@@ -33,9 +33,9 @@
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   //
-  if ([FBSDKAccessToken currentAccessToken]) {
-    [self performSegueWithIdentifier:@"showMain" sender:self];
-  }
+//  if ([FBSDKAccessToken currentAccessToken]) {
+//    [self performSegueWithIdentifier:@"showMain" sender:self];
+//  }
   //
   //  self.backToMainButton.hidden = YES;
   //  if (_viewDidAppear) {
@@ -63,8 +63,8 @@
   if (error) {
     //    NSLog(@"Login error: %@", error);
     [Common
-        showAlertMessageWithTitle:@"登入錯誤"
-                          message:@"登入發生錯誤，請稍候再試一次"
+        showAlertMessageWithTitle:nil
+                          message:@"登入時發生錯誤，請稍候再試！"
                  inViewController:self];
   } else {
     [self performSegueWithIdentifier:@"showMain" sender:self];

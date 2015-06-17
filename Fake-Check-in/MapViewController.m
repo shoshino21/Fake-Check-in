@@ -64,7 +64,7 @@
 
 - (IBAction)showMyLocationButton:(UIButton *)sender {
   CLLocationCoordinate2D userCoordinate = self.mapView.userLocation.coordinate;
-#warning 用simulator常因抓不到點而誤跑到零座標，姑且先攔下，之後再用實機測試看看
+  // 用模擬器測試時常因抓不到座標而誤跑到零座標，故姑且攔下。實機測試時是OK的
   if (userCoordinate.latitude != 0 || userCoordinate.longitude != 0) {
     self.mapView.centerCoordinate = userCoordinate;
   }
@@ -78,11 +78,11 @@
   [search startWithCompletionHandler:^(MKLocalSearchResponse *response,
                                        NSError *error) {
     if (error) {
-      [Common showAlertMessageWithTitle:@"找不到地標"
+      [Common showAlertMessageWithTitle:nil
                                 message:@"找不到您想找的地標！"
                        inViewController:self];
     } else if ([response.mapItems count] == 0) {
-      [Common showAlertMessageWithTitle:@"找不到地標"
+      [Common showAlertMessageWithTitle:nil
                                 message:@"找不到您想找的地標！"
                        inViewController:self];
     } else {
@@ -94,6 +94,15 @@
 }
 
 - (IBAction)backToMapView:(UIStoryboardSegue *)segue {
+}
+
+#pragma mark - Methods
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+  // 點擊空白處關閉虛擬鍵盤
+  if (![self.searchTextField isExclusiveTouch]) {
+    [self.searchTextField resignFirstResponder];
+  }
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -110,9 +119,12 @@
 
 #pragma mark - MKMapViewDelegate
 
-- (void)mapViewDidFailLoadingMap:(MKMapView *)mapView withError:(NSError *)error {
+- (void)mapViewDidFailLoadingMap:(MKMapView *)mapView
+                       withError:(NSError *)error {
   if (error) {
-    [Common showAlertMessageWithTitle:@"讀取地圖資訊錯誤" message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"			inViewController:self];
+    [Common showAlertMessageWithTitle:nil
+                              message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"
+                     inViewController:self];
   }
 }
 

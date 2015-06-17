@@ -18,7 +18,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kN1-JG-zpr" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="175" y="278" width="250" height="44"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="2K3-9h-XYb">
                                         <variation key="heightClass=regular-widthClass=regular" constant="400"/>
@@ -28,46 +27,51 @@
                                     </constraint>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wki-dz-czI">
-                                <rect key="frame" x="175" y="367" width="250" height="36"/>
-                                <color key="backgroundColor" red="0.0" green="0.9803922176361084" blue="0.93725496530532837" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="4Uo-5M-ppF"/>
-                                    <constraint firstAttribute="height" constant="36" id="GNo-W7-alL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czM-OX-6Lx">
-                                <rect key="frame" x="277" y="180" width="59" height="30"/>
-                                <state key="normal" title="Go Main">
+                                <rect key="frame" x="236" y="199" width="129" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <state key="normal" title="繼續使用">
+                                    <color key="titleColor" white="1" alpha="0.96999999999999997" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="117" y="268" width="166" height="82"/>
+                                </variation>
                                 <connections>
                                     <action selector="goMain:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B1Y-Z2-Hf2"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-NI-aJ0">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="80" y="111" width="240" height="128"/>
+                                </variation>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.77647066116333008" blue="0.57254904508590698" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.29443106470000002" green="0.41002908649999997" blue="0.71910580989999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="Wki-dz-czI" secondAttribute="centerX" id="CXm-wo-adm"/>
                             <constraint firstAttribute="centerY" secondItem="kN1-JG-zpr" secondAttribute="centerY" id="bEn-Oo-SDp"/>
                             <constraint firstAttribute="centerX" secondItem="kN1-JG-zpr" secondAttribute="centerX" id="r75-cf-6mk"/>
-                            <constraint firstItem="Wki-dz-czI" firstAttribute="top" secondItem="kN1-JG-zpr" secondAttribute="bottom" constant="45" id="s9s-tr-ymv"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="pGe-NI-aJ0"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="pGe-NI-aJ0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="backToMainButton" destination="Wki-dz-czI" id="NST-be-PZv"/>
                         <outlet property="loginButton" destination="kN1-JG-zpr" id="oO5-zh-9iK"/>
                         <segue destination="mGt-p7-14Z" kind="presentation" identifier="showMain" modalTransitionStyle="flipHorizontal" id="M7k-dk-xTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="228"/>
+            <point key="canvasLocation" x="-48" y="228"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Zcu-OS-PsW">
@@ -81,45 +85,148 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QSg-cD-mUL">
-                                <rect key="frame" x="16" y="124" width="288" height="76"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GzU-4j-DUk">
+                                <rect key="frame" x="299" y="190" width="258" height="76"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="116" y="192" width="258" height="76"/>
+                                </variation>
                             </textView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zkQ-1g-Gj4" customClass="FBSDKProfilePictureView">
-                                <rect key="frame" x="16" y="16" width="100" height="100"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cCD-a2-fiy" customClass="FBSDKProfilePictureView">
+                                <rect key="frame" x="16" y="20" width="32" height="32"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="20" width="32" height="32"/>
+                                </variation>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfP-iG-5cd">
-                                <rect key="frame" x="134" y="16" width="170" height="82"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znZ-E2-IQG">
-                                <rect key="frame" x="25" y="232" width="326" height="205"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZY-Ib-IAY">
+                                <rect key="frame" x="26" y="252" width="215" height="103"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
                                 </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="  選好友" image="icon-friends">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="203" width="215" height="103"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="13" y="308" width="189" height="103"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="h0Q-3r-zmz" kind="popoverPresentation" popoverAnchorView="fZY-Ib-IAY" id="zah-DF-ZBH">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQE-eA-JFj">
+                                <rect key="frame" x="26" y="381" width="215" height="103"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="  選照片" image="icon-photo">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="203" width="215" height="103"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="399" width="215" height="103"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tET-t5-SeH">
+                                <rect key="frame" x="355" y="274" width="64" height="64"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="L9X-m3-0T8"/>
+                                    <constraint firstAttribute="height" constant="64" id="d7h-FW-jl4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" image="icon-message">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="L9X-m3-0T8"/>
+                                        <exclude reference="d7h-FW-jl4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="203" width="215" height="103"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="44" y="198" width="64" height="64"/>
+                                    <mask key="constraints">
+                                        <include reference="L9X-m3-0T8"/>
+                                        <include reference="d7h-FW-jl4"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Smt-yh-eUt">
+                                <rect key="frame" x="64" y="20" width="200" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="56" y="20" width="200" height="32"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZU-nE-elu">
+                                <rect key="frame" x="110" y="98" width="380" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="   想去哪裡打卡呢？" image="icon-location">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="203" width="215" height="103"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="21" y="102" width="359" height="64"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="Bdd-yU-3u8" kind="presentation" id="70n-kh-2Y4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgg-tV-Aze">
+                                <rect key="frame" x="110" y="98" width="380" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                                <state key="normal" title=" 打卡！" image="icon-checkin">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.96999999999999997" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="203" width="215" height="103"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="25" y="656" width="359" height="64"/>
+                                </variation>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29443106469409147" green="0.41002908645581237" blue="0.71910580993761131" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lgg-tV-Aze"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="lgg-tV-Aze"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="Cek-mm-jXF"/>
-                    <connections>
-                        <outlet property="messageTextView" destination="QSg-cD-mUL" id="9Y5-h4-paZ"/>
-                        <outlet property="profileNameLabel" destination="zfP-iG-5cd" id="ztK-gA-YC6"/>
-                        <outlet property="profilePictureView" destination="zkQ-1g-Gj4" id="mBC-jX-kJU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ld0-py-NF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="227"/>
+            <point key="canvasLocation" x="675" y="228"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="9bd-nu-CtD">
@@ -141,29 +248,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-n8-VVX">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-n8-VVX">
                                 <rect key="frame" x="127" y="419" width="66" height="30"/>
-                                <state key="normal" title="Check-in!">
+                                <state key="normal" image="icon-checkin">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="139" y="414" width="42" height="42"/>
+                                </variation>
                                 <connections>
                                     <segue destination="aK5-oH-nQt" kind="presentation" identifier="showLocationPicker" id="Clu-po-per"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nod-6o-wKT">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nod-6o-wKT">
                                 <rect key="frame" x="16" y="419" width="35" height="30"/>
-                                <state key="normal" title="Back">
+                                <state key="normal" image="icon-back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="419" width="32" height="32"/>
+                                </variation>
                                 <connections>
                                     <segue destination="52U-YB-xAF" kind="unwind" identifier="mapViewBack" unwindAction="backToMainView:" id="1TH-pB-V1I"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0H-HF-eDF">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0H-HF-eDF">
                                 <rect key="frame" x="239" y="419" width="81" height="30"/>
-                                <state key="normal" title="MyLocation">
+                                <state key="normal" image="icon-home">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="276" y="419" width="30" height="30"/>
+                                </variation>
                                 <connections>
                                     <action selector="showMyLocationButton:" destination="Bdd-yU-3u8" eventType="touchUpInside" id="SY5-7B-ZgW"/>
                                 </connections>
@@ -171,20 +287,41 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="＋" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sf2-LG-vz7">
                                 <rect key="frame" x="152" y="231" width="17" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.23137254900000001" green="0.32156862749999998" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-cU-u9M">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-cU-u9M">
                                 <rect key="frame" x="264" y="29" width="50" height="40"/>
-                                <state key="normal" title="Search"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="264" y="29" width="22" height="22"/>
+                                </variation>
                                 <connections>
                                     <action selector="searchButton:" destination="Bdd-yU-3u8" eventType="touchUpInside" id="Z7V-Du-Zya"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh2-KB-uRa">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="icon-search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="276" y="35" width="30" height="30"/>
+                                </variation>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.23137254900000001" green="0.32156862749999998" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="vh2-KB-uRa"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="vh2-KB-uRa"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="Lio-6B-oeS" id="ofe-b2-UGu"/>
@@ -218,12 +355,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="6VS-1c-DeU">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ds4-4F-tdu">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ds4-4F-tdu">
+                            <color key="tintColor" red="0.23137254900000001" green="0.32156862749999998" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerCancel" unwindAction="backToMainView:" id="0wX-oV-MfE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="OK" id="6uz-ia-JUP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6uz-ia-JUP">
+                            <color key="tintColor" red="0.23137254900000001" green="0.32156862749999998" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsPickerOK" unwindAction="backToMainView:" id="skH-lD-dcQ"/>
                             </connections>
@@ -257,12 +396,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Y2N-08-e0o">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Py7-Ki-XdD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Py7-Ki-XdD">
+                            <color key="tintColor" red="0.23137254900000001" green="0.32156862749999998" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationPickerCancel" unwindAction="backToMapView:" id="YJ1-qy-UgR"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="OK" id="Pbk-Qz-YXN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Pbk-Qz-YXN">
+                            <color key="tintColor" red="0.23137254900000001" green="0.32156862749999998" blue="0.6588235294" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationPickerOK" unwindAction="backToMainView:" id="qPb-nk-DyW"/>
                             </connections>
@@ -312,6 +453,14 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon-back" width="64" height="64"/>
+        <image name="icon-checkin" width="64" height="64"/>
         <image name="icon-friends" width="64" height="64"/>
+        <image name="icon-home" width="64" height="64"/>
+        <image name="icon-location" width="64" height="64"/>
+        <image name="icon-message" width="64" height="64"/>
+        <image name="icon-photo" width="64" height="64"/>
+        <image name="icon-search" width="64" height="64"/>
+        <image name="logo" width="640" height="480"/>
     </resources>
 </document>

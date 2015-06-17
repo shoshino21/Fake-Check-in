@@ -203,7 +203,7 @@
 
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility {
   [self _stopActivityIndicator];
-  [Common showAlertMessageWithTitle:@"發佈成功"
+  [Common showAlertMessageWithTitle:nil
                             message:@"發佈成功！"
                    inViewController:self];
 }
@@ -211,7 +211,7 @@
 - (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error {
   [self _stopActivityIndicator];
-  [Common showAlertMessageWithTitle:@"發佈失敗"
+  [Common showAlertMessageWithTitle:nil
                             message:@"發佈時發生錯誤！"
                    inViewController:self];
 }
