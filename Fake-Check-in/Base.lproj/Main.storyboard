@@ -107,25 +107,17 @@
                                     <rect key="frame" x="0.0" y="203" width="215" height="103"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="399" width="215" height="103"/>
+                                    <rect key="frame" x="5" y="379" width="215" height="103"/>
                                 </variation>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgg-tV-Aze">
-                                <rect key="frame" x="110" y="98" width="380" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title=" 打卡！" image="icon-checkin">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="25" y="656" width="359" height="64"/>
-                                </variation>
+                                <connections>
+                                    <action selector="pickPhoto:" destination="mGt-p7-14Z" eventType="touchUpInside" id="gHa-KC-kNX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZU-nE-elu">
                                 <rect key="frame" x="110" y="98" width="380" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="   想去哪裡打卡呢？" image="icon-earth">
+                                <state key="normal" title="   想去哪裡打卡呢？" image="icon-location">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
@@ -156,7 +148,7 @@
                                     <rect key="frame" x="0.0" y="203" width="215" height="103"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="13" y="304" width="189" height="103"/>
+                                    <rect key="frame" x="18" y="277" width="189" height="103"/>
                                 </variation>
                                 <connections>
                                     <segue destination="h0Q-3r-zmz" kind="popoverPresentation" popoverAnchorView="fZY-Ib-IAY" id="zah-DF-ZBH">
@@ -189,11 +181,28 @@
                                     <rect key="frame" x="0.0" y="203" width="215" height="103"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="248" width="182" height="48"/>
+                                    <rect key="frame" x="25" y="204" width="182" height="48"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="355" y="274" width="48" height="48"/>
                                 </variation>
+                                <connections>
+                                    <action selector="addMessage:" destination="mGt-p7-14Z" eventType="touchUpInside" id="EVh-dY-Nwh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgg-tV-Aze">
+                                <rect key="frame" x="110" y="98" width="380" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title=" 打卡！" image="icon-checkin">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="21" y="630" width="359" height="64"/>
+                                </variation>
+                                <connections>
+                                    <action selector="checkin:" destination="mGt-p7-14Z" eventType="touchUpInside" id="5H6-qU-g3R"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29443106470000002" green="0.41002908649999997" blue="0.71910580989999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -443,9 +452,9 @@
     <resources>
         <image name="icon-back" width="48" height="48"/>
         <image name="icon-checkin" width="48" height="48"/>
-        <image name="icon-earth" width="48" height="48"/>
         <image name="icon-friends" width="64" height="64"/>
         <image name="icon-home" width="48" height="48"/>
+        <image name="icon-location" width="48" height="48"/>
         <image name="icon-message" width="48" height="48"/>
         <image name="icon-photo" width="64" height="64"/>
         <image name="icon-search" width="48" height="48"/>

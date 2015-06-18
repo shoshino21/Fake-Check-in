@@ -17,14 +17,14 @@
                                   UIImagePickerControllerDelegate,
                                   PostUtilityDelegate>
 
-//@property(nonatomic, copy) NSString* _messageToPost;
+@property(nonatomic, copy) NSString *messageToPost;
 @property(nonatomic, copy) NSString *pickedLocation;
 @property(nonatomic, strong) NSArray *pickedFriends;
 @property(nonatomic, strong) UIImage *pickedPhoto;
 @property(nonatomic, strong) PostUtility *postUtility;
 
-#warning temp
-@property(nonatomic, strong) UIView *activityOverlayView;
+//#warning temp
+//@property(nonatomic, strong) UIView *activityOverlayView;
 
 @end
 
@@ -45,13 +45,13 @@
 //    // self.checkinButton.enabled = (_pickedLocation != nil);
 //  }
 //}
-#warning Temp
-- (void)setActivityOverlayView:(UIView *)activityOverlayView {
-  if (_activityOverlayView != activityOverlayView) {
-    [_activityOverlayView removeFromSuperview];
-    _activityOverlayView = activityOverlayView;
-  }
-}
+//#warning Temp
+//- (void)setActivityOverlayView:(UIView *)activityOverlayView {
+//  if (_activityOverlayView != activityOverlayView) {
+//    [_activityOverlayView removeFromSuperview];
+//    _activityOverlayView = activityOverlayView;
+//  }
+//}
 
 - (void)setPostUtility:(PostUtility *)postUtility {
   if (![_postUtility isEqual:postUtility]) {
@@ -91,6 +91,13 @@
   } else if ([identifier isEqualToString:@"friendsPickerOK"]) {
     [self _processFriends:segue.sourceViewController];
   }
+}
+
+- (IBAction)addMessage:(id)sender {
+  UIAlertController *alertController =
+      [UIAlertController alertControllerWithTitle:nil
+                                          message:nil
+                                   preferredStyle:UIAlertControllerStyleAlert];
 }
 
 - (IBAction)pickPhoto:(id)sender {
@@ -166,7 +173,7 @@
   //  self.checkinButton.enabled = NO;  // 防止連點按鈕
 
   PostUtility *postUtility =
-      [[PostUtility alloc] initWithMessage:self.messageTextView.text
+      [[PostUtility alloc] initWithMessage:self.messageToPost
                                      place:self.pickedLocation
                                    friends:self.pickedFriends
                                      photo:self.pickedPhoto];
@@ -198,11 +205,11 @@
 #pragma mark - PostUtilityDelegate
 
 - (void)postUtilityWillPost:(PostUtility *)postUtility {
-  [self _startActivityIndicator];
+  //  [self _startActivityIndicator];
 }
 
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility {
-  [self _stopActivityIndicator];
+  //  [self _stopActivityIndicator];
   [Common showAlertMessageWithTitle:nil
                             message:@"發佈成功！"
                    inViewController:self];
@@ -210,7 +217,7 @@
 
 - (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error {
-  [self _stopActivityIndicator];
+  //  [self _stopActivityIndicator];
   [Common showAlertMessageWithTitle:nil
                             message:@"發佈時發生錯誤！"
                    inViewController:self];
@@ -261,34 +268,35 @@
   self.friendsLabel.text = display;
 }
 
-#warning 暫時，之後改用AFNetwork的進度指示器
-
-// NOTE: 顯示轉圈圈進度顯示器，share過程中顯示用的
-- (void)_startActivityIndicator {
-  UIView *view = self.view;
-  CGRect bounds = view.bounds;
-  UIView *activityOverlayView = [[UIView alloc] initWithFrame:bounds];
-  activityOverlayView.backgroundColor = [UIColor colorWithWhite:0.65 alpha:0.5];
-  activityOverlayView.autoresizingMask =
-      (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-  self.activityOverlayView = activityOverlayView;
-  UIActivityIndicatorView *activityIndicatorView = [
-      [UIActivityIndicatorView alloc]
-      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-  activityIndicatorView.center =
-      CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
-  activityIndicatorView.autoresizingMask =
-      (UIViewAutoresizingFlexibleTopMargin |
-       UIViewAutoresizingFlexibleRightMargin |
-       UIViewAutoresizingFlexibleBottomMargin |
-       UIViewAutoresizingFlexibleLeftMargin);
-        [activityOverlayView addSubview:activityIndicatorView];
-	[view addSubview:activityOverlayView];
-	[activityIndicatorView startAnimating];
-}
-
-- (void)_stopActivityIndicator {
-	self.activityOverlayView = nil;
-}
+//#warning 暫時，之後改用AFNetwork的進度指示器
+//
+//// NOTE: 顯示轉圈圈進度顯示器，share過程中顯示用的
+//- (void)_startActivityIndicator {
+//  UIView *view = self.view;
+//  CGRect bounds = view.bounds;
+//  UIView *activityOverlayView = [[UIView alloc] initWithFrame:bounds];
+//  activityOverlayView.backgroundColor = [UIColor colorWithWhite:0.65
+//  alpha:0.5];
+//  activityOverlayView.autoresizingMask =
+//      (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+//  self.activityOverlayView = activityOverlayView;
+//  UIActivityIndicatorView *activityIndicatorView = [
+//      [UIActivityIndicatorView alloc]
+//      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+//  activityIndicatorView.center =
+//      CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+//  activityIndicatorView.autoresizingMask =
+//      (UIViewAutoresizingFlexibleTopMargin |
+//       UIViewAutoresizingFlexibleRightMargin |
+//       UIViewAutoresizingFlexibleBottomMargin |
+//       UIViewAutoresizingFlexibleLeftMargin);
+//        [activityOverlayView addSubview:activityIndicatorView];
+//	[view addSubview:activityOverlayView];
+//	[activityIndicatorView startAnimating];
+//}
+//
+//- (void)_stopActivityIndicator {
+//	self.activityOverlayView = nil;
+//}
 
 @end
