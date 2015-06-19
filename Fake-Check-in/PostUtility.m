@@ -19,7 +19,7 @@
 
 @interface PostUtility ()
 
-@property(nonatomic, strong) NSMutableDictionary *parameters;
+@property(strong, nonatomic) NSMutableDictionary *parameters;
 
 @end
 

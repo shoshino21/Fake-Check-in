@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//#import <FBSDKShareKit/FBSDKShareKit.h>
 
 @protocol PostUtilityDelegate;
 
 @interface PostUtility : NSObject
 
-@property(nonatomic, weak) id<PostUtilityDelegate> delegate;
+@property(weak, nonatomic) id<PostUtilityDelegate> delegate;
 
 - (instancetype)initWithMessage:(NSString *)message
                           place:(NSString *)place

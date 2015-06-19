@@ -11,7 +11,7 @@
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 
-@property(nonatomic, strong, readonly) CLLocationManager *locationManager;
+@property(strong, nonatomic, readonly) CLLocationManager *locationManager;
 
 @end
 

@@ -11,17 +11,18 @@
 #import "Common.h"
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
+#import "MessageEditorViewController.h"
 #import "PostUtility.h"
 
 @interface MainViewController () <UINavigationControllerDelegate,
                                   UIImagePickerControllerDelegate,
                                   PostUtilityDelegate>
 
-@property(nonatomic, copy) NSString *messageToPost;
-@property(nonatomic, copy) NSString *pickedLocation;
-@property(nonatomic, strong) NSArray *pickedFriends;
-@property(nonatomic, strong) UIImage *pickedPhoto;
-@property(nonatomic, strong) PostUtility *postUtility;
+@property(copy, nonatomic) NSString *messageToPost;
+@property(copy, nonatomic) NSString *pickedLocation;
+@property(strong, nonatomic) NSArray *pickedFriends;
+@property(strong, nonatomic) UIImage *pickedPhoto;
+@property(strong, nonatomic) PostUtility *postUtility;
 
 //#warning temp
 //@property(nonatomic, strong) UIView *activityOverlayView;
@@ -70,7 +71,7 @@
   self.profilePictureView.pictureMode = FBSDKProfilePictureModeSquare;
   self.profilePictureView.profileID = @"me";
 
-  // 為使按continue進入系統時也能抓到Profile
+  // 使沿用上次登入進入系統時也能抓到Profile
   [self _updateProfile:nil];
 
   // 顯示使用者名稱 (須用Notification)
@@ -84,20 +85,16 @@
 #pragma mark - Actions
 
 - (IBAction)backToMainView:(UIStoryboardSegue *)segue {
-  // 選完地點or朋友之後進行處理
+  // 供UnwindSegue連結用，並進行相對應處理
   NSString *identifier = segue.identifier;
-  if ([identifier isEqualToString:@"locationPickerOK"]) {
+  if ([identifier isEqualToString:@"locationOK"]) {
     [self _processLocation:segue.sourceViewController];
-  } else if ([identifier isEqualToString:@"friendsPickerOK"]) {
+  } else if ([identifier isEqualToString:@"friendsOK"]) {
     [self _processFriends:segue.sourceViewController];
+  } else if ([identifier isEqualToString:@"messageOK"]) {
+    self.messageToPost = [NSString
+        stringWithString:[segue.sourceViewController messageTextView].text];
   }
-}
-
-- (IBAction)addMessage:(id)sender {
-  UIAlertController *alertController =
-      [UIAlertController alertControllerWithTitle:nil
-                                          message:nil
-                                   preferredStyle:UIAlertControllerStyleAlert];
 }
 
 - (IBAction)pickPhoto:(id)sender {
@@ -187,6 +184,17 @@
 
 #pragma mark - Navigation
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"showMessageEditor"]) {
+    MessageEditorViewController *vc = (MessageEditorViewController *)
+        [[segue destinationViewController] topViewController];
+    // 如果已經有輸入訊息則傳送過去以顯示
+    if (self.messageToPost.length > 0) {
+      vc.currentMessage = [NSString stringWithString:self.messageToPost];
+    }
+  }
+}
+
 #pragma mark - UIImagePickerControllerDelegate
 
 #warning 注意要check FB可接受的照片大小!
@@ -267,6 +275,10 @@
   }
   self.friendsLabel.text = display;
 }
+//
+//- (void)_processMessage:(MessageEditorViewController *)vc {
+//  self.messageToPost = vc.messageTextView.text;
+//}
 
 //#warning 暫時，之後改用AFNetwork的進度指示器
 //
