@@ -19,9 +19,6 @@
 		EF2843B81B2B0B540022055E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B71B2B0B540022055E /* AssetsLibrary.framework */; };
 		EF2843BA1B2B0B7E0022055E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B91B2B0B7E0022055E /* MobileCoreServices.framework */; };
 		EF503F381B33668900377E2A /* MessageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF503F371B33668900377E2A /* MessageEditorViewController.m */; };
-		EFADF9461B0F293F004B26B9 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */; };
-		EFADF9471B0F293F004B26B9 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */; };
-		EFADF9481B0F293F004B26B9 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */; };
 		EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF94D1B0F2B33004B26B9 /* MainViewController.m */; };
 		EFADF9881B0F8295004B26B9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9871B0F8295004B26B9 /* CoreLocation.framework */; };
 		EFADF98A1B0F829D004B26B9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9891B0F829D004B26B9 /* MapKit.framework */; };
@@ -66,9 +63,6 @@
 		EF2843B91B2B0B7E0022055E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		EF503F361B33668900377E2A /* MessageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageEditorViewController.h; sourceTree = "<group>"; };
 		EF503F371B33668900377E2A /* MessageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageEditorViewController.m; sourceTree = "<group>"; };
-		EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../../Documents/FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		EFADF94C1B0F2B33004B26B9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		EFADF94D1B0F2B33004B26B9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		EFADF9871B0F8295004B26B9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -94,9 +88,6 @@
 				EF2843B61B2B0B4A0022055E /* ImageIO.framework in Frameworks */,
 				EFADF98A1B0F829D004B26B9 /* MapKit.framework in Frameworks */,
 				EFADF9881B0F8295004B26B9 /* CoreLocation.framework in Frameworks */,
-				EFADF9461B0F293F004B26B9 /* FBSDKCoreKit.framework in Frameworks */,
-				EFADF9471B0F293F004B26B9 /* FBSDKLoginKit.framework in Frameworks */,
-				EFADF9481B0F293F004B26B9 /* FBSDKShareKit.framework in Frameworks */,
 				FB06C500681ED67B4327235D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,9 +195,6 @@
 				EF2843B51B2B0B4A0022055E /* ImageIO.framework */,
 				EFADF9891B0F829D004B26B9 /* MapKit.framework */,
 				EFADF9871B0F8295004B26B9 /* CoreLocation.framework */,
-				EFADF9431B0F293F004B26B9 /* FBSDKCoreKit.framework */,
-				EFADF9441B0F293F004B26B9 /* FBSDKLoginKit.framework */,
-				EFADF9451B0F293F004B26B9 /* FBSDKShareKit.framework */,
 				FAB9EFF308609313021E3073 /* libPods.a */,
 			);
 			name = Frameworks;
