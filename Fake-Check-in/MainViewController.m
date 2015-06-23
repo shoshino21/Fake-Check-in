@@ -188,7 +188,7 @@
   if ([segue.identifier isEqualToString:@"showMessageEditor"]) {
     MessageEditorViewController *vc = (MessageEditorViewController *)
         [[segue destinationViewController] topViewController];
-    // 如果已經有輸入訊息則傳送過去以顯示
+    // 如果已經輸入過訊息則傳送過去以顯示
     if (self.messageToPost.length > 0) {
       vc.currentMessage = [NSString stringWithString:self.messageToPost];
     }
