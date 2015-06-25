@@ -259,16 +259,21 @@
   } else if (self.pickedFriends.count == 2) {
     display = [NSString stringWithFormat:@"%@、%@", vc.selectedRows[0][@"name"],
                                          vc.selectedRows[1][@"name"]];
-  } else if (self.pickedFriends.count == 3) {
-    display =
-        [NSString stringWithFormat:@"%@、%@、%@", vc.selectedRows[0][@"name"],
-                                   vc.selectedRows[1][@"name"],
-                                   vc.selectedRows[2][@"name"]];
-  } else if (self.pickedFriends.count > 3) {
+    //  } else if (self.pickedFriends.count == 3) {
+    //    display =
+    //        [NSString stringWithFormat:@"%@、%@、%@",
+    //        vc.selectedRows[0][@"name"],
+    //                                   vc.selectedRows[1][@"name"],
+    //                                   vc.selectedRows[2][@"name"]];
+  } else if (self.pickedFriends.count > 2) {
+    //    display = [NSString
+    //        stringWithFormat:@"%@、%@和其他 %lu 人",
+    //        vc.selectedRows[0][@"name"],
+    //                         vc.selectedRows[1][@"name"],
+    //                         (unsigned long)self.pickedFriends.count - 2];
     display = [NSString
-        stringWithFormat:@"%@、%@和其他 %lu 人", vc.selectedRows[0][@"name"],
-                         vc.selectedRows[1][@"name"],
-                         (unsigned long)self.pickedFriends.count - 2];
+        stringWithFormat:@"%@和其他 %lu 人", vc.selectedRows[0][@"name"],
+                         (unsigned long)self.pickedFriends.count - 1];
   } else if (self.pickedFriends == 0) {
     display = nil;
     self.pickedFriends = nil;
