@@ -65,11 +65,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-
-  self.profilePictureView = [[FBSDKProfilePictureView alloc]
-      initWithFrame:self.profilePictureView.bounds];
-  self.profilePictureView.pictureMode = FBSDKProfilePictureModeSquare;
-  self.profilePictureView.profileID = @"me";
+  self.profilePictureButton.profileID = @"me";
 
   // 使沿用上次登入進入系統時也能抓到Profile
   [self _updateProfile:nil];

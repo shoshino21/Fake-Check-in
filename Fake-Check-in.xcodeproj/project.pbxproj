@@ -26,6 +26,7 @@
 		EFADF9901B10BC3B004B26B9 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF98F1B10BC3B004B26B9 /* Common.m */; };
 		EFE176A21B20C226005208FC /* PickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE176A11B20C226005208FC /* PickerTableViewController.m */; };
 		EFE176A51B26FB0A005208FC /* PostUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE176A41B26FB0A005208FC /* PostUtility.m */; };
+		EFE22E941B3DE78900F8CD22 /* ProfilePictureButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE22E931B3DE78900F8CD22 /* ProfilePictureButton.m */; };
 		FB06C500681ED67B4327235D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9EFF308609313021E3073 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		EFE176A11B20C226005208FC /* PickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerTableViewController.m; sourceTree = "<group>"; };
 		EFE176A31B26FB0A005208FC /* PostUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostUtility.h; sourceTree = "<group>"; };
 		EFE176A41B26FB0A005208FC /* PostUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostUtility.m; sourceTree = "<group>"; };
+		EFE22E921B3DE78900F8CD22 /* ProfilePictureButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilePictureButton.h; sourceTree = "<group>"; };
+		EFE22E931B3DE78900F8CD22 /* ProfilePictureButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilePictureButton.m; sourceTree = "<group>"; };
 		FAB9EFF308609313021E3073 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +143,8 @@
 				EFADF98F1B10BC3B004B26B9 /* Common.m */,
 				EFE176A31B26FB0A005208FC /* PostUtility.h */,
 				EFE176A41B26FB0A005208FC /* PostUtility.m */,
+				EFE22E921B3DE78900F8CD22 /* ProfilePictureButton.h */,
+				EFE22E931B3DE78900F8CD22 /* ProfilePictureButton.m */,
 				EF12413A1B1F0E8B009F402F /* Main.storyboard */,
 				EF1E99831B0E77640062C84E /* LoginViewController.h */,
 				EF1E99841B0E77640062C84E /* LoginViewController.m */,
@@ -341,6 +346,7 @@
 				EFE176A21B20C226005208FC /* PickerTableViewController.m in Sources */,
 				EF1E99821B0E77640062C84E /* AppDelegate.m in Sources */,
 				EF1E997F1B0E77640062C84E /* main.m in Sources */,
+				EFE22E941B3DE78900F8CD22 /* ProfilePictureButton.m in Sources */,
 				EFADF98D1B0F88D2004B26B9 /* MapViewController.m in Sources */,
 				EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */,
 				EFADF9901B10BC3B004B26B9 /* Common.m in Sources */,

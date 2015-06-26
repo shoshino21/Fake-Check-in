@@ -40,7 +40,6 @@
     _message = [message copy];
     _place = [place copy];
     _friends = [friends copy];
-#warning 要確認用實機拍照時方向對不對，有可能要加normalize method
     _photo = [photo copy];
   }
   return self;

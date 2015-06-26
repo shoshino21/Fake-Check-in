@@ -79,8 +79,10 @@
 }
 
 - (IBAction)backToLoginView:(UIStoryboardSegue *)segue {
-  // 跳回登入畫面用
+  // 返回登入畫面時用
 }
+
+#warning 是否要改名?
 - (IBAction)goMain:(id)sender {
   if ([FBSDKAccessToken currentAccessToken]) {
     [self performSegueWithIdentifier:@"showMain" sender:self];

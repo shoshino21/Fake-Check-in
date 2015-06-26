@@ -10,13 +10,16 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import "ProfilePictureButton.h"
 
 @interface MainViewController : UIViewController
 
 #warning 到時把一些用不到的東西拿掉(button之類)
 
-@property(strong, nonatomic)
-    IBOutlet FBSDKProfilePictureView* profilePictureView;
+//@property(strong, nonatomic)
+//    IBOutlet FBSDKProfilePictureView* profilePictureView;
+
+@property (weak, nonatomic) IBOutlet ProfilePictureButton *profilePictureButton;
 @property(weak, nonatomic) IBOutlet UILabel* profileNameLabel;
 //@property(strong, nonatomic) IBOutlet UITextView* messageTextView;
 //@property(strong, nonatomic) IBOutlet UIButton* locationButton;
