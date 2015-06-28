@@ -33,9 +33,9 @@
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
   //
-//  if ([FBSDKAccessToken currentAccessToken]) {
-//    [self performSegueWithIdentifier:@"showMain" sender:self];
-//  }
+  //  if ([FBSDKAccessToken currentAccessToken]) {
+  //    [self performSegueWithIdentifier:@"showMain" sender:self];
+  //  }
   //
   //  self.backToMainButton.hidden = YES;
   //  if (_viewDidAppear) {
@@ -82,7 +82,6 @@
   // 返回登入畫面時用
 }
 
-#warning 是否要改名?
 - (IBAction)goMain:(id)sender {
   if ([FBSDKAccessToken currentAccessToken]) {
     [self performSegueWithIdentifier:@"showMain" sender:self];

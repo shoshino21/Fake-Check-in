@@ -81,15 +81,14 @@
 #pragma mark - Actions
 
 - (IBAction)backToMainView:(UIStoryboardSegue *)segue {
-  // 供UnwindSegue連結用，並進行相對應處理
+  // 供UnwindSegue連結並進行相對應處理用
   NSString *identifier = segue.identifier;
   if ([identifier isEqualToString:@"locationOK"]) {
     [self _processLocation:segue.sourceViewController];
   } else if ([identifier isEqualToString:@"friendsOK"]) {
     [self _processFriends:segue.sourceViewController];
   } else if ([identifier isEqualToString:@"messageOK"]) {
-    self.messageToPost = [NSString
-        stringWithString:[segue.sourceViewController messageTextView].text];
+    [self _processMessage:segue.sourceViewController];
   }
 }
 
@@ -184,7 +183,7 @@
   if ([segue.identifier isEqualToString:@"showMessageEditor"]) {
     MessageEditorViewController *vc = (MessageEditorViewController *)
         [[segue destinationViewController] topViewController];
-    // 如果已經輸入過訊息則傳送過去以顯示
+    // 若已輸入訊息則傳送給訊息View
     if (self.messageToPost.length > 0) {
       vc.currentMessage = [NSString stringWithString:self.messageToPost];
     }
@@ -255,18 +254,7 @@
   } else if (self.pickedFriends.count == 2) {
     display = [NSString stringWithFormat:@"%@、%@", vc.selectedRows[0][@"name"],
                                          vc.selectedRows[1][@"name"]];
-    //  } else if (self.pickedFriends.count == 3) {
-    //    display =
-    //        [NSString stringWithFormat:@"%@、%@、%@",
-    //        vc.selectedRows[0][@"name"],
-    //                                   vc.selectedRows[1][@"name"],
-    //                                   vc.selectedRows[2][@"name"]];
   } else if (self.pickedFriends.count > 2) {
-    //    display = [NSString
-    //        stringWithFormat:@"%@、%@和其他 %lu 人",
-    //        vc.selectedRows[0][@"name"],
-    //                         vc.selectedRows[1][@"name"],
-    //                         (unsigned long)self.pickedFriends.count - 2];
     display = [NSString
         stringWithFormat:@"%@和其他 %lu 人", vc.selectedRows[0][@"name"],
                          (unsigned long)self.pickedFriends.count - 1];
@@ -276,10 +264,12 @@
   }
   self.friendsLabel.text = display;
 }
-//
-//- (void)_processMessage:(MessageEditorViewController *)vc {
-//  self.messageToPost = vc.messageTextView.text;
-//}
+
+- (void)_processMessage:(MessageEditorViewController *)vc {
+  self.messageToPost = vc.messageTextView.text;
+  self.messageLabel.text = self.messageToPost;
+#warning 設字數顯示限制
+}
 
 //#warning 暫時，之後改用AFNetwork的進度指示器
 //
