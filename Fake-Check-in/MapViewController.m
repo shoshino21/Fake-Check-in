@@ -121,11 +121,11 @@
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView
                        withError:(NSError *)error {
-  if (error) {
-    [Common showAlertMessageWithTitle:nil
-                              message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"
-                     inViewController:self];
-  }
+        if (error) {
+		[Common showAlertMessageWithTitle:nil
+		                          message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"
+		                 inViewController:self];
+	}
 }
 
 @end

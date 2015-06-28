@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-//#import <ImgurAnonymousAPIClient.h>
 #import "Common.h"
 #import "LocationPickerTableViewController.h"
 #import "FriendsPickerTableViewController.h"
@@ -24,9 +23,6 @@
 @property(strong, nonatomic) UIImage *pickedPhoto;
 @property(strong, nonatomic) PostUtility *postUtility;
 
-//#warning temp
-//@property(nonatomic, strong) UIView *activityOverlayView;
-
 @end
 
 @implementation MainViewController
@@ -38,21 +34,6 @@
 }
 
 #pragma mark - Properties
-
-//#warning 拿掉好像也沒差多少
-//- (void)setPickedLocation:(NSString *)pickedLocation {
-//  if (![_pickedLocation isEqualToString:pickedLocation]) {
-//    _pickedLocation = [pickedLocation copy];
-//    // self.checkinButton.enabled = (_pickedLocation != nil);
-//  }
-//}
-//#warning Temp
-//- (void)setActivityOverlayView:(UIView *)activityOverlayView {
-//  if (_activityOverlayView != activityOverlayView) {
-//    [_activityOverlayView removeFromSuperview];
-//    _activityOverlayView = activityOverlayView;
-//  }
-//}
 
 - (void)setPostUtility:(PostUtility *)postUtility {
   if (![_postUtility isEqual:postUtility]) {
@@ -81,7 +62,7 @@
 #pragma mark - Actions
 
 - (IBAction)backToMainView:(UIStoryboardSegue *)segue {
-  // 供UnwindSegue連結並進行相對應處理用
+  // 供UnwindSegue連結並進行相對應處理
   NSString *identifier = segue.identifier;
   if ([identifier isEqualToString:@"locationOK"]) {
     [self _processLocation:segue.sourceViewController];
@@ -122,7 +103,6 @@
       actionWithTitle:@"開啟相簿"
                 style:UIAlertActionStyleDefault
               handler:^(UIAlertAction *action) {
-
                 UIImagePickerController *imagePicker =
                     [[UIImagePickerController alloc] init];
                 imagePicker.sourceType =
@@ -247,7 +227,7 @@
 - (void)_processFriends:(FriendsPickerTableViewController *)vc {
   self.pickedFriends = [vc.selectedRows valueForKeyPath:@"id"];
 
-  // 依選擇人數使用不同顯示方式
+  // 依選取人數採用不同顯示方式
   NSString *display = nil;
   if (self.pickedFriends.count == 1) {
     display = vc.selectedRows[0][@"name"];
@@ -259,47 +239,15 @@
         stringWithFormat:@"%@和其他 %lu 人", vc.selectedRows[0][@"name"],
                          (unsigned long)self.pickedFriends.count - 1];
   } else if (self.pickedFriends == 0) {
-    display = nil;
-    self.pickedFriends = nil;
-  }
-  self.friendsLabel.text = display;
+                display = nil;
+		self.pickedFriends = nil;
+	}
+	self.friendsLabel.text = display;
 }
 
 - (void)_processMessage:(MessageEditorViewController *)vc {
-  self.messageToPost = vc.messageTextView.text;
-  self.messageLabel.text = self.messageToPost;
-#warning 設字數顯示限制
+	self.messageToPost = vc.messageTextView.text;
+	self.messageLabel.text = self.messageToPost;
 }
-
-//#warning 暫時，之後改用AFNetwork的進度指示器
-//
-//// NOTE: 顯示轉圈圈進度顯示器，share過程中顯示用的
-//- (void)_startActivityIndicator {
-//  UIView *view = self.view;
-//  CGRect bounds = view.bounds;
-//  UIView *activityOverlayView = [[UIView alloc] initWithFrame:bounds];
-//  activityOverlayView.backgroundColor = [UIColor colorWithWhite:0.65
-//  alpha:0.5];
-//  activityOverlayView.autoresizingMask =
-//      (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-//  self.activityOverlayView = activityOverlayView;
-//  UIActivityIndicatorView *activityIndicatorView = [
-//      [UIActivityIndicatorView alloc]
-//      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-//  activityIndicatorView.center =
-//      CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
-//  activityIndicatorView.autoresizingMask =
-//      (UIViewAutoresizingFlexibleTopMargin |
-//       UIViewAutoresizingFlexibleRightMargin |
-//       UIViewAutoresizingFlexibleBottomMargin |
-//       UIViewAutoresizingFlexibleLeftMargin);
-//        [activityOverlayView addSubview:activityIndicatorView];
-//	[view addSubview:activityOverlayView];
-//	[activityIndicatorView startAnimating];
-//}
-//
-//- (void)_stopActivityIndicator {
-//	self.activityOverlayView = nil;
-//}
 
 @end

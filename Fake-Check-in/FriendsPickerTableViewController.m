@@ -49,9 +49,10 @@
         [self dismissViewControllerAnimated:YES completion:NULL];
       }
     }];
-  } else {
-    [super fetchData];
-  }
+        }
+	else {
+		[super fetchData];
+	}
 }
 
 @end

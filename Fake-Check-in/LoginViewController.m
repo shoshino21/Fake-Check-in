@@ -45,14 +45,14 @@
 }
 
 /*
- #pragma mark - Navigation
+   #pragma mark - Navigation
 
- // In a storyboard-based application, you will often want to do a little
- preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
+   // In a storyboard-based application, you will often want to do a little
+   preparation before navigation
+   - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+   // Get the new view controller using [segue destinationViewController].
+   // Pass the selected object to the new view controller.
+   }
  */
 
 #pragma mark - FBSDKLoginButtonDelegate
@@ -61,7 +61,6 @@
     didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                     error:(NSError *)error {
   if (error) {
-    //    NSLog(@"Login error: %@", error);
     [Common
         showAlertMessageWithTitle:nil
                           message:@"登入時發生錯誤，請稍候再試！"
