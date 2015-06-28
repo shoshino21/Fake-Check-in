@@ -52,11 +52,10 @@
 	[self _updateProfile:nil];
 
 	// 顯示使用者名稱 (須用Notification)
-	[[NSNotificationCenter defaultCenter]
-	 addObserver:self
-	    selector:@selector(_updateProfile:)
-	        name:FBSDKProfileDidChangeNotification
-	      object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self
+	                                         selector:@selector(_updateProfile:)
+	                                             name:FBSDKProfileDidChangeNotification
+	                                           object:nil];
 }
 
 #pragma mark - Actions
@@ -76,49 +75,40 @@
 }
 
 - (IBAction)pickPhoto:(id)sender {
-	UIAlertController *alertController = [UIAlertController
-	                                      alertControllerWithTitle:nil
-	                                                       message:nil
-	                                                preferredStyle:UIAlertControllerStyleActionSheet];
+	UIAlertController *alertController =
+	    [UIAlertController alertControllerWithTitle:nil
+	                                        message:nil
+	                                 preferredStyle:UIAlertControllerStyleActionSheet];
 
 	// 開啟相機介面
 	UIAlertAction *cameraAction =
 	    [UIAlertAction actionWithTitle:@"拍照"
 	                             style:UIAlertActionStyleDefault
 	                           handler: ^(UIAlertAction *action) {
-	    UIImagePickerController *imagePicker =
-	        [[UIImagePickerController alloc] init];
-	    imagePicker.sourceType =
-	        UIImagePickerControllerSourceTypeCamera;
+	    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	    imagePicker.delegate = self;
-	    [self presentViewController:imagePicker
-	                       animated:YES
-	                     completion:nil];
+	    [self presentViewController:imagePicker animated:YES completion:nil];
 	}];
 
 	// 有相機才啟用拍照功能
-	cameraAction.enabled = [UIImagePickerController
-	                        isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+	cameraAction.enabled =
+	    [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 
 	// 開啟相簿介面
-	UIAlertAction *libraryAction = [UIAlertAction
-	                                actionWithTitle:@"開啟相簿"
-	                                          style:UIAlertActionStyleDefault
-	                                        handler: ^(UIAlertAction *action) {
-	    UIImagePickerController *imagePicker =
-	        [[UIImagePickerController alloc] init];
-	    imagePicker.sourceType =
-	        UIImagePickerControllerSourceTypePhotoLibrary;
+	UIAlertAction *libraryAction =
+	    [UIAlertAction actionWithTitle:@"開啟相簿"
+	                             style:UIAlertActionStyleDefault
+	                           handler: ^(UIAlertAction *action) {
+	    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+	    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 	    imagePicker.delegate = self;
 	    imagePicker.modalPresentationStyle = UIModalPresentationPopover;
 
-	    UIPopoverPresentationController *popover =
-	        imagePicker.popoverPresentationController;
+	    UIPopoverPresentationController *popover = imagePicker.popoverPresentationController;
 	    popover.sourceView = sender;
 	    popover.permittedArrowDirections = UIPopoverArrowDirectionAny;
-	    [self presentViewController:imagePicker
-	                       animated:YES
-	                     completion:nil];
+	    [self presentViewController:imagePicker animated:YES completion:nil];
 	}];
 
 	// 移除目前選擇的照片
@@ -131,11 +121,9 @@
 	}];
 	removeAction.enabled = (self.pickedPhoto != nil);
 
-	UIAlertAction *cancelAction =
-	    [UIAlertAction actionWithTitle:@"取消"
-	                             style:UIAlertActionStyleCancel
-	                           handler:nil];
-
+	UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消"
+	                                                       style:UIAlertActionStyleCancel
+	                                                     handler:nil];
 	[alertController addAction:cameraAction];
 	[alertController addAction:libraryAction];
 	[alertController addAction:removeAction];
@@ -146,12 +134,10 @@
 - (IBAction)checkin:(id)sender {
 	//  self.checkinButton.enabled = NO;  // 防止連點按鈕
 
-	PostUtility *postUtility =
-	    [[PostUtility alloc] initWithMessage:self.messageToPost
-	                                   place:self.pickedLocation
-	                                 friends:self.pickedFriends
-	                                   photo:self.pickedPhoto];
-
+	PostUtility *postUtility = [[PostUtility alloc] initWithMessage:self.messageToPost
+	                                                          place:self.pickedLocation
+	                                                        friends:self.pickedFriends
+	                                                          photo:self.pickedPhoto];
 	self.postUtility = postUtility;
 	postUtility.delegate = self;
 	[postUtility start];

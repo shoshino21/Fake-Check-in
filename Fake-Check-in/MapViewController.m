@@ -56,8 +56,7 @@
 	[self.locationManager stopUpdatingLocation];
 
 	// 跳出時儲存最後所在的座標位置
-	[[Common sharedStatus]
-	 setLastSelectedCoordinate:self.mapView.centerCoordinate];
+	[[Common sharedStatus] setLastSelectedCoordinate:self.mapView.centerCoordinate];
 }
 
 #pragma mark - Actions

@@ -20,9 +20,8 @@
 		NSDictionary *parameters = @{
 			@"fields" : @"id,name,picture.width(100).height(100)"
 		};
-		super.request = [[FBSDKGraphRequest alloc]
-		                 initWithGraphPath:@"me/taggable_friends?limit=100"
-		                        parameters:parameters];
+		super.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"me/taggable_friends?limit=100"
+		                                                  parameters:parameters];
 	}
 	return super.request;
 }

@@ -21,8 +21,7 @@
 		NSDictionary *parameters = @{
 			@"type" : @"place",
 			@"limit" : @"100",
-			@"center" : [NSString stringWithFormat:@"%lf,%lf", coordinate.latitude,
-			             coordinate.longitude],
+			@"center" : [NSString stringWithFormat:@"%lf,%lf", coordinate.latitude, coordinate.longitude],
 			@"distance" : @"10000",
 			@"fields" : @"id,name,picture.width(100).height(100)"
 		};

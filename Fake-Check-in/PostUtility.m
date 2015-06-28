@@ -100,9 +100,9 @@
 		[self _postOnFacebook];
 	}
 	else {
-		[[ImgurAnonymousAPIClient client]uploadImage:_photo
-		                                withFilename:nil
-		                           completionHandler: ^(NSURL *imgurURL, NSError *error) {
+		[[ImgurAnonymousAPIClient client] uploadImage:_photo
+		                                 withFilename:nil
+		                            completionHandler: ^(NSURL *imgurURL, NSError *error) {
 		    if (!error) {
 		        [self.parameters setObject:imgurURL forKey:@"link"];
 		        [self _postOnFacebook];

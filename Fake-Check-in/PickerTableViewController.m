@@ -59,17 +59,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	UITableViewCell *cell =
-	    [tableView dequeueReusableCellWithIdentifier:@"cell"
-	                                    forIndexPath:indexPath];
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"
+	                                                        forIndexPath:indexPath];
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
 		                              reuseIdentifier :@"cell"];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
 	cell.textLabel.text = _fetchResults[indexPath.row][@"name"];
-	NSString *pictureURL =
-	    _fetchResults[indexPath.row][@"picture"][@"data"][@"url"];
+	NSString *pictureURL = _fetchResults[indexPath.row][@"picture"][@"data"][@"url"];
 
 	// 若有圖片則另開一thread抓圖
 	if (pictureURL) {
@@ -93,14 +91,12 @@
 
 - (void)          tableView:(UITableView *)tableView
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[tableView cellForRowAtIndexPath:indexPath].accessoryType =
-	    UITableViewCellAccessoryCheckmark;
+	[tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
 }
 
 - (void)            tableView:(UITableView *)tableView
     didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-	[tableView cellForRowAtIndexPath:indexPath].accessoryType =
-	    UITableViewCellAccessoryNone;
+	[tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
 }
 
 @end

@@ -39,14 +39,11 @@
 	    [UIAlertController alertControllerWithTitle:title
 	                                        message:message
 	                                 preferredStyle:UIAlertControllerStyleAlert];
-	UIAlertAction *okAction =
-	    [UIAlertAction actionWithTitle:@"OK"
-	                             style:UIAlertActionStyleDefault
-	                           handler:nil];
+	UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+	                                                   style:UIAlertActionStyleDefault
+	                                                 handler:nil];
 	[alertController addAction:okAction];
-	[viewController presentViewController:alertController
-	                             animated:YES
-	                           completion:nil];
+	[viewController presentViewController:alertController animated:YES completion:nil];
 }
 
 @end
