@@ -10,7 +10,7 @@
 
 @interface MessageEditorViewController : UIViewController
 
-@property(weak, nonatomic) IBOutlet UITextView *messageTextView;
-@property(copy, nonatomic) NSString *currentMessage;
+@property (weak, nonatomic) IBOutlet UITextView *messageTextView;
+@property (copy, nonatomic) NSString *currentMessage;
 
 @end

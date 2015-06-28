@@ -19,16 +19,16 @@
 //@property(strong, nonatomic)
 //    IBOutlet FBSDKProfilePictureView* profilePictureView;
 
-@property(weak, nonatomic) IBOutlet ProfilePictureButton *profilePictureButton;
-@property(weak, nonatomic) IBOutlet UILabel *profileNameLabel;
+@property (weak, nonatomic) IBOutlet ProfilePictureButton *profilePictureButton;
+@property (weak, nonatomic) IBOutlet UILabel *profileNameLabel;
 //@property(strong, nonatomic) IBOutlet UITextView* messageTextView;
 //@property(strong, nonatomic) IBOutlet UIButton* locationButton;
-@property(weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 //@property(strong, nonatomic) IBOutlet UIButton* friendsButton;
-@property(weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property(weak, nonatomic) IBOutlet UILabel *friendsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *friendsLabel;
 //@property(strong, nonatomic) IBOutlet UIButton* photoButton;
-@property(weak, nonatomic) IBOutlet UIImageView *photoImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
 //@property(weak, nonatomic) IBOutlet UIButton* checkinButton;
 

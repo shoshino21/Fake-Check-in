@@ -13,7 +13,7 @@
 
 @interface PostUtility : NSObject
 
-@property(weak, nonatomic) id<PostUtilityDelegate> delegate;
+@property (weak, nonatomic) id <PostUtilityDelegate> delegate;
 
 - (instancetype)initWithMessage:(NSString *)message
                           place:(NSString *)place
@@ -28,7 +28,7 @@
 
 - (void)postUtilityWillPost:(PostUtility *)postUtility;
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility;
-- (void)postUtility:(PostUtility *)postUtility
+- (void) postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error;
 //- (void)PostUtilityUserShouldLogin:(PostUtility *)PostUtility;
 

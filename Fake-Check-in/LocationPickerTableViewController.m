@@ -14,34 +14,34 @@
 #pragma mark - Properties
 
 - (FBSDKGraphRequest *)request {
-  // lazy accessor
-  if (!super.request) {
-    CLLocationCoordinate2D coordinate =
-        [[Common sharedStatus] lastSelectedCoordinate];
-    NSDictionary *parameters = @{
-      @"type" : @"place",
-      @"limit" : @"100",
-      @"center" : [NSString stringWithFormat:@"%lf,%lf", coordinate.latitude,
-                                             coordinate.longitude],
-      @"distance" : @"10000",
-      @"fields" : @"id,name,picture.width(100).height(100)"
-    };
-    super.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"search"
-                                                      parameters:parameters];
-  }
-  return super.request;
+	// lazy accessor
+	if (!super.request) {
+		CLLocationCoordinate2D coordinate =
+		    [[Common sharedStatus] lastSelectedCoordinate];
+		NSDictionary *parameters = @{
+			@"type" : @"place",
+			@"limit" : @"100",
+			@"center" : [NSString stringWithFormat:@"%lf,%lf", coordinate.latitude,
+			             coordinate.longitude],
+			@"distance" : @"10000",
+			@"fields" : @"id,name,picture.width(100).height(100)"
+		};
+		super.request = [[FBSDKGraphRequest alloc] initWithGraphPath:@"search"
+		                                                  parameters:parameters];
+	}
+	return super.request;
 }
 
 #pragma mark - View Management
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.tableView.allowsMultipleSelection = NO;
+	[super viewDidLoad];
+	self.tableView.allowsMultipleSelection = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-  [super viewWillAppear:animated];
-  [super fetchData];
+	[super viewWillAppear:animated];
+	[super fetchData];
 }
 
 @end

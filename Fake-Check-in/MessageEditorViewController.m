@@ -11,8 +11,8 @@
 @implementation MessageEditorViewController
 
 - (void)viewDidLoad {
-  [super viewDidLoad];
-  self.messageTextView.text = self.currentMessage;
+	[super viewDidLoad];
+	self.messageTextView.text = self.currentMessage;
 }
 
 @end

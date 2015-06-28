@@ -12,8 +12,8 @@
 
 @interface Common : NSObject
 
-@property(assign, nonatomic) CLLocationCoordinate2D lastSelectedCoordinate;
-@property(assign, nonatomic) BOOL isMapViewFirstStartUp;
+@property (assign, nonatomic) CLLocationCoordinate2D lastSelectedCoordinate;
+@property (assign, nonatomic) BOOL isMapViewFirstStartUp;
 
 + (id)sharedStatus;
 
