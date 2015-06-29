@@ -22,6 +22,8 @@
 	//  BOOL _viewIsVisible;
 }
 
+#pragma mark - View Management
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
 

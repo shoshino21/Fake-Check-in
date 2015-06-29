@@ -238,13 +238,7 @@
 }
 
 - (void)_processMessage:(MessageEditorViewController *)vc {
-	// 避免在user未輸入訊息時誤抓placeholder字串
-	if ([vc.messageTextView.text isEqualToString:vc.defaultPlaceholder]) {
-		self.messageToPost = nil;
-	}
-	else {
-		self.messageToPost = vc.messageTextView.text;
-	}
+	self.messageToPost = vc.messageTextView.text;
 	self.messageLabel.text = self.messageToPost;
 }
 

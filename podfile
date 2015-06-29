@@ -4,3 +4,4 @@ pod 'ImgurAnonymousAPIClient', :git => 'https://github.com/nolanw/ImgurAnonymous
 pod 'FBSDKCoreKit', '~> 4.2'
 pod 'FBSDKLoginKit', '~> 4.2'
 pod 'FBSDKShareKit', '~> 4.2'
+pod 'CHTTextView'

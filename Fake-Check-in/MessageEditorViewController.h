@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CHTTextView.h"
 
-@interface MessageEditorViewController : UIViewController <UITextViewDelegate>
+@interface MessageEditorViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextView *messageTextView;
+@property (weak, nonatomic) IBOutlet CHTTextView *messageTextView;
 @property (copy, nonatomic) NSString *currentMessage;
-@property (copy, nonatomic, readonly) NSString *defaultPlaceholder;
 
 @end

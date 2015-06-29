@@ -78,11 +78,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="留下你想要的訊息..." translatesAutoresizingMaskIntoConstraints="NO" id="98n-6g-rGt">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98n-6g-rGt" customClass="CHTTextView">
                                 <rect key="frame" x="16" y="80" width="568" height="240"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -109,7 +108,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="messageTextView" destination="98n-6g-rGt" id="MvO-fZ-bXl"/>
+                        <outlet property="messageTextView" destination="98n-6g-rGt" id="djh-tD-GcQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1s-dU-oDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,22 +271,15 @@
                                             <constraint firstAttribute="centerY" secondItem="t0c-6y-s7e" secondAttribute="centerY" id="FdX-pf-8c5"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="BPw-9Z-DqS" secondAttribute="trailing" id="MUQ-WY-MGK"/>
                                             <constraint firstItem="R5O-eO-2G8" firstAttribute="bottom" secondItem="F3C-Jk-6ud" secondAttribute="bottom" id="UD0-sp-SCn"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="BPw-9Z-DqS" secondAttribute="trailing" id="dnP-9P-KxP"/>
                                             <constraint firstAttribute="centerY" secondItem="Hts-c3-pod" secondAttribute="centerY" id="hR2-B2-yto"/>
                                             <constraint firstItem="R5O-eO-2G8" firstAttribute="leading" secondItem="F3C-Jk-6ud" secondAttribute="leading" id="ytv-nI-VZ5"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="dnP-9P-KxP"/>
-                                            </mask>
-                                        </variation>
                                         <variation key="widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="0.0" y="137" width="400" height="130"/>
                                         </variation>
                                         <variation key="heightClass=regular-widthClass=compact">
                                             <mask key="constraints">
                                                 <exclude reference="MUQ-WY-MGK"/>
-                                                <include reference="dnP-9P-KxP"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -327,8 +319,8 @@
                                                 <color key="textColor" red="0.63516145180000005" green="0.69423846749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="teH-hv-dhi" userLabel="Ruler3">
-                                                <rect key="frame" x="0.0" y="76" width="0.0" height="30"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="teH-hv-dhi" userLabel="Ruler3">
+                                                <rect key="frame" x="0.0" y="78" width="0.0" height="29"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" id="Khl-8s-7tD"/>
@@ -351,8 +343,8 @@
                                             <rect key="frame" x="0.0" y="267" width="400" height="130"/>
                                         </variation>
                                     </view>
-                                    <view alpha="0.89999999999999991" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ci-eQ-VpE" userLabel="Menu4">
-                                        <rect key="frame" x="0.0" y="322" width="600" height="107"/>
+                                    <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ci-eQ-VpE" userLabel="Menu4">
+                                        <rect key="frame" x="0.0" y="321" width="600" height="107"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75I-De-pVS" userLabel="Icon4">
                                                 <rect key="frame" x="151" y="22" width="64" height="64"/>
@@ -414,10 +406,10 @@
                                             <rect key="frame" x="0.0" y="397" width="400" height="130"/>
                                         </variation>
                                     </view>
-                                    <view alpha="0.89999999999999991" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8yW-Yv-4l3" userLabel="Menu5">
-                                        <rect key="frame" x="0.0" y="429" width="600" height="107"/>
+                                    <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yW-Yv-4l3" userLabel="Menu5">
+                                        <rect key="frame" x="0.0" y="428" width="600" height="108"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2U-Nz-Eeh" userLabel="Icon5">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2U-Nz-Eeh" userLabel="Icon5">
                                                 <rect key="frame" x="151" y="22" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="1tc-55-hfW"/>
@@ -430,8 +422,8 @@
                                                     <action selector="checkin:" destination="mGt-p7-14Z" eventType="touchUpInside" id="5Et-3q-FgO"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rl-JE-fGi">
-                                                <rect key="frame" x="204" y="25" width="152" height="60"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rl-JE-fGi">
+                                                <rect key="frame" x="204" y="24" width="152" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <state key="normal" title="   打卡！">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

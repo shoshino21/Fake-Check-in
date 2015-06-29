@@ -39,9 +39,8 @@
 	// 確認是否已獲得擷取好友名單的權限，若無則進行要求
 	if (![[FBSDKAccessToken currentAccessToken] hasGranted:@"user_friends"]) {
 		FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-		[login logInWithReadPermissions:@[
-		     @"user_friends"
-		 ] handler: ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+		[login logInWithReadPermissions:@[@"user_friends"]
+		                        handler: ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
 		    if ([result.grantedPermissions containsObject:@"user_friends"]) {
 		        [super fetchData];
 			}
