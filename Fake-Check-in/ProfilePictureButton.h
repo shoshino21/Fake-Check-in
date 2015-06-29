@@ -11,6 +11,6 @@
 
 @interface ProfilePictureButton : UIButton
 
-@property (nonatomic, copy) NSString *profileID;
+@property(nonatomic, copy) NSString *profileID;
 
 @end

@@ -18,26 +18,27 @@
 #pragma mark - UIApplicationDelegate
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-	[FBSDKAppEvents activateApp];
+  [FBSDKAppEvents activateApp];
 }
 
-- (BOOL)              application:(UIApplication *)application
+- (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// 必須設定才能正確更新Profile
-	[FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+  // 必須設定才能正確更新Profile
+  [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
 
-	return [[FBSDKApplicationDelegate sharedInstance] application:application
-	                                didFinishLaunchingWithOptions:launchOptions];
+  return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                  didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)  application:(UIApplication *)application
+- (BOOL)application:(UIApplication *)application
               openURL:(NSURL *)url
     sourceApplication:(NSString *)sourceApplication
            annotation:(id)annotation {
-	return [[FBSDKApplicationDelegate sharedInstance] application:application
-	                                                      openURL:url
-	                                            sourceApplication:sourceApplication
-	                                                   annotation:annotation];
+  return
+      [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                     openURL:url
+                                           sourceApplication:sourceApplication
+                                                  annotation:annotation];
 }
 
 @end

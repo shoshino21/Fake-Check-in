@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface LoginViewController : UIViewController <FBSDKLoginButtonDelegate>
+@interface LoginViewController : UIViewController<FBSDKLoginButtonDelegate>
 
-@property (strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
-@property (weak, nonatomic) IBOutlet UIButton *backToMainButton;
+@property(strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property(weak, nonatomic) IBOutlet UIButton *backToMainButton;
 
 - (IBAction)backToLoginView:(UIStoryboardSegue *)segue;
 

@@ -18,32 +18,32 @@
 //@end
 
 @implementation LoginViewController {
-	//  BOOL _viewDidAppear;
-	//  BOOL _viewIsVisible;
+  //  BOOL _viewDidAppear;
+  //  BOOL _viewIsVisible;
 }
 
 #pragma mark - View Management
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+  [super viewDidLoad];
 
-	self.loginButton = [[FBSDKLoginButton alloc] init];
-	self.loginButton.delegate = self;
-	self.loginButton.readPermissions = @[@"public_profile", @"user_friends"];
+  self.loginButton = [[FBSDKLoginButton alloc] init];
+  self.loginButton.delegate = self;
+  self.loginButton.readPermissions = @[ @"public_profile", @"user_friends" ];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	[super viewDidAppear:animated];
-	//
-	//  if ([FBSDKAccessToken currentAccessToken]) {
-	//    [self performSegueWithIdentifier:@"showMain" sender:self];
-	//  }
-	//
-	//  self.backToMainButton.hidden = YES;
-	//  if (_viewDidAppear) {
-	//		_viewIsVisible = YES;
-	//  }
-	//	_viewDidAppear = YES;
+  [super viewDidAppear:animated];
+  //
+  //  if ([FBSDKAccessToken currentAccessToken]) {
+  //    [self performSegueWithIdentifier:@"showMain" sender:self];
+  //  }
+  //
+  //  self.backToMainButton.hidden = YES;
+  //  if (_viewDidAppear) {
+  //		_viewIsVisible = YES;
+  //  }
+  //	_viewDidAppear = YES;
 }
 
 /*
@@ -59,34 +59,34 @@
 
 #pragma mark - FBSDKLoginButtonDelegate
 
-- (void)      loginButton:(FBSDKLoginButton *)loginButton
+- (void)loginButton:(FBSDKLoginButton *)loginButton
     didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                     error:(NSError *)error {
-	if (error) {
-		[Common showAlertMessageWithTitle:nil
-		                          message:@"登入時發生錯誤，請稍候再試！"
-		                 inViewController:self];
-	}
-	else {
-		[self performSegueWithIdentifier:@"showMain" sender:self];
-	}
+  if (error) {
+    [Common
+        showAlertMessageWithTitle:nil
+                          message:@"登入時發生錯誤，請稍候再試！"
+                 inViewController:self];
+  } else {
+    [self performSegueWithIdentifier:@"showMain" sender:self];
+  }
 }
 
 //#warning 保留，guest登入用?
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-	//  if (_viewIsVisible) {
-	//    [self performSegueWithIdentifier:@"showMain" sender:self];
-	//  }
+  //  if (_viewIsVisible) {
+  //    [self performSegueWithIdentifier:@"showMain" sender:self];
+  //  }
 }
 
 - (IBAction)backToLoginView:(UIStoryboardSegue *)segue {
-	// 返回登入畫面時用
+  // 返回登入畫面時用
 }
 
 - (IBAction)goMain:(id)sender {
-	if ([FBSDKAccessToken currentAccessToken]) {
-		[self performSegueWithIdentifier:@"showMain" sender:self];
-	}
+  if ([FBSDKAccessToken currentAccessToken]) {
+    [self performSegueWithIdentifier:@"showMain" sender:self];
+  }
 }
 
 //#warning 設定直接登入，測試用

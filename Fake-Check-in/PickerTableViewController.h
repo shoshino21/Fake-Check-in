@@ -11,8 +11,8 @@
 
 @interface PickerTableViewController : UITableViewController
 
-@property (copy, nonatomic, readonly) NSArray *selectedRows;
-@property (strong, nonatomic) FBSDKGraphRequest *request;
+@property(copy, nonatomic, readonly) NSArray *selectedRows;
+@property(strong, nonatomic) FBSDKGraphRequest *request;
 
 - (void)fetchData;
 

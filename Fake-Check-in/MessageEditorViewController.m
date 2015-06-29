@@ -13,14 +13,14 @@
 #pragma mark - View Management
 
 - (void)viewDidLoad {
-	[super viewDidLoad];
+  [super viewDidLoad];
 
-	self.messageTextView.placeholder = @"留下你想要的訊息...";
-	[self.messageTextView becomeFirstResponder];
+  self.messageTextView.placeholder = @"留下你想要的訊息...";
+  [self.messageTextView becomeFirstResponder];
 
-	if ([self.currentMessage length] > 0) {
-		self.messageTextView.text = self.currentMessage;
-	}
+  if ([self.currentMessage length] > 0) {
+    self.messageTextView.text = self.currentMessage;
+  }
 }
 
 @end
