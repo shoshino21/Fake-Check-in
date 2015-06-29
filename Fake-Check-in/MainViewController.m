@@ -149,11 +149,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([segue.identifier isEqualToString:@"showMessageEditor"]) {
-		MessageEditorViewController *vc = (MessageEditorViewController *)
-		    [[segue destinationViewController] topViewController];
+		MessageEditorViewController *vc =
+		    (MessageEditorViewController *)[[segue destinationViewController] topViewController];
 		// 若已輸入訊息則傳送給訊息View
 		if (self.messageToPost.length > 0) {
-			vc.currentMessage = [NSString stringWithString:self.messageToPost];
+			vc.currentMessage = self.messageToPost;
 		}
 	}
 }
@@ -238,7 +238,13 @@
 }
 
 - (void)_processMessage:(MessageEditorViewController *)vc {
-	self.messageToPost = vc.messageTextView.text;
+	// 避免在user未輸入訊息時誤抓placeholder字串
+	if ([vc.messageTextView.text isEqualToString:vc.defaultPlaceholder]) {
+		self.messageToPost = nil;
+	}
+	else {
+		self.messageToPost = vc.messageTextView.text;
+	}
 	self.messageLabel.text = self.messageToPost;
 }
 

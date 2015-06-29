@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MessageEditorViewController : UIViewController
+@interface MessageEditorViewController : UIViewController <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *messageTextView;
 @property (copy, nonatomic) NSString *currentMessage;
+@property (copy, nonatomic, readonly) NSString *defaultPlaceholder;
 
 @end

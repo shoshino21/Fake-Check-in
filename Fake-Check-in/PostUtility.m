@@ -60,8 +60,7 @@
 		}
 		if (_friends.count > 0) {
 			// 將朋友名單轉換為csv格式
-			[_parameters setObject:[_friends componentsJoinedByString:@","]
-			                forKey:@"tags"];
+			[_parameters setObject:[_friends componentsJoinedByString:@","] forKey:@"tags"];
 		}
 	}
 	return _parameters;
@@ -80,9 +79,9 @@
 		[self _uploadPhotoToImgur];
 	}
 	else {
-		[[[FBSDKLoginManager alloc] init] logInWithPublishPermissions:@[
-		     @"publish_actions"
-		 ] handler: ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
+		[[[FBSDKLoginManager alloc] init]
+		 logInWithPublishPermissions:@[@"publish_actions"]
+		                     handler: ^(FBSDKLoginManagerLoginResult *result, NSError *error) {
 		    if ([result.grantedPermissions containsObject:@"publish_actions"]) {
 		        [self.delegate postUtilityWillPost:self];
 		        [self _uploadPhotoToImgur];
