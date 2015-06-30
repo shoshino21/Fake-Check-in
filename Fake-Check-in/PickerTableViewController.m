@@ -34,10 +34,10 @@
   [self.request
       startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                    id result, NSError *error) {
+
         if (error) {
-          //          NSLog(@"Picker loading error:%@", error);
-          [Common showAlertMessageWithTitle:nil
-                                    message:@"取得資料時發生錯誤！"
+          [Common showAlertMessageWithTitle:@"取得資料時發生錯誤！"
+                                    message:nil
                            inViewController:self];
           [self dismissViewControllerAnimated:YES completion:nil];
         } else {

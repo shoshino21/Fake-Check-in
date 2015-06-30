@@ -149,6 +149,7 @@
       [UIAlertAction actionWithTitle:@"取消"
                                style:UIAlertActionStyleCancel
                              handler:nil];
+
   [alertController addAction:cameraAction];
   [alertController addAction:libraryAction];
   [alertController addAction:removeAction];
@@ -205,18 +206,45 @@
 
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility {
   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-  [Common showAlertMessageWithTitle:nil
-                            message:@"發佈成功！"
-                   inViewController:self];
 
+  // 打卡成功後清空輸入內容
   [self _clearInput];
+
+  // 詢問使用者是否跳轉至Facebook頁面觀看結果
+  UIAlertController *alertController = [UIAlertController
+      alertControllerWithTitle:@"打卡成功！"
+                       message:@"要去Facebook頁面看結果嗎？"
+                preferredStyle:UIAlertControllerStyleAlert];
+
+  UIAlertAction *okAction = [UIAlertAction
+      actionWithTitle:@"好啊！"
+                style:UIAlertActionStyleDefault
+              handler:^(UIAlertAction *action) {
+
+                NSURL *url = [NSURL URLWithString:@"fb://profile/"];
+                if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                  [[UIApplication sharedApplication] openURL:url];
+                } else {
+                  [[UIApplication sharedApplication]
+                      openURL:[NSURL URLWithString:@"http://www.facebook.com"]];
+                }
+              }];
+
+  UIAlertAction *cancelAction =
+      [UIAlertAction actionWithTitle:@"不用了"
+                               style:UIAlertActionStyleDefault
+                             handler:nil];
+
+  [alertController addAction:cancelAction];
+  [alertController addAction:okAction];
+  [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error {
   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-  [Common showAlertMessageWithTitle:nil
-                            message:@"發佈時發生錯誤！"
+  [Common showAlertMessageWithTitle:@"打卡時發生錯誤！"
+                            message:nil
                    inViewController:self];
 
   BOOL enabled = (self.pickedLocation != nil);
@@ -265,10 +293,10 @@
 
 - (void)_processMessage:(MessageEditorViewController *)vc {
   self.messageToPost = vc.messageTextView.text;
-  self.messageLabel.text = self.messageToPost;
+        self.messageLabel.text = self.messageToPost;
 }
 
--(void)_clearInput{
+- (void)_clearInput {
 	self.pickedLocation = nil;
 	self.messageToPost = nil;
 	self.pickedFriends = nil;

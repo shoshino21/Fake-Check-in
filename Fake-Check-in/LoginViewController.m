@@ -64,8 +64,8 @@
                     error:(NSError *)error {
   if (error) {
     [Common
-        showAlertMessageWithTitle:nil
-                          message:@"登入時發生錯誤，請稍候再試！"
+        showAlertMessageWithTitle:@"登入時發生錯誤，請稍候再試！"
+                          message:nil
                  inViewController:self];
   } else {
     [self performSegueWithIdentifier:@"showMain" sender:self];

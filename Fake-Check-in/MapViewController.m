@@ -80,12 +80,12 @@
   [search startWithCompletionHandler:^(MKLocalSearchResponse *response,
                                        NSError *error) {
     if (error) {
-      [Common showAlertMessageWithTitle:nil
-                                message:@"找不到您想找的地標！"
+      [Common showAlertMessageWithTitle:@"找不到您想找的地標！"
+                                message:nil
                        inViewController:self];
     } else if ([response.mapItems count] == 0) {
-      [Common showAlertMessageWithTitle:nil
-                                message:@"找不到您想找的地標！"
+      [Common showAlertMessageWithTitle:@"找不到您想找的地標！"
+                                message:nil
                        inViewController:self];
     } else {
       // 直接取第一項搜尋結果的座標
@@ -126,9 +126,9 @@
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView
 											 withError:(NSError *)error {
 	if (error) {
-		[Common showAlertMessageWithTitle:nil
-		                          message:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"
-		                 inViewController:self];
+		[Common showAlertMessageWithTitle:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"
+		                          message:nil
+										 inViewController:self];
 	}
 }
 
