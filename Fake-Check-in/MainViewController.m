@@ -80,10 +80,10 @@
   NSString *identifier = segue.identifier;
   if ([identifier isEqualToString:@"locationOK"]) {
     [self _processLocation:segue.sourceViewController];
-  } else if ([identifier isEqualToString:@"friendsOK"]) {
-    [self _processFriends:segue.sourceViewController];
   } else if ([identifier isEqualToString:@"messageOK"]) {
     [self _processMessage:segue.sourceViewController];
+  } else if ([identifier isEqualToString:@"friendsOK"]) {
+    [self _processFriends:segue.sourceViewController];
   }
 }
 
@@ -261,13 +261,18 @@
 }
 
 - (void)_processLocation:(LocationPickerTableViewController *)vc {
-  if (vc.selectedRows.count) {
+  if (vc.selectedRows.count > 0) {
     self.pickedLocation = vc.selectedRows[0][@"id"];
     self.locationLabel.text = vc.selectedRows[0][@"name"];
   } else {
     self.pickedLocation = nil;
     self.locationLabel.text = nil;
   }
+}
+
+- (void)_processMessage:(MessageEditorViewController *)vc {
+  self.messageToPost = vc.messageTextView.text;
+  self.messageLabel.text = self.messageToPost;
 }
 
 - (void)_processFriends:(FriendsPickerTableViewController *)vc {
@@ -289,11 +294,6 @@
     self.pickedFriends = nil;
   }
   self.friendsLabel.text = display;
-}
-
-- (void)_processMessage:(MessageEditorViewController *)vc {
-  self.messageToPost = vc.messageTextView.text;
-  self.messageLabel.text = self.messageToPost;
 }
 
 - (void)_clearInput {

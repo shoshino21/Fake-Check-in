@@ -42,7 +42,6 @@
                                 </state>
                                 <connections>
                                     <action selector="backToMainView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TEM-YF-VTG"/>
-                                    <action selector="goMain:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B1Y-Z2-Hf2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -115,7 +114,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1s-dU-oDe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="FgO-Jg-MYs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2182" y="-477"/>
+            <point key="canvasLocation" x="2212" y="-525"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Zcu-OS-PsW">
@@ -492,7 +491,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ld0-py-NF6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pzh-Na-HUM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="705" y="228"/>
+            <point key="canvasLocation" x="699" y="228"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="9bd-nu-CtD">
@@ -604,7 +603,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7I3-1U-wpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="52U-YB-xAF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="705" y="932"/>
+            <point key="canvasLocation" x="699" y="979"/>
         </scene>
         <!--選好友-->
         <scene sceneID="Hbv-tw-ArK">
@@ -645,7 +644,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8b7-h8-mjG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="yf4-nX-LJe" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2182.5" y="227.11267605633802"/>
+            <point key="canvasLocation" x="2212" y="227"/>
         </scene>
         <!--選地點-->
         <scene sceneID="4AH-wG-HrP">
@@ -686,7 +685,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9oC-E6-TpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="6z3-xZ-iZ3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2182.5" y="932.74647887323943"/>
+            <point key="canvasLocation" x="2212" y="979"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="m1d-TJ-GP1">
@@ -704,7 +703,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pEL-eO-vPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432.5" y="932.74647887323943"/>
+            <point key="canvasLocation" x="1454" y="979"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dty-Kn-o50">
@@ -722,7 +721,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50G-IE-oYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432.5" y="227.11267605633802"/>
+            <point key="canvasLocation" x="1454" y="227"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="9cS-74-iEM">
@@ -740,7 +739,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gj7-QV-MXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1432" y="-477"/>
+            <point key="canvasLocation" x="1454" y="-525"/>
         </scene>
     </scenes>
     <resources>
@@ -755,8 +754,8 @@
         <image name="logo" width="397" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cWb-mI-AVC"/>
-        <segue reference="TcO-7O-yKw"/>
+        <segue reference="T8w-4k-1Vj"/>
         <segue reference="Eto-mg-4er"/>
+        <segue reference="rJC-S5-IeN"/>
     </inferredMetricsTieBreakers>
 </document>
