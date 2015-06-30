@@ -77,7 +77,9 @@
 
 - (void)_checkForPermission {
   if ([[FBSDKAccessToken currentAccessToken] hasGranted:@"publish_actions"]) {
+    [self.delegate postUtilityWillPost:self];
     [self _uploadPhotoToImgur];
+
   } else {
     [[[FBSDKLoginManager alloc] init] logInWithPublishPermissions:@[
       @"publish_actions"
@@ -97,6 +99,7 @@
 - (void)_uploadPhotoToImgur {
   if (!_photo) {
     [self _postOnFacebook];
+
   } else {
     [[ImgurAnonymousAPIClient client]
               uploadImage:_photo
@@ -108,7 +111,6 @@
             [self _postOnFacebook];
           } else {
             [self.delegate postUtility:self didFailWithError:error];
-            //            NSLog(@"Upload Photo Error: %@", error);
           }
         }];
   }

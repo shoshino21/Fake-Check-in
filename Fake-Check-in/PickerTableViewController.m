@@ -29,11 +29,13 @@
 #pragma mark - Public Methods
 
 - (void)fetchData {
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
   [self.request
       startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection,
                                    id result, NSError *error) {
         if (error) {
-//          NSLog(@"Picker loading error:%@", error);
+          //          NSLog(@"Picker loading error:%@", error);
           [Common showAlertMessageWithTitle:nil
                                     message:@"取得資料時發生錯誤！"
                            inViewController:self];
@@ -42,6 +44,8 @@
           _fetchResults = result[@"data"];
           [self.tableView reloadData];
         }
+
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
       }];
 }
 

@@ -186,11 +186,11 @@
 #pragma mark - PostUtilityDelegate
 
 - (void)postUtilityWillPost:(PostUtility *)postUtility {
-  //  [self _startActivityIndicator];
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility {
-  //  [self _stopActivityIndicator];
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
   [Common showAlertMessageWithTitle:nil
                             message:@"發佈成功！"
                    inViewController:self];
@@ -198,7 +198,7 @@
 
 - (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error {
-  //  [self _stopActivityIndicator];
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
   [Common showAlertMessageWithTitle:nil
                             message:@"發佈時發生錯誤！"
                    inViewController:self];
@@ -236,9 +236,9 @@
     display = [NSString
         stringWithFormat:@"%@和其他 %lu 人", vc.selectedRows[0][@"name"],
                          (unsigned long)self.pickedFriends.count - 1];
-  } else if (self.pickedFriends == 0) {
+  } else if (self.pickedFriends.count == 0) {
     display = nil;
-                self.pickedFriends = nil;
+		self.pickedFriends = nil;
 	}
 	self.friendsLabel.text = display;
 }
@@ -246,6 +246,10 @@
 - (void)_processMessage:(MessageEditorViewController *)vc {
 	self.messageToPost = vc.messageTextView.text;
 	self.messageLabel.text = self.messageToPost;
+}
+
+-(void)_clearInput{
+
 }
 
 @end
