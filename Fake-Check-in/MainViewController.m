@@ -35,6 +35,15 @@
 
 #pragma mark - Properties
 
+- (void)setPickedLocation:(NSString *)pickedLocation {
+  if ((![_pickedLocation isEqualToString:pickedLocation])) {
+    _pickedLocation = [pickedLocation copy];
+    // 選擇完地點才啟用打卡鈕
+    self.checkinIconButton.enabled = (_pickedLocation != nil);
+    self.checkinTextButton.enabled = (_pickedLocation != nil);
+  }
+}
+
 - (void)setPostUtility:(PostUtility *)postUtility {
   if (![_postUtility isEqual:postUtility]) {
     _postUtility.delegate = nil;
@@ -57,6 +66,10 @@
          selector:@selector(_updateProfile:)
              name:FBSDKProfileDidChangeNotification
            object:nil];
+
+  // 選擇完地點才啟用打卡鈕
+  self.checkinIconButton.enabled = NO;
+  self.checkinTextButton.enabled = NO;
 }
 
 #pragma mark - Actions

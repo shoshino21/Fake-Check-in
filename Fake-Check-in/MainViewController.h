@@ -30,7 +30,8 @@
 //@property(strong, nonatomic) IBOutlet UIButton* photoButton;
 @property(weak, nonatomic) IBOutlet UIImageView *photoImageView;
 
-//@property(weak, nonatomic) IBOutlet UIButton* checkinButton;
+@property(weak, nonatomic) IBOutlet UIButton *checkinIconButton;
+@property(weak, nonatomic) IBOutlet UIButton *checkinTextButton;
 
 - (IBAction)backToMainView:(UIStoryboardSegue *)segue;
 //- (IBAction)pickPhoto:(id)sender;

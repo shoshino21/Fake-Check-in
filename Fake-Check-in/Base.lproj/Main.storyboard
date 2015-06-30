@@ -36,8 +36,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="czM-OX-6Lx">
                                 <rect key="frame" x="236" y="436" width="128" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="繼續使用">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -161,29 +161,23 @@
                                     <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hxb-Z8-v20" userLabel="Menu1">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="107"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8e-fS-QaO" userLabel="Icon1">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8e-fS-QaO" userLabel="Icon1">
                                                 <rect key="frame" x="151" y="22" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="NsL-1X-Wqn"/>
                                                     <constraint firstAttribute="height" constant="64" id="R0j-wK-63h"/>
                                                 </constraints>
-                                                <state key="normal" image="icon-location">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="icon-location"/>
                                                 <connections>
                                                     <segue destination="Bdd-yU-3u8" kind="presentation" identifier="showMapView" id="TcO-7O-yKw"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dN-GB-W0R">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dN-GB-W0R">
                                                 <rect key="frame" x="235" y="28" width="192" height="51"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                                <state key="normal" title="去哪打卡呢？">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.63516145180000005" green="0.69423846749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="去哪打卡呢？"/>
                                                 <connections>
                                                     <segue destination="Bdd-yU-3u8" kind="presentation" identifier="showMapView" id="rJC-S5-IeN"/>
                                                 </connections>
@@ -221,29 +215,23 @@
                                     <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3C-Jk-6ud" userLabel="Menu2">
                                         <rect key="frame" x="0.0" y="107" width="600" height="107"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0c-6y-s7e" userLabel="Icon2">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0c-6y-s7e" userLabel="Icon2">
                                                 <rect key="frame" x="151" y="22" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="TE6-0Y-rfH"/>
                                                     <constraint firstAttribute="height" constant="64" id="pFC-IM-nA3"/>
                                                 </constraints>
-                                                <state key="normal" image="icon-message">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="icon-message"/>
                                                 <connections>
                                                     <segue destination="Z3J-zb-cOq" kind="presentation" identifier="showMessageEditor" id="4Ba-4N-6fj"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hts-c3-pod">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hts-c3-pod">
                                                 <rect key="frame" x="235" y="30" width="90" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="留訊息">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.63516145180000005" green="0.69423846749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="留訊息"/>
                                                 <connections>
                                                     <segue destination="Z3J-zb-cOq" kind="presentation" identifier="showMessageEditor" id="Eto-mg-4er"/>
                                                 </connections>
@@ -286,29 +274,23 @@
                                     <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWO-5s-NgQ" userLabel="Menu3">
                                         <rect key="frame" x="0.0" y="214" width="600" height="107"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-eo-k5E" userLabel="Icon3">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-eo-k5E" userLabel="Icon3">
                                                 <rect key="frame" x="151" y="22" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="eZo-4t-R7Z"/>
                                                     <constraint firstAttribute="height" constant="64" id="xr5-8r-NN2"/>
                                                 </constraints>
-                                                <state key="normal" image="icon-friends">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="icon-friends"/>
                                                 <connections>
                                                     <segue destination="h0Q-3r-zmz" kind="presentation" identifier="showFriendsPicker" id="cWb-mI-AVC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCn-M1-IkN">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCn-M1-IkN">
                                                 <rect key="frame" x="235" y="30" width="90" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="選好友">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.63516145180000005" green="0.69423846749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="選好友"/>
                                                 <connections>
                                                     <segue destination="h0Q-3r-zmz" kind="presentation" identifier="showFriendsPicker" id="T8w-4k-1Vj"/>
                                                 </connections>
@@ -346,29 +328,23 @@
                                     <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ci-eQ-VpE" userLabel="Menu4">
                                         <rect key="frame" x="0.0" y="321" width="600" height="107"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75I-De-pVS" userLabel="Icon4">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75I-De-pVS" userLabel="Icon4">
                                                 <rect key="frame" x="151" y="22" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="53l-Oj-e7f"/>
                                                     <constraint firstAttribute="width" constant="64" id="N7P-5O-rOR"/>
                                                 </constraints>
-                                                <state key="normal" image="icon-photo">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="icon-photo"/>
                                                 <connections>
                                                     <action selector="pickPhoto:" destination="mGt-p7-14Z" eventType="touchUpInside" id="B21-wT-h8g"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-VO-mV8">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-VO-mV8">
                                                 <rect key="frame" x="235" y="30" width="90" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <state key="normal" title="選照片">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.63516145180000005" green="0.69423846749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="選照片"/>
                                                 <connections>
                                                     <action selector="pickPhoto:" destination="mGt-p7-14Z" eventType="touchUpInside" id="z62-36-o9v"/>
                                                 </connections>
@@ -409,29 +385,23 @@
                                     <view alpha="0.89999999999999991" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yW-Yv-4l3" userLabel="Menu5">
                                         <rect key="frame" x="0.0" y="428" width="600" height="108"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2U-Nz-Eeh" userLabel="Icon5">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2U-Nz-Eeh" userLabel="Icon5">
                                                 <rect key="frame" x="151" y="22" width="64" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="64" id="1tc-55-hfW"/>
                                                     <constraint firstAttribute="height" constant="64" id="eoN-0d-tEL"/>
                                                 </constraints>
-                                                <state key="normal" image="icon-checkin">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" image="icon-checkin"/>
                                                 <connections>
                                                     <action selector="checkin:" destination="mGt-p7-14Z" eventType="touchUpInside" id="5Et-3q-FgO"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rl-JE-fGi">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rl-JE-fGi">
                                                 <rect key="frame" x="204" y="24" width="152" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <state key="normal" title="   打卡！">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" red="0.63516145180000005" green="0.69423846749999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="   打卡！"/>
                                                 <connections>
                                                     <action selector="checkin:" destination="mGt-p7-14Z" eventType="touchUpInside" id="O6Q-dC-SsE"/>
                                                 </connections>
@@ -505,6 +475,8 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="checkinIconButton" destination="U2U-Nz-Eeh" id="Uhu-8j-u8T"/>
+                        <outlet property="checkinTextButton" destination="9Rl-JE-fGi" id="4It-f9-Wkp"/>
                         <outlet property="friendsLabel" destination="DiF-Bx-qga" id="aG4-LJ-qqU"/>
                         <outlet property="locationLabel" destination="zxY-H2-nmJ" id="6BC-Nk-Pwn"/>
                         <outlet property="messageLabel" destination="BPw-9Z-DqS" id="rae-8l-tz7"/>
@@ -538,42 +510,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0H-HF-eDF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0H-HF-eDF">
                                 <rect key="frame" x="536" y="540" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="rlM-GC-qVN"/>
                                     <constraint firstAttribute="height" constant="48" id="zpG-zl-M63"/>
                                 </constraints>
-                                <state key="normal" image="icon-home">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="icon-home"/>
                                 <connections>
                                     <action selector="showMyLocationButton:" destination="Bdd-yU-3u8" eventType="touchUpInside" id="SY5-7B-ZgW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nod-6o-wKT">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nod-6o-wKT">
                                 <rect key="frame" x="16" y="540" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="Sdd-hy-Fcp"/>
                                     <constraint firstAttribute="height" constant="48" id="Xiu-Yg-7Bg"/>
                                 </constraints>
-                                <state key="normal" image="icon-back">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="icon-back"/>
                                 <connections>
                                     <segue destination="52U-YB-xAF" kind="unwind" identifier="mapViewBack" unwindAction="backToMainView:" id="1TH-pB-V1I"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-n8-VVX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-n8-VVX">
                                 <rect key="frame" x="276" y="540" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="0yg-xa-8me"/>
                                     <constraint firstAttribute="height" constant="48" id="wkX-1X-BN9"/>
                                 </constraints>
-                                <state key="normal" image="icon-checkin">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="icon-checkin"/>
                                 <connections>
                                     <segue destination="aK5-oH-nQt" kind="presentation" identifier="showLocationPicker" id="Clu-po-per"/>
                                 </connections>
@@ -589,12 +557,13 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-cU-u9M">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-cU-u9M">
                                 <rect key="frame" x="552" y="31" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="9Cx-Pi-Gxi"/>
                                     <constraint firstAttribute="width" constant="32" id="QW3-un-khe"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="icon-search"/>
                                 <connections>
                                     <action selector="searchButton:" destination="Bdd-yU-3u8" eventType="touchUpInside" id="Z7V-Du-Zya"/>
