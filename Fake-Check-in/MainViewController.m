@@ -293,19 +293,19 @@
 
 - (void)_processMessage:(MessageEditorViewController *)vc {
   self.messageToPost = vc.messageTextView.text;
-        self.messageLabel.text = self.messageToPost;
+  self.messageLabel.text = self.messageToPost;
 }
 
 - (void)_clearInput {
-	self.pickedLocation = nil;
-	self.messageToPost = nil;
-	self.pickedFriends = nil;
-	self.pickedPhoto = nil;
-
-	self.locationLabel.text = nil;
-	self.messageLabel.text = nil;
-	self.friendsLabel.text = nil;
-	self.photoImageView.image = nil;
+  self.pickedLocation = nil;
+  self.messageToPost = nil;
+  self.pickedFriends = nil;
+  self.pickedPhoto = nil;
+  
+  self.locationLabel.text = nil;
+  self.messageLabel.text = nil;
+  self.friendsLabel.text = nil;
+  self.photoImageView.image = nil;
 }
 
 @end

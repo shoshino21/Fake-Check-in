@@ -20,7 +20,7 @@
 
   if ([self.currentMessage length] > 0) {
     self.messageTextView.text = self.currentMessage;
-  }
+        }
 }
 
 @end

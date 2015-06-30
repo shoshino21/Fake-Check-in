@@ -41,6 +41,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="backToMainView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TEM-YF-VTG"/>
                                     <action selector="goMain:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="B1Y-Z2-Hf2"/>
                                 </connections>
                             </button>

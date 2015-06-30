@@ -124,12 +124,12 @@
 #pragma mark - MKMapViewDelegate
 
 - (void)mapViewDidFailLoadingMap:(MKMapView *)mapView
-											 withError:(NSError *)error {
-	if (error) {
-		[Common showAlertMessageWithTitle:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"
-		                          message:nil
-										 inViewController:self];
-	}
+                       withError:(NSError *)error {
+  if (error) {
+    [Common showAlertMessageWithTitle:@"讀取地圖資訊時發生錯誤，請檢查網路狀態！"
+                              message:nil
+                     inViewController:self];
+  }
 }
 
 @end
