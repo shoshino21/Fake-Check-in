@@ -17,8 +17,8 @@
                                   UIImagePickerControllerDelegate,
                                   PostUtilityDelegate>
 
-@property(copy, nonatomic) NSString *messageToPost;
 @property(copy, nonatomic) NSString *pickedLocation;
+@property(copy, nonatomic) NSString *messageToPost;
 @property(strong, nonatomic) NSArray *pickedFriends;
 @property(strong, nonatomic) UIImage *pickedPhoto;
 @property(strong, nonatomic) PostUtility *postUtility;
@@ -39,8 +39,9 @@
   if ((![_pickedLocation isEqualToString:pickedLocation])) {
     _pickedLocation = [pickedLocation copy];
     // 選擇完地點才啟用打卡鈕
-    self.checkinIconButton.enabled = (_pickedLocation != nil);
-    self.checkinTextButton.enabled = (_pickedLocation != nil);
+    BOOL enabled = (_pickedLocation != nil);
+    self.checkinIconButton.enabled = enabled;
+    self.checkinTextButton.enabled = enabled;
   }
 }
 
@@ -156,7 +157,9 @@
 }
 
 - (IBAction)checkin:(id)sender {
-  //  self.checkinButton.enabled = NO;  // 防止連點按鈕
+  // 防止連點按鈕
+  self.checkinIconButton.enabled = NO;
+  self.checkinTextButton.enabled = NO;
 
   PostUtility *postUtility =
       [[PostUtility alloc] initWithMessage:self.messageToPost
@@ -166,8 +169,6 @@
   self.postUtility = postUtility;
   postUtility.delegate = self;
   [postUtility start];
-
-  //  self.checkinButton.enabled = YES;
 }
 
 #pragma mark - Navigation
@@ -207,6 +208,8 @@
   [Common showAlertMessageWithTitle:nil
                             message:@"發佈成功！"
                    inViewController:self];
+
+  [self _clearInput];
 }
 
 - (void)postUtility:(PostUtility *)postUtility
@@ -215,6 +218,10 @@
   [Common showAlertMessageWithTitle:nil
                             message:@"發佈時發生錯誤！"
                    inViewController:self];
+
+  BOOL enabled = (self.pickedLocation != nil);
+  self.checkinIconButton.enabled = enabled;
+  self.checkinTextButton.enabled = enabled;
 }
 
 #pragma mark - Helper methods
@@ -251,18 +258,26 @@
                          (unsigned long)self.pickedFriends.count - 1];
   } else if (self.pickedFriends.count == 0) {
     display = nil;
-		self.pickedFriends = nil;
-	}
-	self.friendsLabel.text = display;
+    self.pickedFriends = nil;
+  }
+  self.friendsLabel.text = display;
 }
 
 - (void)_processMessage:(MessageEditorViewController *)vc {
-	self.messageToPost = vc.messageTextView.text;
-	self.messageLabel.text = self.messageToPost;
+  self.messageToPost = vc.messageTextView.text;
+  self.messageLabel.text = self.messageToPost;
 }
 
 -(void)_clearInput{
+	self.pickedLocation = nil;
+	self.messageToPost = nil;
+	self.pickedFriends = nil;
+	self.pickedPhoto = nil;
 
+	self.locationLabel.text = nil;
+	self.messageLabel.text = nil;
+	self.friendsLabel.text = nil;
+	self.photoImageView.image = nil;
 }
 
 @end
