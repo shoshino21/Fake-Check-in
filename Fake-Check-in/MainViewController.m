@@ -39,9 +39,9 @@
   if ((![_pickedLocation isEqualToString:pickedLocation])) {
     _pickedLocation = [pickedLocation copy];
     // 選擇完地點才啟用打卡鈕
-    BOOL enabled = (_pickedLocation != nil);
-    self.checkinIconButton.enabled = enabled;
-    self.checkinTextButton.enabled = enabled;
+    BOOL switchTo = (_pickedLocation != nil);
+    self.checkinIconButton.enabled = switchTo;
+    self.checkinTextButton.enabled = switchTo;
   }
 }
 
@@ -158,9 +158,8 @@
 }
 
 - (IBAction)checkin:(id)sender {
-  // 防止連點按鈕
-  self.checkinIconButton.enabled = NO;
-  self.checkinTextButton.enabled = NO;
+  // 防止使用者打卡途中按下其他按鈕
+  [self _switchAllButtonsStatus];
 
   PostUtility *postUtility =
       [[PostUtility alloc] initWithMessage:self.messageToPost
@@ -207,7 +206,8 @@
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility {
   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
-  // 打卡成功後清空輸入內容
+  // 打卡成功後重啟按鈕，並清空輸入內容
+  [self _switchAllButtonsStatus];
   [self _clearInput];
 
   // 詢問使用者是否跳轉至Facebook頁面觀看結果
@@ -243,13 +243,11 @@
 - (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error {
   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+  [self _switchAllButtonsStatus];
+
   [Common showAlertMessageWithTitle:@"打卡時發生錯誤！"
                             message:nil
                    inViewController:self];
-
-  BOOL enabled = (self.pickedLocation != nil);
-  self.checkinIconButton.enabled = enabled;
-  self.checkinTextButton.enabled = enabled;
 }
 
 #pragma mark - Helper methods
@@ -294,6 +292,22 @@
     self.pickedFriends = nil;
   }
   self.friendsLabel.text = display;
+}
+
+- (void)_switchAllButtonsStatus {
+  BOOL switchTo = !self.profilePictureButton.enabled;
+
+  self.profilePictureButton.enabled = switchTo;
+  self.locationIconButton.enabled = switchTo;
+  self.locationTextButton.enabled = switchTo;
+  self.messageIconButton.enabled = switchTo;
+  self.messageTextButton.enabled = switchTo;
+  self.friendsIconButton.enabled = switchTo;
+  self.friendsTextButton.enabled = switchTo;
+  self.photoIconButton.enabled = switchTo;
+  self.photoTextButton.enabled = switchTo;
+  self.checkinIconButton.enabled = switchTo;
+  self.checkinTextButton.enabled = switchTo;
 }
 
 - (void)_clearInput {

@@ -20,6 +20,15 @@
 @property(weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property(weak, nonatomic) IBOutlet UILabel *friendsLabel;
 @property(weak, nonatomic) IBOutlet UIImageView *photoImageView;
+
+@property(weak, nonatomic) IBOutlet UIButton *locationIconButton;
+@property(weak, nonatomic) IBOutlet UIButton *locationTextButton;
+@property(weak, nonatomic) IBOutlet UIButton *messageIconButton;
+@property(weak, nonatomic) IBOutlet UIButton *messageTextButton;
+@property(weak, nonatomic) IBOutlet UIButton *friendsIconButton;
+@property(weak, nonatomic) IBOutlet UIButton *friendsTextButton;
+@property(weak, nonatomic) IBOutlet UIButton *photoIconButton;
+@property(weak, nonatomic) IBOutlet UIButton *photoTextButton;
 @property(weak, nonatomic) IBOutlet UIButton *checkinIconButton;
 @property(weak, nonatomic) IBOutlet UIButton *checkinTextButton;
 

@@ -41,7 +41,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToMainView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="TEM-YF-VTG"/>
+                                    <action selector="goMainView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8A8-ch-PHo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,6 +58,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="goMainViewButton" destination="czM-OX-6Lx" id="tRn-Rc-ruE"/>
                         <outlet property="loginButton" destination="kN1-JG-zpr" id="oO5-zh-9iK"/>
                         <segue destination="mGt-p7-14Z" kind="presentation" identifier="showMain" modalTransitionStyle="crossDissolve" id="M7k-dk-xTQ"/>
                     </connections>
@@ -480,10 +481,18 @@
                     <connections>
                         <outlet property="checkinIconButton" destination="U2U-Nz-Eeh" id="Uhu-8j-u8T"/>
                         <outlet property="checkinTextButton" destination="9Rl-JE-fGi" id="4It-f9-Wkp"/>
+                        <outlet property="friendsIconButton" destination="Rz2-eo-k5E" id="rAE-Gd-YVk"/>
                         <outlet property="friendsLabel" destination="DiF-Bx-qga" id="aG4-LJ-qqU"/>
+                        <outlet property="friendsTextButton" destination="hCn-M1-IkN" id="ub6-bY-qCx"/>
+                        <outlet property="locationIconButton" destination="G8e-fS-QaO" id="dCy-mU-q72"/>
                         <outlet property="locationLabel" destination="zxY-H2-nmJ" id="6BC-Nk-Pwn"/>
+                        <outlet property="locationTextButton" destination="0dN-GB-W0R" id="Nxs-8d-Okd"/>
+                        <outlet property="messageIconButton" destination="t0c-6y-s7e" id="uGt-gp-ppk"/>
                         <outlet property="messageLabel" destination="BPw-9Z-DqS" id="rae-8l-tz7"/>
+                        <outlet property="messageTextButton" destination="Hts-c3-pod" id="QFk-k9-pAp"/>
+                        <outlet property="photoIconButton" destination="75I-De-pVS" id="CXr-Ig-WI3"/>
                         <outlet property="photoImageView" destination="DLj-VL-0vi" id="dUk-fu-rIk"/>
+                        <outlet property="photoTextButton" destination="FZz-VO-mV8" id="nbw-Dv-gPz"/>
                         <outlet property="profileNameLabel" destination="Smt-yh-eUt" id="Pmq-H7-heQ"/>
                         <outlet property="profilePictureButton" destination="JIk-C8-Aab" id="SHg-2J-nRC"/>
                     </connections>
