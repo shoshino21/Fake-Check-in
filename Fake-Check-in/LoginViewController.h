@@ -11,8 +11,8 @@
 
 @interface LoginViewController : UIViewController<FBSDKLoginButtonDelegate>
 
-@property(strong, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
-//@property(weak, nonatomic) IBOutlet UIButton *backToMainButton;
+@property(weak, nonatomic) IBOutlet FBSDKLoginButton *loginButton;
+@property(weak, nonatomic) IBOutlet UIButton *goMainViewButton;
 
 - (IBAction)backToLoginView:(UIStoryboardSegue *)segue;
 

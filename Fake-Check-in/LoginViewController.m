@@ -10,16 +10,8 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "Common.h"
 
-#warning 還沒登入就show登入畫面，已經登入就show主畫面
-
-//
-//@interface LoginViewController ()
-//
-//@end
-
 @implementation LoginViewController {
-  //  BOOL _viewDidAppear;
-  //  BOOL _viewIsVisible;
+  BOOL _isBackFromMainView;
 }
 
 #pragma mark - View Management
@@ -27,35 +19,33 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
 
-  self.loginButton = [[FBSDKLoginButton alloc] init];
   self.loginButton.delegate = self;
   self.loginButton.readPermissions = @[ @"public_profile", @"user_friends" ];
+  [self.goMainViewButton setHidden:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
-  //
-  //  if ([FBSDKAccessToken currentAccessToken]) {
-  //    [self performSegueWithIdentifier:@"showMain" sender:self];
-  //  }
-  //
-  //  self.backToMainButton.hidden = YES;
-  //  if (_viewDidAppear) {
-  //		_viewIsVisible = YES;
-  //  }
-  //	_viewDidAppear = YES;
+
+  // 已經登入過且剛開啟程式，則直接跳到主畫面
+  if ([FBSDKAccessToken currentAccessToken] && !_isBackFromMainView) {
+    [self performSegueWithIdentifier:@"showMain" sender:self];
+  }
 }
 
-/*
- #pragma mark - Navigation
+#pragma mark - Actions
 
- // In a storyboard-based application, you will often want to do a little
- preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (IBAction)backToLoginView:(UIStoryboardSegue *)segue {
+  // 供unwindSegue連結回登入畫面用
+  _isBackFromMainView = YES;
+  [self.goMainViewButton setHidden:NO];
+}
+
+- (IBAction)goMainView:(id)sender {
+  if ([FBSDKAccessToken currentAccessToken]) {
+    [self performSegueWithIdentifier:@"showMain" sender:self];
+  }
+}
 
 #pragma mark - FBSDKLoginButtonDelegate
 
@@ -67,33 +57,13 @@
         showAlertMessageWithTitle:@"登入時發生錯誤，請稍候再試！"
                           message:nil
                  inViewController:self];
-  } else {
+  } else if (!result.isCancelled) {
     [self performSegueWithIdentifier:@"showMain" sender:self];
   }
 }
 
-//#warning 保留，guest登入用?
 - (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-  //  if (_viewIsVisible) {
-  //    [self performSegueWithIdentifier:@"showMain" sender:self];
-  //  }
+  [self.goMainViewButton setHidden:YES];
 }
-
-- (IBAction)backToLoginView:(UIStoryboardSegue *)segue {
-  // 返回登入畫面用
-}
-
-- (IBAction)backToMainView:(id)sender {
-  if ([FBSDKAccessToken currentAccessToken]) {
-    [self performSegueWithIdentifier:@"showMain" sender:self];
-  }
-}
-
-//#warning 設定直接登入，測試用
-//- (IBAction)continueButtonPressed:(UIButton *)sender {
-//  if ([FBSDKAccessToken currentAccessToken]) {
-//    [self performSegueWithIdentifier:@"showMain" sender:self];
-//  }
-//}
 
 @end
