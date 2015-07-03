@@ -19,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  // 設定頂端狀態欄位為白色
+  [[UIApplication sharedApplication]
+      setStatusBarStyle:UIStatusBarStyleLightContent];
+
   // 必須設定才能正確更新Profile
   [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
 
