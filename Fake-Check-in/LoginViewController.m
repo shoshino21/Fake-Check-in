@@ -36,7 +36,7 @@
 #pragma mark - Actions
 
 - (IBAction)backToLoginView:(UIStoryboardSegue *)segue {
-  // 供unwindSegue連結回登入畫面用
+  // 供UnwindSegue連結回登入畫面用
   _isBackFromMainView = YES;
   [self.goMainViewButton setHidden:NO];
 }
