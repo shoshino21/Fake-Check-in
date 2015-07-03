@@ -184,6 +184,17 @@
   }
 }
 
+#pragma mark - UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navigationController
+      willShowViewController:(UIViewController *)viewController
+                    animated:(BOOL)animated {
+  // 避免拍照 or 開啟相簿後狀態欄位文字顏色被重置
+  // 參考：http://stackoverflow.com/questions/18880364/
+  [[UIApplication sharedApplication]
+      setStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 #pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker

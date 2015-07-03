@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-  // 設定頂端狀態欄位為白色
+  // 設定狀態欄位文字為白色
   [[UIApplication sharedApplication]
       setStatusBarStyle:UIStatusBarStyleLightContent];
 
