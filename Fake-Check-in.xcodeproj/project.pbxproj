@@ -18,6 +18,7 @@
 		EF2843B61B2B0B4A0022055E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B51B2B0B4A0022055E /* ImageIO.framework */; };
 		EF2843B81B2B0B540022055E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B71B2B0B540022055E /* AssetsLibrary.framework */; };
 		EF2843BA1B2B0B7E0022055E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF2843B91B2B0B7E0022055E /* MobileCoreServices.framework */; };
+		EF4A38CF1B47A3C30028003F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF4A38CE1B47A3C30028003F /* LaunchScreen.xib */; };
 		EF503F381B33668900377E2A /* MessageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF503F371B33668900377E2A /* MessageEditorViewController.m */; };
 		EFADF94E1B0F2B33004B26B9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFADF94D1B0F2B33004B26B9 /* MainViewController.m */; };
 		EFADF9881B0F8295004B26B9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFADF9871B0F8295004B26B9 /* CoreLocation.framework */; };
@@ -62,6 +63,7 @@
 		EF2843B51B2B0B4A0022055E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		EF2843B71B2B0B540022055E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EF2843B91B2B0B7E0022055E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EF4A38CE1B47A3C30028003F /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		EF503F361B33668900377E2A /* MessageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageEditorViewController.h; sourceTree = "<group>"; };
 		EF503F371B33668900377E2A /* MessageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageEditorViewController.m; sourceTree = "<group>"; };
 		EFADF94C1B0F2B33004B26B9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				EFE22E921B3DE78900F8CD22 /* ProfilePictureButton.h */,
 				EFE22E931B3DE78900F8CD22 /* ProfilePictureButton.m */,
 				EF12413A1B1F0E8B009F402F /* Main.storyboard */,
+				EF4A38CE1B47A3C30028003F /* LaunchScreen.xib */,
 				EF1E99831B0E77640062C84E /* LoginViewController.h */,
 				EF1E99841B0E77640062C84E /* LoginViewController.m */,
 				EFADF94C1B0F2B33004B26B9 /* MainViewController.h */,
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF12413B1B1F0E8B009F402F /* Main.storyboard in Resources */,
+				EF4A38CF1B47A3C30028003F /* LaunchScreen.xib in Resources */,
 				EF1E998A1B0E77640062C84E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
