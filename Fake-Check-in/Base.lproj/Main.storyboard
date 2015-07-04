@@ -102,13 +102,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KJw-P1-Tok">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="CMy-Kg-JUx">
+                        <barButtonItem key="leftBarButtonItem" image="icon-X" id="CMy-Kg-JUx">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="FgO-Jg-MYs" kind="unwind" identifier="messageCancel" unwindAction="backToMainView:" id="Nas-Fi-ZsE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="dcX-SV-SY0">
+                        <barButtonItem key="rightBarButtonItem" image="icon-V" id="dcX-SV-SY0">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="FgO-Jg-MYs" kind="unwind" identifier="messageOK" unwindAction="backToMainView:" id="RQ6-JV-ePM"/>
@@ -225,10 +225,10 @@
                                         <rect key="frame" x="0.0" y="107" width="600" height="107"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0c-6y-s7e" userLabel="Icon2">
-                                                <rect key="frame" x="151" y="22" width="64" height="64"/>
+                                                <rect key="frame" x="159" y="30" width="48" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="64" id="TE6-0Y-rfH"/>
-                                                    <constraint firstAttribute="height" constant="64" id="pFC-IM-nA3"/>
+                                                    <constraint firstAttribute="width" constant="48" id="TE6-0Y-rfH"/>
+                                                    <constraint firstAttribute="height" constant="48" id="pFC-IM-nA3"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="icon-message"/>
@@ -278,10 +278,10 @@
                                         <rect key="frame" x="0.0" y="214" width="600" height="107"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-eo-k5E" userLabel="Icon3">
-                                                <rect key="frame" x="151" y="22" width="64" height="64"/>
+                                                <rect key="frame" x="159" y="30" width="48" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="64" id="eZo-4t-R7Z"/>
-                                                    <constraint firstAttribute="height" constant="64" id="xr5-8r-NN2"/>
+                                                    <constraint firstAttribute="width" constant="48" id="eZo-4t-R7Z"/>
+                                                    <constraint firstAttribute="height" constant="48" id="xr5-8r-NN2"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="icon-friends"/>
@@ -331,10 +331,10 @@
                                         <rect key="frame" x="0.0" y="321" width="600" height="107"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75I-De-pVS" userLabel="Icon4">
-                                                <rect key="frame" x="151" y="22" width="64" height="64"/>
+                                                <rect key="frame" x="159" y="30" width="48" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="64" id="53l-Oj-e7f"/>
-                                                    <constraint firstAttribute="width" constant="64" id="N7P-5O-rOR"/>
+                                                    <constraint firstAttribute="height" constant="48" id="53l-Oj-e7f"/>
+                                                    <constraint firstAttribute="width" constant="48" id="N7P-5O-rOR"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="icon-photo"/>
@@ -351,7 +351,7 @@
                                                     <action selector="pickPhoto:" destination="mGt-p7-14Z" eventType="touchUpInside" id="z62-36-o9v"/>
                                                 </connections>
                                             </button>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DLj-VL-0vi">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DLj-VL-0vi">
                                                 <rect key="frame" x="413" y="16" width="100" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="DLj-VL-0vi" secondAttribute="height" multiplier="4:3" id="96l-vv-8ND"/>
@@ -387,10 +387,10 @@
                                         <rect key="frame" x="0.0" y="428" width="600" height="108"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U2U-Nz-Eeh" userLabel="Icon5">
-                                                <rect key="frame" x="151" y="22" width="64" height="64"/>
+                                                <rect key="frame" x="159" y="30" width="48" height="48"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="64" id="1tc-55-hfW"/>
-                                                    <constraint firstAttribute="height" constant="64" id="eoN-0d-tEL"/>
+                                                    <constraint firstAttribute="width" constant="48" id="1tc-55-hfW"/>
+                                                    <constraint firstAttribute="height" constant="48" id="eoN-0d-tEL"/>
                                                 </constraints>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="icon-checkin"/>
@@ -647,13 +647,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="6VS-1c-DeU">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="ds4-4F-tdu">
+                        <barButtonItem key="leftBarButtonItem" image="icon-X" id="ds4-4F-tdu">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsCancel" unwindAction="backToMainView:" id="0wX-oV-MfE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="6uz-ia-JUP">
+                        <barButtonItem key="rightBarButtonItem" image="icon-V" id="6uz-ia-JUP">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="yf4-nX-LJe" kind="unwind" identifier="friendsOK" unwindAction="backToMainView:" id="skH-lD-dcQ"/>
@@ -689,13 +689,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Y2N-08-e0o">
-                        <barButtonItem key="leftBarButtonItem" title="取消" id="Py7-Ki-XdD">
+                        <barButtonItem key="leftBarButtonItem" image="icon-X" id="Py7-Ki-XdD">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationCancel" unwindAction="backToMapView:" id="a7W-Al-xGq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="完成" id="Pbk-Qz-YXN">
+                        <barButtonItem key="rightBarButtonItem" image="icon-V" id="Pbk-Qz-YXN">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="6z3-xZ-iZ3" kind="unwind" identifier="locationOK" unwindAction="backToMainView:" id="qPb-nk-DyW"/>
@@ -768,14 +768,16 @@
     </scenes>
     <resources>
         <image name="background" width="1920" height="1280"/>
-        <image name="icon-back" width="48" height="48"/>
-        <image name="icon-checkin" width="48" height="48"/>
+        <image name="icon-V" width="32" height="32"/>
+        <image name="icon-X" width="32" height="32"/>
+        <image name="icon-back" width="64" height="64"/>
+        <image name="icon-checkin" width="64" height="64"/>
         <image name="icon-friends" width="64" height="64"/>
-        <image name="icon-home" width="48" height="48"/>
+        <image name="icon-home" width="64" height="64"/>
         <image name="icon-location" width="48" height="48"/>
-        <image name="icon-message" width="48" height="48"/>
+        <image name="icon-message" width="64" height="64"/>
         <image name="icon-photo" width="64" height="64"/>
-        <image name="icon-search" width="48" height="48"/>
+        <image name="icon-search" width="64" height="64"/>
         <image name="logo" width="397" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
