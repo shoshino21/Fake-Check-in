@@ -30,6 +30,5 @@
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility;
 - (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error;
-//- (void)PostUtilityUserShouldLogin:(PostUtility *)PostUtility;
 
 @end

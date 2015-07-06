@@ -239,6 +239,7 @@
       actionWithTitle:@"好啊！"
                 style:UIAlertActionStyleDefault
               handler:^(UIAlertAction *action) {
+
                 NSURL *url = [NSURL URLWithString:@"fb://profile/"];
                 if ([[UIApplication sharedApplication] canOpenURL:url]) {
                   [[UIApplication sharedApplication] openURL:url];
