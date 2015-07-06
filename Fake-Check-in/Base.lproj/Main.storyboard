@@ -471,31 +471,17 @@
                             <constraint firstItem="Smt-yh-eUt" firstAttribute="width" secondItem="Ri8-vn-fNw" secondAttribute="width" multiplier="0.8" id="4Mb-FE-WDj"/>
                             <constraint firstItem="lgY-eJ-OVq" firstAttribute="top" secondItem="d72-ft-vbk" secondAttribute="bottom" id="8z7-r9-YY5"/>
                             <constraint firstItem="Smt-yh-eUt" firstAttribute="centerY" secondItem="d72-ft-vbk" secondAttribute="centerY" id="ESk-Sv-ZRe"/>
-                            <constraint firstItem="cBL-xl-zQT" firstAttribute="leading" secondItem="Ri8-vn-fNw" secondAttribute="leading" id="HD5-XL-HeH"/>
                             <constraint firstItem="d72-ft-vbk" firstAttribute="leading" secondItem="Ri8-vn-fNw" secondAttribute="leading" id="IwD-d8-2is"/>
-                            <constraint firstItem="T8t-GH-21L" firstAttribute="top" secondItem="cBL-xl-zQT" secondAttribute="bottom" id="Lr4-OY-Vvz"/>
                             <constraint firstItem="Smt-yh-eUt" firstAttribute="leading" secondItem="Ri8-vn-fNw" secondAttribute="leadingMargin" constant="50" id="NHN-uA-z98"/>
                             <constraint firstAttribute="centerX" secondItem="cBL-xl-zQT" secondAttribute="centerX" id="Oed-j3-quq"/>
-                            <constraint firstAttribute="trailing" secondItem="cBL-xl-zQT" secondAttribute="trailing" id="bF2-zM-EWK"/>
-                            <constraint firstItem="cBL-xl-zQT" firstAttribute="top" secondItem="8a8-Ra-Nj1" secondAttribute="top" id="c45-gf-qyL"/>
                             <constraint firstAttribute="height" secondItem="cBL-xl-zQT" secondAttribute="height" id="dmk-nV-Idl"/>
                             <constraint firstItem="d72-ft-vbk" firstAttribute="top" secondItem="8a8-Ra-Nj1" secondAttribute="bottom" id="eEA-1u-lf1"/>
                             <constraint firstAttribute="width" secondItem="cBL-xl-zQT" secondAttribute="width" id="gOw-Qw-aPM"/>
                             <constraint firstAttribute="centerY" secondItem="cBL-xl-zQT" secondAttribute="centerY" id="gxR-LT-3bm"/>
                             <constraint firstAttribute="trailing" secondItem="d72-ft-vbk" secondAttribute="trailing" id="kxc-GM-1N9"/>
-                            <constraint firstItem="cBL-xl-zQT" firstAttribute="top" secondItem="8a8-Ra-Nj1" secondAttribute="top" id="lyb-vR-8Rf"/>
                             <constraint firstItem="lgY-eJ-OVq" firstAttribute="leading" secondItem="Ri8-vn-fNw" secondAttribute="leading" id="vSb-oU-Xea"/>
                             <constraint firstAttribute="trailing" secondItem="lgY-eJ-OVq" secondAttribute="trailing" id="zuz-Ia-xuk"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="HD5-XL-HeH"/>
-                                <exclude reference="bF2-zM-EWK"/>
-                                <exclude reference="c45-gf-qyL"/>
-                                <exclude reference="lyb-vR-8Rf"/>
-                                <exclude reference="Lr4-OY-Vvz"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="checkinIconButton" destination="U2U-Nz-Eeh" id="Uhu-8j-u8T"/>

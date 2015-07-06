@@ -22,6 +22,7 @@
 @property(strong, nonatomic) NSArray *pickedFriends;
 @property(strong, nonatomic) UIImage *pickedPhoto;
 @property(strong, nonatomic) PostUtility *postUtility;
+@property(strong, nonatomic) UIView *activityOverlayView;
 
 @end
 
@@ -49,6 +50,13 @@
   if (![_postUtility isEqual:postUtility]) {
     _postUtility.delegate = nil;
     _postUtility = postUtility;
+  }
+}
+
+- (void)setActivityOverlayView:(UIView *)activityOverlayView {
+  if (_activityOverlayView != activityOverlayView) {
+    [_activityOverlayView removeFromSuperview];
+    _activityOverlayView = activityOverlayView;
   }
 }
 
@@ -211,11 +219,11 @@
 #pragma mark - PostUtilityDelegate
 
 - (void)postUtilityWillPost:(PostUtility *)postUtility {
-  [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+  [self _startActivityIndicator];
 }
 
 - (void)postUtilityDidCompletePost:(PostUtility *)postUtility {
-  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+  [self _stopActivityIndicator];
 
   // 打卡成功後重啟按鈕，並清空輸入內容
   [self _switchAllButtonsStatus];
@@ -231,7 +239,6 @@
       actionWithTitle:@"好啊！"
                 style:UIAlertActionStyleDefault
               handler:^(UIAlertAction *action) {
-
                 NSURL *url = [NSURL URLWithString:@"fb://profile/"];
                 if ([[UIApplication sharedApplication] canOpenURL:url]) {
                   [[UIApplication sharedApplication] openURL:url];
@@ -253,7 +260,7 @@
 
 - (void)postUtility:(PostUtility *)postUtility
     didFailWithError:(NSError *)error {
-  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+  [self _stopActivityIndicator];
   [self _switchAllButtonsStatus];
 
   [Common showAlertMessageWithTitle:@"打卡時發生錯誤！"
@@ -305,6 +312,37 @@
   self.friendsLabel.text = display;
 }
 
+- (void)_startActivityIndicator {
+  // 顯示打卡時用的進度指示器
+  UIView *view = self.view;
+  CGRect bounds = view.bounds;
+  UIView *activityOverlayView = [[UIView alloc] initWithFrame:bounds];
+  activityOverlayView.backgroundColor =
+      [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+  activityOverlayView.autoresizingMask =
+      (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+  self.activityOverlayView = activityOverlayView;
+
+  UIActivityIndicatorView *activityIndicatorView = [
+      [UIActivityIndicatorView alloc]
+      initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+  activityIndicatorView.center =
+      CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
+  activityIndicatorView.autoresizingMask =
+      (UIViewAutoresizingFlexibleTopMargin |
+       UIViewAutoresizingFlexibleRightMargin |
+       UIViewAutoresizingFlexibleBottomMargin |
+       UIViewAutoresizingFlexibleLeftMargin);
+
+  [activityOverlayView addSubview:activityIndicatorView];
+  [view addSubview:activityOverlayView];
+  [activityIndicatorView startAnimating];
+}
+
+- (void)_stopActivityIndicator {
+  self.activityOverlayView = nil;
+}
+
 - (void)_switchAllButtonsStatus {
   BOOL switchTo = !self.profilePictureButton.enabled;
 
@@ -326,7 +364,7 @@
   self.messageToPost = nil;
   self.pickedFriends = nil;
   self.pickedPhoto = nil;
-  
+
   self.locationLabel.text = nil;
   self.messageLabel.text = nil;
   self.friendsLabel.text = nil;
