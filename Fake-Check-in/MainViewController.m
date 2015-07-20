@@ -314,7 +314,7 @@
 }
 
 - (void)_startActivityIndicator {
-  // 顯示打卡時用的進度指示器
+  // 顯示打卡時顯示的進度指示器
   UIView *view = self.view;
   CGRect bounds = view.bounds;
   UIView *activityOverlayView = [[UIView alloc] initWithFrame:bounds];
