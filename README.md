@@ -1,4 +1,4 @@
-# Fake Check-in!
+# Fake Check-in
 
 功能單純的Facebook應用app，可搜尋並在任何你想要的地標打卡，並且標記好友、上傳照片等。
 
