@@ -8,8 +8,14 @@
 
 iPhone (iOS 8.0以上)
 
-# 操作範例
+# 操作截圖
 
+![](http://i.imgur.com/XrtZJnI.jpg)
+![](http://i.imgur.com/oOmgAZ1.jpg)
+![](http://i.imgur.com/l2pHcGT.jpg)
+![](http://i.imgur.com/RzqPaHN.jpg)
+![](http://i.imgur.com/8PPLRHK.jpg)
+![](http://i.imgur.com/iB2JIvz.jpg)
 
 # 使用資源
 
